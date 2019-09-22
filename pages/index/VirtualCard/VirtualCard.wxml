@@ -1,0 +1,12 @@
+<view id="main">
+    <view id = "qrphoto">
+        <view id="qr" bindtap="BigPic">
+            <canvas class='canvas' style="width:{{qrcode_w}}px; height:{{qrcode_w}}px;" canvas-id='canvas' bindlongtap='save'></canvas>
+
+        </view>
+    </view>
+    <image id="img" src="/res/png/virtual_card_surface.png"></image>
+    <view id="btm">
+        <text>{{AccName}} {{UserNumber}}</text>
+    </view>
+</view>

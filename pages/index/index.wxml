@@ -1,0 +1,75 @@
+<!--index.wxml-->
+<view class="main">
+    <view class="upline">
+        <view class="pic">
+            <button bindtap="Scan">
+                <image src="../../res/png/scan.png"></image>
+                <text>扫一扫</text>
+            </button>
+        </view>
+        <view class="pic">
+            <button bindtap="VirtualCard">
+                <image src="../../res/png/virtual_card.png"></image>
+                <text>虚拟校园卡</text>
+            </button>
+        </view>
+        <view class="pic">
+            <button bindtap="Charge">
+                <image src="../../res/png/rechage.png"></image>
+                <text>充值</text>
+            </button>
+        </view>
+    </view>
+    <view class="middleline">
+        <view id="message">
+            <view id="name" style="background:white;">
+                <text>{{AccNum}}</text>
+            </view>
+            <view id="money" style="background:#076BAF;">
+                <text> {{MonDBCurr}} </text>
+            </view>
+        </view>
+    </view>
+    <view class="menu">
+        <view class="menu_list">
+            <view class="pic">
+                <button bindtap="Wallent">
+                    <image src="../../res/png/home_wallet_manager.png"></image>
+                    <text>钱包余额</text>
+                </button>
+            </view>
+            <view class="pic">
+                <button bindtap="Transfer">
+                    <image src="../../res/png/home_wallet_transfer.png"></image>
+                    <text>钱包转账</text>
+                </button>
+            </view>
+            <view class="pic">
+                <button bindtap="AccessControl">
+                    <image src="../../res/png/home_door.png"></image>
+                    <text>我的门禁</text>
+                </button>
+            </view>
+        </view>
+        <view class="menu_list">
+            <view class="pic">
+                <button bindtap="ReportLoss">
+                    <image src="../../res/png/home_report_lost.png"></image>
+                    <text>挂失解挂</text>
+                </button>
+            </view>
+            <view class="pic">
+                <button bindtap="Attendance">
+                    <image src="../../res/png/home_event_record.png"></image>
+                    <text>我的考勤</text>
+                </button>
+            </view>
+            <view class="pic">
+                <button bindtap="DoorPassword">
+                    <image src="../../res/png/home_apply_pwd.png"></image>
+                    <text>开门密码</text>
+                </button>
+            </view>
+        </view>
+    </view>
+</view>

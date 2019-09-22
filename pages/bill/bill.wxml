@@ -1,0 +1,5 @@
+<!--pages/bill/bill.wxml-->
+<view>{{username}} </view>
+<view>{{password}}</view>
+<view>{{time}}</view>
+<view>{{sign}}</view>

@@ -1,0 +1,2 @@
+<!--pages/index/VirtualCard/BigPic/BigPic.wxml-->
+<canvas class='canvas' style="width:{{qrcode_w}}px; height:{{qrcode_w}}px;" canvas-id='canvas' bindlongtap='save'></canvas>

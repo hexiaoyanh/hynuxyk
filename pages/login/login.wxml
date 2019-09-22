@@ -1,0 +1,19 @@
+<view class="form-main">
+    <image class="bg" src="../../res/png/login_background.png"> </image>
+    <view class="forms">
+        <image class="user_pic" src="../../res/png/user_pic.png"></image>
+        <form bindsubmit='submit'>
+            <view class="sp">
+                <image class="img" src="../../res/png/login_acc_icon.png"></image>
+                <input type='text' name='username' placeholder='请输入学号' value='{{username}}' />
+            </view>
+            <view class="sp">
+                <image class="img" src="../../res/png/login_password_icon.png"></image>
+                <input type='password' name='password' placeholder='请输入密码' value='{{password}}' />
+            </view>
+            <view>
+                <button form-type='submit' type='primary' loading="{{btn_loading}}">登陆</button>
+            </view>
+        </form>
+    </view>
+</view>
