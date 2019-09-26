@@ -25,6 +25,7 @@ Page({
             sign: app.http.Sign,
         }
         )
+        console.log(app.http)
     },
 
     /**
