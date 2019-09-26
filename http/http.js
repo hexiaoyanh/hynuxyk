@@ -22,6 +22,8 @@ class http {
     RandomNum = "";
     OrderNum = "";
     QRcode = "";
+    BankName = "";
+    BankCard = "";
 
     setTime() {
         //当前时间化成yyyymmddhhmmss
@@ -46,7 +48,7 @@ class http {
         this.Time = time;
 
     }
-
+    //签名生成
     setSign(str1, str2) {
         //设置签名
         var key = "ok15we1@oid8x5afd@";
@@ -74,11 +76,12 @@ class http {
         var md5 = CryptoJS.MD5(sign).toString();
         this.Sign = md5;
     }
-
+    //设置用户名
     setUsername(str) {
         //设置用户名
         this.UserNumber = str;
     }
+    //密码加密
     setPassword(str) {
         //设置密码
         var key = "12347890";
@@ -91,14 +94,27 @@ class http {
         }).toString();
         this.Password = encrypted;
     }
+    //支付密码加密
+    OtherPassword(str) {
+        //设置密码
+        var key = "12347890";
+        var keyHex = CryptoJS.enc.Utf8.parse(key);
+        var ivHex = CryptoJS.enc.Utf8.parse(key);
+        var encrypted = CryptoJS.DES.encrypt(str, keyHex, {
+            iv: ivHex,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        }).toString();
+        return encrypted;
+    }
+    //登录
     Login() {
         var a = ['Time', 'UserNumber', 'Password'];
         this.setTime();
         var b = [this.Time, this.UserNumber, this.Password];
         this.setSign(a, b);
         var that = this;
-        console.log(that.Time)
-        console.log(that.Sign)
+
         wx.request({
             url: that.url,
             data: {
@@ -132,6 +148,7 @@ class http {
         })
         that.QueryAccWallent();
     }
+    //查询钱包信息
     QueryAccWallent() {
         //接口:AccNum
         var that = this;
@@ -164,6 +181,7 @@ class http {
             })
         })
     }
+    //查询用户信息
     QueryAccInfo() {
         //接口:AccNum
         var that = this;
@@ -182,16 +200,19 @@ class http {
                     "AccNum": that.AccNum
                 },
                 success(res) {
-                    console.log(res.data)
+                    var doc = xmlParser.parseFromString(res.data);
+                    that.BankCard = doc.getElementsByTagName('BankCard')['0'].firstChild.data.toString();
+                    that.BankName = doc.getElementsByTagName('BankName')['0'].firstChild.data.toString();
                     resolve();
                 },
                 fail(error) {
                     reject()
-                    console.error("QueryAccWallent" + error);
+                    console.error("QueryAccInfo" + error);
                 }
             })
         })
     }
+    //请求RandomNum
     getRandomNum() {
         var that = this;
         var a = ['Time', 'AccNum']
@@ -220,7 +241,7 @@ class http {
                 }
             })
         })
-    }
+    }//请求OrderNum
     getOrderNum() {
         var that = this;
         var a = ['Time', 'AccNum']
@@ -250,6 +271,7 @@ class http {
             })
         })
     }
+    //虚拟校园卡
     getQRcode(){
         var that = this;
         var url = that.url+"proxy/qr"
@@ -264,21 +286,68 @@ class http {
                     "customerID": that.CustomerID,
                     "cardID": that.CarID,
                     "agentID": that.AgentID,
-                    "accNum": that.accNum,
+                    "accNum": that.AccNum,
                     "accName": that.AccName
                 },
                 success(res){
-                    that.QRcode = res.data
-                    console.log(res.data)
-                    resolve()
+                    resolve(res)
                 },
                 error(error){
-                    console.log(error)
+                    console.log("getQRcode"+error)
                 }
             })
         })
     }
-      
+    //充值
+    Recharge(money,password){
+        var that = this;
+        var a = ['Time', 'AccNum', 'MonTrans','Password']
+        this.setTime();
+        var b = [that.Time, that.AccNum, money, that.OtherPassword(password)]
+        this.setSign(a, b);
+        var url = that.url + "BankTransfer.aspx"
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum": that.AccNum,
+                    "MonTrans":money,
+                    "Password": that.OtherPassword(password)
+                },
+                success(res) {
+                    resolve(res);
+                },
+                fail(error) {
+                    reject(error)
+                    console.error("BankTransfer" + error);
+                }
+            })
+        })
+    }
+    //扫描二维码
+    ScanQR(str){
+        var that = this;
+        var url = that.url + "proxy/scan"
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: url,
+                method: "POST",
+                data: {
+                    "agentID": that.AgentID,
+                    "customID": that.CustomerID,
+                    "data": str
+                },
+                success(res) {
+                    resolve(res)
+                },
+                error(error) {
+                    reject(error)
+                }
+            })
+        })
+    }
 }
 export {
     http

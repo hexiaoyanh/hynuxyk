@@ -1,2 +1,37 @@
-<!--pages/index/Charge/Charge.wxml-->
-<text>pages/index/Charge/Charge.wxml</text>
+<!--index.wxml-->
+<view id="qnm" style="height: 100%; width: 100%;">
+    <image class="bg" src="/res/png/charge_2.jpg"></image>
+    <view class="cav">
+        <h1>充值</h1>
+        <view style="font-size: 50rpx;color: #6E7783;text-align: left;padding-left: 30px;margin-top: 40px;">
+            银行卡
+        </view>
+        <view class="bank">
+            {{BankName}} ({{BankCard}})
+        </view>
+        <view style="font-size: 50rpx;color: #6E7783;text-align: left;padding-left: 30px;margin-top: 40px;">
+            金额
+        </view>
+        <form bindsubmit="passwordInput">
+            <input bindfocus="fc" name='money' value="{{money}}"  type="text"  style="{{st}}" placeholder="输入金额" />
+            <view class="bot">
+                <button form-type='submit' style="background-color:#AA85FF" type="primary">下一步</button>
+            </view>
+        </form>
+    </view>
+    <passwordInput 
+      wx:if="{{showPassword}}"
+      bindhidePassBord="hidePassBord"
+      bindvalueSix="valueSix" 
+      input_value="{{inputData.input_value}}" 
+      value_length="{{inputData.value_length}}" 
+      isNext="{{inputData.isNext}}" 
+      get_focus="{{inputData.get_focus}}" 
+      focus_class="{{inputData.focus_class}}" 
+      value_num="{{inputData.value_num}}"
+      height="{{inputData.height}}" 
+      width="{{inputData.width}}" 
+      see="{{inputData.see}}" 
+      interval="{{inputData.interval}}">
+    </passwordInput> 
+</view>

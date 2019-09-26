@@ -1,19 +1,92 @@
 // pages/index/Charge/Charge.js
 const app = getApp()
+var Money=""
+var xml = require('../../../http/xml/dom-parser.js')
+var xmlParser = new xml.DOMParser();
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        BankName:"",
+        BankCard:"",
+        showPassword: false,
+        // 输入框参数设置
+        inputData: {
+            input_value: "",//输入框的初始内容
+            value_length: 0,//输入框密码位数
+            isNext: false,//是否有下一步的按钮
+            get_focus: true,//输入框的聚焦状态
+            focus_class: true,//输入框聚焦样式
+            value_num: [1, 2, 3, 4, 5, 6],//输入框格子数
+            height: "98rpx",//输入框高度
+            width: "604rpx",//输入框宽度
+            see: false,//是否明文展示
+            interval: true,//是否显示间隔格子
+        },
     },
-
+    valueSix(e) {
+        this.hidePassBord()
+        // 模态交互效果
+        var code = app.http.Recharge(Money,e.detail).then((res)=>{
+            var doc = xmlParser.parseFromString(res.data);
+            var code = doc.getElementsByTagName('Code')['0'].firstChild.data.toString();
+            if (code == "1") {
+                wx.showModal({
+                    title: '提交成功',
+                    content: '充值提交成功',
+                })
+                wx.navigateBack({     //返回上一页面
+                    delta: 1,
+                })
+            } else if (code == "2") {
+                wx.showModal({
+                    title: 'Error',
+                    content: '密码错误',
+                })
+            } else {
+                wx.showModal({
+                    title: 'Error',
+                    content: '未知错误',
+                })
+            }
+        })
+        
+        
+    },
+    //显示交易密码框
+    passwordInput:function(e) {
+        var objData = e.detail.value;
+        if(objData.money=="")
+        {
+            wx.showModal({
+                title: '错误',
+                content: '金额不能为空',
+            });
+            return;
+        }
+        this.setData({
+            showPassword: true,
+        })
+        Money=objData.money;
+    },
+    //隐藏交易密码框
+    hidePassBord() {
+        this.setData({
+            showPassword: false,
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        app.http.QueryAccInfo()
+        app.http.QueryAccInfo().then((res)=>{
+            this.setData({
+                BankName: app.http.BankName,
+                BankCard: app.http.BankCard.substr(app.http.BankCard.length-4)
+            })
+        })
     },
 
     /**
@@ -63,5 +136,11 @@ Page({
      */
     onShareAppMessage: function () {
 
-    }
+    },
+    fc: function () {
+        this.setData({
+            st: 'border: #895b8a;box-shadow: 0 0 20px #AAABD3;'
+        })
+    },
+    
 })

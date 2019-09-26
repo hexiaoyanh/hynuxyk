@@ -18,15 +18,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        var text = app.http.QRCode;
         var qrcode = new QRCode('canvas', {
             // usingIn: this,
-            text: app.http.QRcode,
+            text: text,
             width: qrcode_w,
             height: qrcode_w,
             padding: 6,
             colorDark: "#000000",
             colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.M,
+            correctLevel: QRCode.CorrectLevel.L,
             callback: (res) => {
                 // 生成二维码的临时文件
                 console.log(res.path)
