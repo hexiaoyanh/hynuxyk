@@ -1,102 +1,143 @@
-/**index.wxss**/
+/* pages/lg/lg.wxss */
 
 page {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-.main{
-    height: 100%;
-    width: 100%;
-}
-.upline{
-    display: block;
-    height: 25%;
-    width: 100%;
-}
-.upline button{
-    padding-top: 50rpx;
     width: 100%;
     height: 100%;
-    float: left;
-    background-color: #076BAF;
-}
-.upline button image{
-    display: inline-block;
-    height:80rpx;
-    width: 100rpx;
-}
-.upline button text{
-    font-size: 40rpx;
-    display: block;
-    color: white;
 }
 
-.middleline{
-    display: flex;
+.global {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right, #78c2c4, #fcfaf2);
+}
+
+.card {
+    z-index: 2;
+    height: 25%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 150rpx;
+    border-radius: 20rpx;
+    color: black;
+    box-shadow: 6px 6px 10px 0px #78c2c4;
+}
+
+.card .card-image {
+    height: 60%;
+    width: 100%;
+    border-top-right-radius: 20rpx;
+    border-top-left-radius: 20rpx;
+    position: relative;
+}
+
+.card .main-card-image {
+    height: 100%;
+    width: 100%;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 20rpx;
+    border-top-left-radius: 20rpx;
+}
+
+.card .card-image .card-image-sub {
+    height: 30%;
+    width: 20%;
+    text-align: center;
+    color: #eb7a77;
+    font-size: 30rpx;
+}
+
+.card .card-content {
     width: 100%;
     height: 40%;
-    background: #EEEEEE;
-    align-items: center;
-    justify-content: center;
 }
 
-#message{
-    height: 50%;
-    width: 80%;
-    border-radius: 20rpx;
-    overflow: hidden;
+.card .card-content .card-content-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 20rpx;
+    border-bottom-left-radius: 20rpx;
+    background-color: #a5dee4;
+    box-shadow: 6px 6px 10px 0px #78c2c4;
 }
-#message view{
-    height: 50%;
+
+.card .card-content .card-content-title {
+    position: absolute;
+    padding-left: 5%;
+    padding-top: 6%;
+    display: inline-block;
+    font-weight: bolder;
+    text-align: left;
+    height: 100%;
+    width: 25%;
+    color: #3e91a3;
+    font-size: 40rpx;
+}
+
+.card .card-content .card-content-textblock {
+    margin-left: 25%;
+    position: absolute;
+    display: inline-block;
+    font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+    width: 70%;
+    height: 100%;
+    font-size: 40rpx;
+    padding-right: 3%;
+    color: #3e91a3;
+    font-weight: bolder;
+    text-align: right;
+}
+
+.main-methods {
+    position: relative;
+    z-index: 0;
+    height: 60%;
     width: 100%;
 }
 
-#message text{
+.methods {
+    height: 21%;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.card-methods {
+    position: relative;
     display: inline-block;
     height: 100%;
-    vertical-align: bottom;
-    padding-top: 20rpx;
-    padding-left: 20rpx;
-    padding-right: 20rpx;
+    width: 45%;
+    border-radius: 20rpx;
+    color: snow;
+    border: 2rpx;
+    border-color: #78c2c4;
+    box-shadow: 6px 6px 10px 0px #78c2c4;
 }
 
-.menu{
-    display: block;
-    height: 35%;
-    width: 100%;
+.card-methods .card-methods-title {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
     bottom: 0;
+    padding-top: 18%;
+    text-align: center;
+    font-size: 40rpx;
 }
-.menu_list{
-    height: 50%;
-    width: 100%;
-}
-.menu_list button{
+
+.sethw {
     height: 100%;
-    padding-top: 50rpx;
-    align-items: center;
-}
-.menu_list image{
-    margin-left: 80rpx; 
-    display: block;
-    height: 30%;
-    width: 24%;
-}
-#name{
-    height: 50%;
     width: 100%;
-    font-size: 60rpx;
 }
-#money{
-    height: 50%;
+
+.methods-card-image {
+    height: 100%;
     width: 100%;
-    text-align: right;
-    font-size: 60rpx;
-    color: white;
-}
-.pic{
-    height:100%;
-    width:33.3% ;
-    float:left;
+    border-radius: 20rpx;
+    filter: contrast(70%);
 }

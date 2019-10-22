@@ -1,0 +1,73 @@
+<!--pages/payment/payment.wxml-->
+<view class="global">
+    <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+        <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+            <text class="cuIcon-back" style="font-size:40rpx"></text>
+        </navigator>
+    </view>
+
+    <view class="card">
+        <view class="card-image">
+            <image class="main-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7z6nozt3cj30vk0hsjx5.jpg" mode="aspectFill"></image>
+            <view class="bg-shadeBottom ctitle">
+                <text wx:if="{{FeeName ==\"自动转帐\" }}">转账</text>
+                <text wx:else >消费</text>
+            </view>
+        </view>
+
+        <view class="card-content">
+            <view class="card-texttitle">
+                <text>{{MonDeal}}</text>
+                <view class="card-textsub">
+                    <text wx:if="{{FeeName == \"自动转帐\" }}">转账成功</text>
+                    <text wx:else>消费成功</text>
+                </view>
+            </view>
+            <view class="VerticalBox" style="height:80%;width:100%;margin-top:10rpx;">
+                <scroll-view style="height:100%;width:100%;" scroll-y="true">
+                    <view class="card-content-textblock">
+                        <view class="ttitle">
+                            <text>交易类型</text>
+                        </view>
+                        <view class="tdetial">
+                            <text>{{FeeName}}</text>
+                        </view>
+                    </view>
+                    <view class="card-content-textblock">
+                        <view class="ttitle">
+                            <text>交易时间</text>
+                        </view>
+                        <view class="tdetial">
+                            <text>{{Time}}</text>
+                        </view>
+                    </view>
+                    <view class="card-content-textblock">
+                        <view class="ttitle">
+                            <text>交易钱包</text>
+                        </view>
+                        <view class="tdetial">
+                            <text>主钱包</text>
+                        </view>
+                    </view>
+                    <view class="card-content-textblock">
+                        <view class="ttitle">
+                            <text>参考余额</text>
+                        </view>
+                        <view class="tdetial">
+                            <text>{{MonCard}}</text>
+                        </view>
+                    </view>
+                    <view class="card-content-textblock">
+                        <view class="ttitle">
+                            <text>去向/来源</text>
+                        </view>
+                        <view class="tdetial">
+                            <text>{{Source}}</text>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+
+</view>

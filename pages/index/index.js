@@ -18,13 +18,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+
         app.http.QueryAccWallent().then((res) => {
             this.setData({
                 AccNum: app.http.AccName,
                 MonDBCurr: app.http.MonDBCurr
             })
         })
-
+        app.http.getRandomNum();
+        app.http.getOrderNum();
+        app.http.QueryAccAuth();
     },
 
     /**
@@ -42,6 +45,7 @@ Page({
                 MonDBCurr: app.http.MonDBCurr
             })
         })
+
     },
 
     /**
@@ -89,13 +93,24 @@ Page({
     Scan: function(e) {
         wx.scanCode({
             success(res) {
-                console.log(res.result)
                 wx.showLoading({
                     title: '正在加载',
                     mask: true
                 })
                 app.http.ScanQR(res.result).then((res) => {
+                    console.log(res.data)
                     if (res.data.code == "1") {
+                        app.http.QueryAccAuth().then((res)=>{
+                            if (app.http.AccStatus != "1" || app.http.BankTransState!="1")
+                            {
+                                wx.hideLoading();
+                                wx.showModal({
+                                    title: '错误',
+                                    content: '账号不能使用此功能!',
+                                })
+                                wx.navigateBack({});
+                            }
+                        })
                         wx.navigateTo({
                             url: './Scan/Scan?array=' + res.data.data,
                         })
@@ -129,7 +144,7 @@ Page({
     },
     Transfer: function(e) {
         wx.navigateTo({
-            url: './Transfer/Transfer',
+            url: './bill/bill',
         })
     },
     AccessControl: function(e) {
@@ -144,7 +159,7 @@ Page({
     },
     Attendance: function(e) {
         wx.navigateTo({
-            url: './Attendance/Attendance',
+            url: '../myself/myself',
         })
     },
     DoorPassword: function(e) {

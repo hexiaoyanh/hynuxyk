@@ -1,2 +1,53 @@
-<!--pages/myself/myself.wxml-->
-<text>pages/myself/myself.wxml</text>
+<view class="global">
+  <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+    <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack"><text class="cuIcon-back" style="font-size:40rpx"></text></navigator>
+  </view>
+  
+  <view class="card">
+    <view class="card-image">
+      <image class="main-card-image" mode="aspectFill" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g83qs2qyagj30vk0hsh1p.jpg"></image>
+      <view class="bg-shadeBottom ctitle"style="z-index:5">
+        <text style="text-align:left;padding-left:2%">{{name}}</text>
+        <text style="text-align:right;margin-left:50%">{{id}}</text>
+      </view>
+    </view>
+
+    <view class="card-content animated slideInDown" style=";z-index:3;width: 95%;margin-left: 2.5%;">
+      <navigator>
+        <view class="card-content-textblock" style="background-color:rgb(146,172,209)">
+          <text>操作记录</text>
+        </view>
+      </navigator>
+    </view>
+    
+
+    <view class="card-content animated slideInDown" style="animation-delay:0.1s;z-index:2;width: 90%;margin-left: 5%;">
+      <navigator>
+        <view class="card-content-textblock" style="background-color:rgb(134,150,167)">
+          <text>修改密码</text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="card-content animated slideInDown" style="animation-delay:0.2s;z-index:1;width: 85%;margin-left: 7.5%;">
+      <view bindtap="about">
+        <view class="card-content-textblock" style="background-color:rgb(105,100,123)">
+          <text>关于我们</text>
+        </view>
+      </view>
+    </view>
+    <form bindtap="logout">
+      <button type="submit" class="card-button animated slideInDown" style="animation-delay:0.4s;">退出登陆</button>
+    </form>
+
+    <view class="slogan">
+      <text>
+        "To Die By Your Side, Is Such a Heavenly Way To Die."
+      </text>
+      <view style="text-align:right;margin-top:10rpx">
+        <text >———The Smiths </text>
+      </view>
+    </view>
+    
+  </view>
+</view>

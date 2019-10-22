@@ -1,0 +1,110 @@
+/* pages/payment/payment.wxss */
+/* pages/bill/bill.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.global{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right,#7DB9DE,rgb(211, 222, 226));
+}
+
+.card{
+  display: inline-block;
+  height: 80%;
+  width: 85%;
+
+  margin-left: 7.5%;
+  margin-top: 50rpx;
+  margin-bottom: 5%;
+  border-radius: 20rpx; 
+  color:black;
+  box-shadow: 6px 6px 10px 0px #7DB9DE;
+}
+.card .card-image{
+  height: 30%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+}
+.card .main-card-image{
+  height: 100%;
+  width: 100%;
+  border-bottom-right-radius: 0; 
+  border-bottom-left-radius: 0; 
+  border-top-right-radius: 20rpx; 
+  border-top-left-radius: 20rpx;
+}
+
+.card .card-image .ctitle{
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 40%;
+  text-align:center; 
+  position: absolute;
+  height: 20%;
+  width: 100%;
+  color:snow;
+  font-size: 40rpx; 
+}
+.card .card-content{
+  width: 100%;
+  height: 70%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: rgb(211, 222, 226);
+  display: inline-block
+}
+.card .card-content .card-content-textblock{
+  margin-left: 2%;
+  margin-top: 3%;
+  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+  width: 96%;
+  height: 15%;
+  box-shadow: 3px 3px 10px 0px #58B2DC;
+  background-color: #7DB9DE;
+  color: #2E5C6E;
+  border-radius: 20rpx;
+  padding-top: 30rpx;
+  font-size: 25rpx;
+}
+
+.card .card-content-textblock .ttitle{
+  text-align: left;
+  padding-left: 20rpx;
+  height: 100%;
+  width: 30%;
+  display: inline-block;
+}
+
+.card .card-content-textblock .tdetial{
+  text-align: right;
+  padding-right: 20rpx;
+  height: 100%;
+  width: 70%;
+  display: inline-block;
+}
+
+.card .card-content .card-texttitle{
+  padding-top: 7%;
+  text-align: center;
+  font-size: 70rpx;
+  color: black;
+  height: 20%;
+  width: 100%;
+}
+
+.card .card-content .card-textsub{
+  padding-top: 1rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: gray;
+  height: 40%;
+  width: 100%;
+}

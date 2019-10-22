@@ -83,6 +83,9 @@ Page({
 
     },
     submit: function(e) {
+        wx.showLoading({
+            title: '加载中',
+        })
         var objData = e.detail.value;
         var that = this;
         if (objData.username && objData.password) {
@@ -99,48 +102,28 @@ Page({
             });
             app.http.setUsername(objData.username);
             app.http.setPassword(objData.password);
-            app.http.Login();
-
-            function e(a){
-                if(a>3000) {next("NetError");return;}
-                setTimeout(function(){
-                    if(app.http.Msg != "")
-                    {
-                        next(app.http.Msg);
-                        return;
-                    }else{
-                        e(a+1000);
-                    }
-                },a)
-            }
-            function next(sta) {
-                if (sta == "NetError") {
+            app.http.Login().then((res)=>{
+                wx.hideLoading();
+                if (app.http.Msg == "NetError") {
                     wx.showModal({
                         title: '提示',
                         content: '网络错误',
                     });
-                    app.http.Msg="";
-                    that.setData({
-                        btn_loading: !that.data.btn_loading
-                    });
-                } else if (sta == "登录成功") {
-                    wx.switchTab({
+                    app.http.Msg = "";
+                    
+                } else if (app.http.Msg == "登录成功") {
+                    wx.redirectTo({
                         url: '../index/index',
-                    });
+                    })
 
                 } else {
                     wx.showModal({
                         title: '提示',
                         content: '用户名或密码错误',
                     });
-                    app.http.Msg="";
-                    that.setData({
-                        btn_loading: !that.data.btn_loading
-                    });
+                    app.http.Msg = "";   
                 }
-            }
-            e(0);
-
+            })
         }
     },
     

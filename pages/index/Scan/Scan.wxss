@@ -1,1 +1,78 @@
-/* pages/index/Scan/Scan.wxss */
+
+page{
+  width: 100%;
+  height: 100%;
+}
+.global{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right,#4E4F97,#F596AA);
+}
+.card{
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50rpx;
+  margin-bottom: 5%;
+  border-radius: 20rpx; 
+  color:black;
+  box-shadow: 6px 6px 10px 0px #4E4F97;
+}
+.card .card-image{
+  height: 60%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+}
+.card .main-card-image{
+  height: 100%;
+  width: 100%;
+  border-bottom-right-radius: 0; 
+  border-bottom-left-radius: 0; 
+  border-top-right-radius: 20rpx; 
+  border-top-left-radius: 20rpx; 
+}
+.card .card-image .ctitle{
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.card .card-content{
+  width: 100%;
+  height: 40%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: #FEDFE1;
+  display: inline-block
+}
+.card .card-content .card-content-textblock{
+  margin-left: 10%;
+  margin-top: 3%;
+  font-size: 30rpx;
+  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+  width: 80%;
+  height: 30%;
+  text-align: center;
+  padding-top: 3%;
+  box-shadow: 3px 3px 10px 0px #4E4F97;
+  background-color: #F4A7B9;
+  border-radius: 20rpx;
+}
+
+.card-button{
+  width: 30%;
+  height: 15%;
+  margin-top: 3%;
+  margin-left: 35%;
+  text-size-adjust: 1rpx;
+  border-radius: 30rpx;
+  background-color: #8F77B5;
+  font-size: 26rpx;
+  text-align: center;
+  color:snow;
+  box-shadow: 3px 3px 10px 0px #4E4F97;
+}

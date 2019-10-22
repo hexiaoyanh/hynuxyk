@@ -1,1 +1,94 @@
-/* pages/index/ReportLoss/ReportLoss.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.global{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right,#244b79,#9cc2e8);
+}
+
+.card{
+  display: inline-block;
+  height: 70%;
+  width: 85%;
+  margin-left: 7.5%;
+  margin-top: 20%;
+  margin-bottom: 5%;
+  border-radius: 20rpx; 
+  color:black;
+}
+.card .card-image{
+  z-index: 1;
+  height: 40%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+}
+.card .main-card-image{
+  height: 100%;
+  width: 100%;
+  border-radius: 20rpx;
+  box-shadow: 3px 3px 10px 0px rgb(36,53,107);
+}
+
+.card .card-content{
+  line-height: 20rpx;
+  width: 95%;
+  height: 25%;
+  margin-left: 2.5%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: #5a7da2;
+  box-shadow: 3px 3px 10px 0px rgb(36,53,107);
+  z-index: -1;
+}
+.card .card-content .card-content-textblock{
+  text-align: center;
+  position: relative;
+  margin-left: 15%;
+  margin-top: 3%;
+  padding-top: 2%;
+  width: 70%;
+  height: 35%;
+  box-shadow: 3px 3px 10px 0px rgb(36,53,107);
+  background-color: rgb(63, 72, 111);
+  font-weight: bolder;
+  color: #58B2DC;
+  border-radius: 45rpx;
+  font-size: 40rpx;
+}
+.card-button {
+    margin-left: 25%;
+    color: black;
+    background-color:#58B2DC;
+    border-radius: 30rpx;
+    width: 50%;
+    height: 35%;
+    box-shadow: 3px 3px 10px 0px #58B2DC;
+    margin-top: 3%;
+}
+.card .card-content .ttitle{
+  padding-top: 5%;
+  text-align: center;
+  padding-left: 20rpx;
+  height: 40%;
+  width: 100%;
+  color: #a1c6df;
+  font-size: 50rpx;
+  font-weight: bolder;
+  display: inline-block;
+}
+
+.card .slogan{
+  padding-top: 20%;
+  width: 100%;
+  height: 20%;
+  font-style: italic;
+  text-shadow: 2px 2px 2px rgb(116, 45, 18);
+  color: #a1c6df;
+}
+

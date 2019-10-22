@@ -1,31 +1,29 @@
-// pages/bill/bill.js
-var app = getApp();
+// pages/index/AccessControl/getpsw/getpsw.js
+var hei = wx.getMenuButtonBoundingClientRect().top;
+const app = getApp();
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        username:"",
-        password:"",
-        time:"",
-        sign:"",
-        money:""
+        stateH:hei,
+        pwd:"加载中......"
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(app.http.MonDBCurr)
-        this.setData({
-            username: app.http.UserNumber,
-            password: app.http.Password,
-            time: app.http.Time,
-            sign: app.http.Sign,
-        }
-        )
-        console.log(app.http)
+        var that = this;
+        var devicesnum = options.value.split(',')[0];
+        var doorid = options.value.split(',')[1];
+        app.http.ApplyDoorPwd(devicesnum,doorid).then((res)=>{
+            var json = app.x2js.xml2js(res.data).ZYTK;
+            that.setData({
+                pwd: json.PassWord
+            })
+        })
     },
 
     /**

@@ -1,18 +1,36 @@
-// pages/index/Transfer/Transfer.js
+// pages/index/bill/paymsg/paymsg.js
+var hei = wx.getMenuButtonBoundingClientRect().top;
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        stateH:hei,
+        FeeName:null,
+        MonCard:null,
+        MonDeal:null,
+        Time:null,     
+        Source:null   
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var Time = options.Time;
+        var FeeName = options.FeeName;
+        var MonCard = options.MonCard;
+        var MonDeal = options.MonDeal;
+        var Source = options.Source;
+        this.setData({
+            FeeName:FeeName,
+            MonCard:MonCard,
+            MonDeal:MonDeal,
+            Time:Time,
+            Source:Source
+        })
     },
 
     /**

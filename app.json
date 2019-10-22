@@ -2,49 +2,25 @@
     "pages": [
         "pages/login/login",
         "pages/index/index",
-        "pages/bill/bill",
         "pages/myself/myself",
         "pages/index/VirtualCard/VirtualCard",
         "pages/index/AccessControl/AccessControl",
-        "pages/index/Attendance/Attendance",
         "pages/index/Charge/Charge",
         "pages/index/DoorPassword/DoorPassword",
         "pages/index/ReportLoss/ReportLoss",
         "pages/index/Scan/Scan",
-        "pages/index/Transfer/Transfer",
         "pages/index/Wallent/Wallent",
-        "pages/index/VirtualCard/BigPic/BigPic"
+        "pages/index/VirtualCard/BigPic/BigPic",
+        "pages/index/bill/bill",
+        "pages/index/bill/paymsg/paymsg",
+        "pages/index/AccessControl/getpsw/getpsw"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "color": "#a9b7b7",
-        "selectedColor": "#11cd6e",
-        "borderStyle": "black",
-        "list": [
-            {
-                "iconPath": "res/png/tab_home_normal.png",
-                "selectedIconPath": "res/png/tab_home_selected.png",
-                "pagePath": "pages/index/index",
-                "text": "首页"
-            },
-            {
-                "iconPath": "res/png/tab_bill_normal.png",
-                "selectedIconPath": "res/png/tab_bill_selected.png",
-                "pagePath": "pages/bill/bill",
-                "text": "账单"
-            },
-            {
-                "iconPath": "res/png/tab_my_normal.png",
-                "selectedIconPath": "res/png/tab_my_selected.png",
-                "pagePath": "pages/myself/myself",
-                "text": "我的"
-            }
-        ]
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
     },
     "sitemapLocation": "sitemap.json"
 }

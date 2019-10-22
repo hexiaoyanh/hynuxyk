@@ -1,1 +1,103 @@
-/* pages/index/AccessControl/AccessControl.wxss */
+/* pages/bill/bill.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.global{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right,rgb(36,53,107),rgb(137, 105, 141));
+}
+
+.card{
+  display: inline-block;
+  height: 90%;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50rpx;
+  margin-bottom: 5%;
+  border-radius: 20rpx; 
+  color:black;
+  box-shadow: 6px 6px 10px 0px rgb(36,53,107);
+}
+.card .card-image{
+  height: 20%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+}
+.card .main-card-image{
+  height: 100%;
+  width: 100%;
+  border-bottom-right-radius: 0; 
+  border-bottom-left-radius: 0; 
+  border-top-right-radius: 20rpx; 
+  border-top-left-radius: 20rpx;
+}
+
+.card .card-image .ctitle{
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 25%;
+  text-align:left; 
+  font-weight: bolder;
+  position: absolute;
+  height: 38%;
+  width: 100%;
+  color: rgb(145, 106, 133);
+  font-size: 50rpx; 
+}
+.card .card-content{
+  width: 100%;
+  height: 80%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: #9B90C2;
+  display: inline-block
+}
+.card .card-content .card-content-textblock{
+  position: relative;
+  margin-left: 2%;
+  margin-top: 3%;
+  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+  width: 96%;
+  height: 9%;
+  box-shadow: 3px 3px 10px 0px rgb(36,53,107);
+  background-color: rgb(63, 72, 111);
+  border-radius: 20rpx;
+}
+
+.card-state-image{
+  height: 100%;
+  width:17%;
+  display: inline-block;
+  position: relative;
+}
+.card-content-textblock .state-image{
+  position: absolute;
+  padding-top: 5%; 
+  padding-left: 10%;
+  height: 90%;  
+  width: 80%;
+}
+.card-content-textblock .card-text-class{
+  height: 100%;
+  width: 83%;
+  display: inline-block;
+  position: absolute;
+  color: #9B90C2;
+  text-align: left;
+}
+
+.card-text-void{
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  color: rgb(116, 45, 18);
+  font-size: 30rpx;
+}

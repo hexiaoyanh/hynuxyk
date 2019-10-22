@@ -5,13 +5,16 @@ var QRCode = require('../../../utils/weapp-qrcode.js')
 const W = wx.getSystemInfoSync().windowWidth;
 const rate = 750.0 / W;
 // 300rpx 在6s上为 150px
-const qrcode_w = 350 / rate;
+const qrcode_w = 400 / rate;
+var hei = wx.getMenuButtonBoundingClientRect().top;
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        stateH :hei,
         qrcode_w: qrcode_w,
         RandomNum: "",
         AccName: app.http.AccName,
@@ -23,51 +26,67 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        app.http.getRandomNum().then((res) => {
-            app.http.getOrderNum().then((res) => {
-                app.http.getQRcode().then((res) => {
-                    console.log(res.data)
-                    if (res.data == null) {
-                        wx.showModal({
-                            title: '错误',
-                            content: '网络错误',
-                            success(res) {
-                                if (res.confirm) {
-                                    wx.navigateBack({
-                                        
-                                    })
-                                } else if (res.cancel) {
-                                    wx.navigateBack({
-                                        
-                                    })
-                                }
-                            }
-                        })
-                    } else {
-                        app.http.QRCode=res.data;
-                        this.setData({
-                            QrString: app.http.QRcode,
-                            AccName: app.http.AccName,
-                            UserNumber: app.http.UserNumber
-                        });
-                        var qrcode = new QRCode('canvas', {
-                            // usingIn: this,
-                            text: res.data,
-                            width: qrcode_w,
-                            height: qrcode_w,
-                            padding: 6,
-                            colorDark: "#000000",
-                            colorLight: "#ffffff",
-                            correctLevel: QRCode.CorrectLevel.L,
-                            callback: (res) => {
-                                // 生成二维码的临时文件
-                                console.log(res.path)
-                            }
-                        });
-                    }
-                })
-            })
+        wx.showLoading({
+            title: '加载中',
         })
+        var that = this;
+
+        function getqr() {
+            app.http.getQRcode().then((res) => {
+                wx.hideLoading();
+                if (res.data == null) {
+                    wx.showModal({
+                        title: '错误',
+                        content: '网络错误',
+                        success(res) {
+                            if (res.confirm) {
+                                wx.navigateBack({
+
+                                })
+                            } else if (res.cancel) {
+                                wx.navigateBack({
+
+                                })
+                            }
+                        }
+                    })
+                } else {
+                    app.http.QRCode = res.data;
+                    that.setData({
+                        QrString: app.http.QRcode,
+                        AccName: app.http.AccName,
+                        UserNumber: app.http.UserNumber
+                    });
+                    var qrcode = new QRCode('canvas', {
+                        // usingIn: this,
+                        text: res.data,
+                        width: qrcode_w,
+                        height: qrcode_w,
+                        padding: 6,
+                        background:"#fad689",
+                        colorDark: "#a36336",
+                        colorLight: "#fad689",
+                        correctLevel: QRCode.CorrectLevel.L,
+                        callback: (res) => {
+                            // 生成二维码的临时文件
+                            console.log(res.path)
+                        }
+                    });
+                }
+            });
+        }
+        if (app.http.RandomNum != "") {
+            if (app.http.OrderNum != "") {
+                getqr();
+            }else{
+                app.http.getOrderNum().then((res)=>getqr());
+            }
+        }else{
+            app.http.getRandomNum((res)=>{
+                app.http.getOrderNum().then((res)=>{getqr()});
+            })
+        }
+
     },
 
     /**

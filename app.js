@@ -1,35 +1,39 @@
 import {
     http
 } from "http/http.js"
+var X2JS = require('./http/x2j/x2js/we-x2js.js');
+
 App({
     globalData: {
-        http: null
+        http: null,
+        x2js:null
     },
-    /**
-     * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
+    /** 
+     * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次） 
      */
-    onLaunch: function() {
+    onLaunch: function () {
         this.http = new http();
+        this.x2js = new X2JS();
     },
 
-    /**
-     * 当小程序启动，或从后台进入前台显示，会触发 onShow
+    /** 
+     * 当小程序启动，或从后台进入前台显示，会触发 onShow 
      */
-    onShow: function(options) {
-
-    },
-
-    /**
-     * 当小程序从前台进入后台，会触发 onHide
-     */
-    onHide: function() {
+    onShow: function (options) {
 
     },
 
-    /**
-     * 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
+    /** 
+     * 当小程序从前台进入后台，会触发 onHide 
      */
-    onError: function(msg) {
+    onHide: function () {
+
+    },
+
+    /** 
+     * 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息 
+     */
+    onError: function (msg) {
 
     }
 });

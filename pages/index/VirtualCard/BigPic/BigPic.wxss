@@ -1,1 +1,4 @@
 /* pages/index/VirtualCard/BigPic/BigPic.wxss */
+canvas{
+    margin-top: 30%;
+}

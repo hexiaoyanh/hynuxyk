@@ -5,13 +5,17 @@ const W = wx.getSystemInfoSync().windowWidth;
 const rate = 750.0 / W;
 // 300rpx 在6s上为 150px
 const qrcode_w = 750 / rate;
+var scbr;
+var hei = wx.getMenuButtonBoundingClientRect().top;
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        qrcode_w: qrcode_w
+        qrcode_w: qrcode_w,
+        stateH:hei
     },
 
     /**
@@ -39,7 +43,14 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        wx.getScreenBrightness({
+            success:function(res){
+                scbr = res.value;
+            }
+        });
+        wx.setScreenBrightness({
+            value: parseFloat(1).toFixed(1)
+        })
     },
 
     /**
@@ -53,14 +64,18 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
+        wx.setScreenBrightness({
+            value: parseFloat(scbr).toFixed(1)
+        })
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+        wx.setScreenBrightness({
+            value: parseFloat(scbr).toFixed(1)
+        })
     },
 
     /**

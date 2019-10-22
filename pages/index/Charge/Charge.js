@@ -3,6 +3,7 @@ const app = getApp()
 var Money=""
 var xml = require('../../../http/xml/dom-parser.js')
 var xmlParser = new xml.DOMParser();
+var hei = wx.getMenuButtonBoundingClientRect().top;
 Page({
 
     /**
@@ -25,30 +26,42 @@ Page({
             see: false,//是否明文展示
             interval: true,//是否显示间隔格子
         },
+        stateH:hei
     },
     valueSix(e) {
         this.hidePassBord()
         // 模态交互效果
         var code = app.http.Recharge(Money,e.detail).then((res)=>{
+            console.log('111')
             var doc = xmlParser.parseFromString(res.data);
             var code = doc.getElementsByTagName('Code')['0'].firstChild.data.toString();
             if (code == "1") {
                 wx.showModal({
                     title: '提交成功',
                     content: '充值提交成功',
+                    success(res){
+                        wx.navigateBack({   
+                            delta: 1,
+                        })
+                    }
                 })
-                wx.navigateBack({     //返回上一页面
-                    delta: 1,
-                })
+                
             } else if (code == "2") {
                 wx.showModal({
                     title: 'Error',
                     content: '密码错误',
+                    success(res) {
+                    }
                 })
             } else {
                 wx.showModal({
                     title: 'Error',
                     content: '未知错误',
+                    success(res) {
+                        wx.navigateBack({    
+                            delta: 1,
+                        })
+                    }
                 })
             }
         })

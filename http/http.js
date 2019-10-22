@@ -1,9 +1,12 @@
 var CryptoJS = require('./crypto-js/crypto-js.js')
 var xml = require('./xml/dom-parser.js')
 var xmlParser = new xml.DOMParser();
+var X2JS = require('../http/x2j/x2js/we-x2js.js');
+var x2js = new X2JS();
+
 
 class http {
-    url = "http://106.15.249.85/";
+    url = "https://www.hynuxyk.club/";
     UserNumber = "";
     Password = "";
     Time = "";
@@ -24,6 +27,8 @@ class http {
     QRcode = "";
     BankName = "";
     BankCard = "";
+    AccStatus = "";
+    BankTransState = "";
 
     setTime() {
         //当前时间化成yyyymmddhhmmss
@@ -115,37 +120,40 @@ class http {
         this.setSign(a, b);
         var that = this;
 
-        wx.request({
-            url: that.url,
-            data: {
-                "Time": that.Time,
-                "Sign": that.Sign,
-                "UserNumber": that.UserNumber,
-                "Password": that.Password
-            },
-            success(res) {
-                var doc = xmlParser.parseFromString(res.data);
-                var code = doc.getElementsByTagName('Code')['0'].firstChild.data.toString();
-                if (code == "1") {
-                    that.Msg = doc.getElementsByTagName('Msg')['0'].firstChild.data.toString();
-                    that.AccNum = doc.getElementsByTagName('AccNum')['0'].firstChild.data.toString();
-                    that.AccName = doc.getElementsByTagName('AccName')['0'].firstChild.data.toString();
-                    that.PerCode = doc.getElementsByTagName('PerCode')['0'].firstChild.data.toString();
-                    that.CarID = doc.getElementsByTagName('CardID')['0'].firstChild.data.toString();
-                    that.CustomerID = doc.getElementsByTagName('CustomerID')['0'].firstChild.data.toString();
-                    that.AgentID = doc.getElementsByTagName('AgentID')['0'].firstChild.data.toString();
-                    that.LostDate = doc.getElementsByTagName('LostDate')['0'].firstChild.data.toString();
-                    that.IsDefault = doc.getElementsByTagName('IsDefault')['0'].firstChild.data.toString();
+        return new Promise(function(resolve, reject) {
+            wx.request({
+                url: that.url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "UserNumber": that.UserNumber,
+                    "Password": that.Password
+                },
+                success(res) {
+                    var doc = xmlParser.parseFromString(res.data);
+                    var code = doc.getElementsByTagName('Code')['0'].firstChild.data.toString();
+                    if (code == "1") {
+                        that.Msg = doc.getElementsByTagName('Msg')['0'].firstChild.data.toString();
+                        that.AccNum = doc.getElementsByTagName('AccNum')['0'].firstChild.data.toString();
+                        that.AccName = doc.getElementsByTagName('AccName')['0'].firstChild.data.toString();
+                        that.PerCode = doc.getElementsByTagName('PerCode')['0'].firstChild.data.toString();
+                        that.CarID = doc.getElementsByTagName('CardID')['0'].firstChild.data.toString();
+                        that.CustomerID = doc.getElementsByTagName('CustomerID')['0'].firstChild.data.toString();
+                        that.AgentID = doc.getElementsByTagName('AgentID')['0'].firstChild.data.toString();
+                        that.LostDate = doc.getElementsByTagName('LostDate')['0'].firstChild.data.toString();
+                        that.IsDefault = doc.getElementsByTagName('IsDefault')['0'].firstChild.data.toString();
 
-                } else {
-                    that.Msg = doc.getElementsByTagName('Msg')['0'].firstChild.data.toString();
+                    } else {
+                        that.Msg = doc.getElementsByTagName('Msg')['0'].firstChild.data.toString();
+                    }
+                    resolve(res);
+                },
+                fail(error) {
+                    that.Msg = "NetError";
                 }
-
-            },
-            fail(error) {
-                that.Msg = "NetError";
-            }
+            })
         })
+
         that.QueryAccWallent();
     }
     //查询钱包信息
@@ -172,10 +180,10 @@ class http {
                         that.MonDBCurr = doc.getElementsByTagName('MonDBCurr')['0'].firstChild.data.toString();
                         that.IsOpen = doc.getElementsByTagName('IsOpen')['0'].firstChild.data.toString();
                     }
-                    resolve();
+                    resolve(res);
                 },
                 fail(error) {
-                    reject()
+                    reject(error)
                     console.error("QueryAccWallent" + error);
                 }
             })
@@ -191,7 +199,7 @@ class http {
         this.setSign(a, b);
         console.log(this)
         var url = that.url + "QueryAccInfo.aspx"
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -233,7 +241,7 @@ class http {
                     var doc = xmlParser.parseFromString(res.data);
                     var RandomNum = doc.getElementsByTagName('RandomNum')['0'].firstChild.data.toString();
                     that.RandomNum = RandomNum;
-                    resolve();
+                    resolve(res);
                 },
                 fail(error) {
                     reject(error)
@@ -241,7 +249,7 @@ class http {
                 }
             })
         })
-    }//请求OrderNum
+    } //请求OrderNum
     getOrderNum() {
         var that = this;
         var a = ['Time', 'AccNum']
@@ -249,7 +257,7 @@ class http {
         var b = [that.Time, that.AccNum]
         this.setSign(a, b);
         var url = that.url + "GetOrderNum.aspx"
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -272,14 +280,14 @@ class http {
         })
     }
     //虚拟校园卡
-    getQRcode(){
+    getQRcode() {
         var that = this;
-        var url = that.url+"proxy/qr"
-        return new Promise(function (resolve, reject){
+        var url = that.url + "proxy/qr"
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
-                method:"POST",
-                data:{
+                method: "POST",
+                data: {
                     "randomNum": that.RandomNum,
                     "perCode": that.PerCode,
                     "orderNumb": that.OrderNum,
@@ -289,31 +297,31 @@ class http {
                     "accNum": that.AccNum,
                     "accName": that.AccName
                 },
-                success(res){
+                success(res) {
                     resolve(res)
                 },
-                error(error){
-                    console.log("getQRcode"+error)
+                error(error) {
+                    console.log("getQRcode" + error)
                 }
             })
         })
     }
     //充值
-    Recharge(money,password){
+    Recharge(money, password) {
         var that = this;
-        var a = ['Time', 'AccNum', 'MonTrans','Password']
+        var a = ['Time', 'AccNum', 'MonTrans', 'Password']
         this.setTime();
         var b = [that.Time, that.AccNum, money, that.OtherPassword(password)]
         this.setSign(a, b);
         var url = that.url + "BankTransfer.aspx"
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
                 data: {
                     "Time": that.Time,
                     "Sign": that.Sign,
                     "AccNum": that.AccNum,
-                    "MonTrans":money,
+                    "MonTrans": money,
                     "Password": that.OtherPassword(password)
                 },
                 success(res) {
@@ -327,10 +335,10 @@ class http {
         })
     }
     //扫描二维码
-    ScanQR(str){
+    ScanQR(str) {
         var that = this;
         var url = that.url + "proxy/scan"
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
                 method: "POST",
@@ -348,19 +356,217 @@ class http {
             })
         })
     }
+    //获取账号有效性
+    QueryAccAuth() {
+        var that = this;
+        var a = ['Time', 'AccNum']
+        this.setTime();
+        var b = [that.Time, that.AccNum]
+        this.setSign(a, b);
+        var url = that.url + "QueryAccAuth.aspx"
+        return new Promise(function(resolve, reject) {
+            wx.request({
+                url: url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum": that.AccNum
+                },
+                success(res) {
+                    var doc = xmlParser.parseFromString(res.data);
+                    var AccStatus = doc.getElementsByTagName('AccStatus')['0'].firstChild.data.toString();
+                    var BankTransState = doc.getElementsByTagName('BankTransState')['0'].firstChild.data.toString();
+                    that.AccStatus = AccStatus;
+                    that.BankTransState = BankTransState;
+                    resolve(res)
+
+                },
+                fail(error) {
+                    reject(error)
+                }
+            })
+        })
+    }
+    //获取付款信息
+    GetDealerInfo(dealerNum, staNum, terNum) {
+        var that = this;
+        var a = ['Time', "AccNum", "DealerNum", "StaNum", "TerNum"]
+        this.setTime();
+        var b = [that.Time, that.AccNum, dealerNum, staNum, terNum]
+        this.setSign(a, b);
+        var url = that.url + "GetDealerInfo.aspx"
+
+        return new Promise(function(resolve, reject) {
+            wx.request({
+                url: url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum": that.AccNum,
+                    "DealerNum": dealerNum,
+                    "StaNum": staNum,
+                    "TerNum": terNum
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    console.log(error)
+                    reject(error)
+                }
+            })
+        })
+    }
+    Pay(dealerNum, staNum, terNum, password, mondeal) {
+        var that = this;
+        var a = ['Time', "AccNum", "OrderNum", "DealerNum", "StaNum", "TerNum", "Password", "MonDeal"]
+        this.setTime();
+        password = that.OtherPassword(password);
+
+        var b = [that.Time, that.AccNum, that.OrderNum, dealerNum, staNum, terNum, password, mondeal]
+        this.setSign(a, b);
+        var url = that.url + "ScanPayMon.aspx"
+
+        return new Promise(function(resolve, reject) {
+            wx.request({
+                url: url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum": that.AccNum,
+                    "OrderNum": that.OrderNum,
+                    "DealerNum": dealerNum,
+                    "StaNum": staNum,
+                    "TerNum": terNum,
+                    "Password": password,
+                    "MonDeal": mondeal
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    console.log(error)
+                    reject(error)
+                }
+            })
+        })
+    }
+    QueryDealRec(begindate, enddate, type, viceaccnum, walletnum, recnum, count) {
+        var that = this;
+        var a = ['Time', "AccNum", "BeginDate", "EndDate", "Type", "ViceAccNum", "WalletNum", "RecNum", "Count"]
+        this.setTime();
+        var b = [that.Time, that.AccNum, begindate, enddate, type, viceaccnum, walletnum, recnum, count]
+        this.setSign(a, b);
+        var url = that.url + "QueryDealRec.aspx"
+
+        return new Promise(function(resolve, reject) {
+            wx.request({
+                url: url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum": that.AccNum,
+                    "BeginDate": begindate,
+                    "EndDate": enddate,
+                    "Type": type,
+                    "ViceAccNum": viceaccnum,
+                    "WalletNum": walletnum,
+                    "RecNum": recnum,
+                    "Count": count
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    console.log(error)
+                    reject(error)
+                }
+            })
+        })
+    }
+    QueryAccountDoor(date, recnum, count) {
+        var that = this;
+        var a = ['Time', "AccNum", "Date", "RecNum", "Count"]
+        this.setTime();
+        var b = [that.Time, that.AccNum, date, recnum, count]
+        this.setSign(a, b);
+        var url = that.url + "QueryAccountDoor.aspx"
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum":that.AccNum,
+                    "Date": date,
+                    "RecNum": recnum,
+                    "Count": count
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    console.log(error)
+                    reject(error)
+                }
+            })
+        })
+    }
+    ApplyDoorPwd(devicesnum,doorid){
+        var that = this;
+        var a = ['Time', "AccNum", "DeviceNum", "DoorID"]
+        this.setTime();
+        var b = [that.Time, that.AccNum,devicesnum,doorid]
+        this.setSign(a, b);
+        var url = that.url + "ApplyDoorPwd.aspx"
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum": that.AccNum,
+                    "DeviceNum": devicesnum,
+                    "DoorID": doorid
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    console.log(error)
+                    reject(error)
+                }
+            })
+        })
+    }
+    ReportLost(password){
+        var that = this;
+        var a = ['Time', "AccNum", "OptType", "Password"]
+        this.setTime();
+        var b = [that.Time, that.AccNum, "1", password]
+        this.setSign(a, b);
+        var url = that.url + "ReportLost.aspx"
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: url,
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum": that.AccNum,
+                    "OptType": "1",
+                    "Password": password
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    console.log(error)
+                    reject(error)
+                }
+            })
+        })
+    }
 }
 export {
     http
 }
-/*
- * Code
- * Msg
- * AccNum
- * AccName
- * PerCode
- * CarID
- * CustomID
- * AgentId
- * LostDate
- * IsDefault
- */

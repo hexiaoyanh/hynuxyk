@@ -1,1 +1,83 @@
-<!--pages/index/Scan/Scan.wxml-->
+<!-- pages/index/Scan/Scan.wxml
+<view class="upline">
+    <image src="/res/png/business_icon.png"></image>
+    <text>{{where}}</text>
+</view>
+
+<view class="middleline">
+    <view class="divLine"></view>
+    <view>
+        <text id="my">消费金额</text>
+        <text id="mc">¥ {{money}}</text>
+    </view>
+    <view class="divLine"></view>
+    <view>
+        <text id="pay">使用 {{who}}-主钱包 支付</text>
+        <text id="ye">可用余额: {{had}}</text>
+    </view>
+    <view class="divLine"></view>
+
+</view>
+
+<view class="btn">
+    <button bindtap="passwordInput" form-type='submit' type='primary' loading="{{btn_loading}}">确认</button>
+<passwordInput 
+      wx:if="{{showPassword}}"
+      bindhidePassBord="hidePassBord"
+      bindvalueSix="valueSix" 
+      input_value="{{inputData.input_value}}" 
+      value_length="{{inputData.value_length}}" 
+      isNext="{{inputData.isNext}}" 
+      get_focus="{{inputData.get_focus}}" 
+      focus_class="{{inputData.focus_class}}" 
+      value_num="{{inputData.value_num}}"
+      height="{{inputData.height}}" 
+      width="{{inputData.width}}" 
+      see="{{inputData.see}}" 
+      interval="{{inputData.interval}}">
+    </passwordInput> 
+</view> -->
+
+<view class="global">
+    <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+        <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+            <text class="cuIcon-back" style="font-size:40rpx"></text>
+        </navigator>
+    </view>
+    <view class="card">
+        <view class="card-image">
+            <image class="main-card-image" src="https://wx3.sinaimg.cn/mw690/006blzWmgy1g7wwopj2pgj30zk0qogmf.jpg" mode="aspectFill"></image>
+            <view class="bg-shadeBottom ctitle">
+                <text>
+          消费
+        </text>
+            </view>
+        </view>
+        <view class="card-content">
+            <view class="card-content-textblock">
+                <view>
+                    <text>消费金额:￥</text>
+                    <text>{{money}}</text>
+                </view>
+                <view>
+                    <text>消费地点:</text>
+                    <text>{{where}}</text>
+                </view>
+            </view>
+            <view class="card-content-textblock">
+                <view>
+                    <text>余额:￥</text>
+                    <text>{{had}}</text>
+                </view>
+                <view>
+                    <text>姓名:</text>
+                    <text>{{who}}</text>
+                </view>
+            </view>
+            <button bindtap="passwordInput" type="submit" class="card-button">确认</button>
+        </view>
+    </view>
+</view>
+<passwordInput wx:if="{{showPassword}}" bindhidePassBord="hidePassBord" bindvalueSix="valueSix" input_value="{{inputData.input_value}}" value_length="{{inputData.value_length}}" isNext="{{inputData.isNext}}" get_focus="{{inputData.get_focus}}" focus_class="{{inputData.focus_class}}"
+    value_num="{{inputData.value_num}}" height="{{inputData.height}}" width="{{inputData.width}}" see="{{inputData.see}}" interval="{{inputData.interval}}">
+</passwordInput>
