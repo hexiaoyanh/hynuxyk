@@ -54,6 +54,7 @@ page {
 .card .card-content {
     width: 100%;
     height: 40%;
+    line-height: 100%;
 }
 
 .card .card-content .card-content-main {
@@ -66,31 +67,16 @@ page {
     box-shadow: 6px 6px 10px 0px #78c2c4;
 }
 
-.card .card-content .card-content-title {
-    position: absolute;
-    padding-left: 5%;
-    padding-top: 6%;
-    display: inline-block;
-    font-weight: bolder;
-    text-align: left;
-    height: 100%;
-    width: 25%;
-    color: #3e91a3;
-    font-size: 40rpx;
-}
-
 .card .card-content .card-content-textblock {
-    margin-left: 25%;
-    position: absolute;
-    display: inline-block;
-    font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
-    width: 70%;
+    /* position: absolute;
+    display: inline-block; */
+    width: 100%;
     height: 100%;
-    font-size: 40rpx;
+    font-size: 50rpx;
     padding-right: 3%;
+    padding-top: 9%;
     color: #3e91a3;
     font-weight: bolder;
-    text-align: right;
 }
 
 .main-methods {
@@ -117,6 +103,7 @@ page {
     border: 2rpx;
     border-color: #78c2c4;
     box-shadow: 6px 6px 10px 0px #78c2c4;
+    overflow: hidden;
 }
 
 .card-methods .card-methods-title {
@@ -128,11 +115,6 @@ page {
     padding-top: 18%;
     text-align: center;
     font-size: 40rpx;
-}
-
-.sethw {
-    height: 100%;
-    width: 100%;
 }
 
 .methods-card-image {
