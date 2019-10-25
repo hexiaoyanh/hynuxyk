@@ -15,13 +15,14 @@ Page({
      */
     data: {
         qrcode_w: qrcode_w,
-        stateH:hei
+        stateH: hei,
+        PngPath: ""
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
         var text = app.http.QRCode;
         var qrcode = new QRCode('canvas', {
             // usingIn: this,
@@ -42,9 +43,9 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
+    onReady: function() {
         wx.getScreenBrightness({
-            success:function(res){
+            success: function(res) {
                 scbr = res.value;
             }
         });
@@ -56,14 +57,14 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
+    onShow: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
+    onHide: function() {
         wx.setScreenBrightness({
             value: parseFloat(scbr).toFixed(1)
         })
@@ -72,7 +73,7 @@ Page({
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
+    onUnload: function() {
         wx.setScreenBrightness({
             value: parseFloat(scbr).toFixed(1)
         })
@@ -81,21 +82,21 @@ Page({
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     }
 })

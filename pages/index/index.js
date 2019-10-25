@@ -66,7 +66,15 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
-
+        wx.showNavigationBarLoading() //在标题栏中显示加载
+        app.http.QueryAccWallent().then((res) => {
+            this.setData({
+                AccNum: app.http.AccName,
+                MonDBCurr: app.http.MonDBCurr
+            })
+            wx.hideNavigationBarLoading();
+            wx.stopPullDownRefresh();
+        })
     },
 
     /**

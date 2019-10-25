@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+    "usingComponents": {},
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#78c2c4"
 }

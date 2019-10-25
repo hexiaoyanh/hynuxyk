@@ -48,7 +48,7 @@ App({
         }
         var conf = {
             title: '提示',
-            content: '本程序为校园卡第三方程序，登录密码为校园卡密码，我们不会上传您的任何数据，服务器端代码开源地址为：https://github.com/hexiaoyanh/hynuxykbackstage，我们的图片来自于Alto\'s Adventure，我们不负任何法律责任。',
+            content: '本程序为校园卡第三方程序，登录密码为校园卡密码，我们不会上传您的任何数据，服务器端代码开源地址为：https://github.com/hexiaoyanh/hynuxykbackstage，图片来自于Alto\'s Adventure，如有疑问请联系QQ：785010323，我们不负任何法律责任。',
             cancelText: '不再显示',
             confirmText: '确定',
             success(res) {
