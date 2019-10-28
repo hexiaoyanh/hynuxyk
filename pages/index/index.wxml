@@ -1,96 +1,3 @@
-<!-- <view class="global">
-    <view class="card" style="">
-        <view class="card-image">
-            <image class="main-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wwuvrg80j31hc0u0dio.jpg" mode="aspectFill"></image>
-        </view>
-        <view class="card-content">
-            <view class="card-content-main">
-                <view class="card-content-title">
-                    <text style="text-align:left;padding-left:5%">{{AccNum}}</text>
-                </view>
-                <view class="card-content-textblock">
-                    <text style="text-align:right;margin-left:30%">
-                    {{MonDBCurr}}
-                    </text>
-                </view>
-            </view>
-        </view>
-
-    </view>
-    <view class="main-methods">
-        <view class="methods">
-            <view bindtap="Scan" class="card-methods" style="margin-right: 5%;">
-                <image class="methods-card-image" src="https://wx3.sinaimg.cn/mw690/006blzWmgy1g7wwopj2pgj30zk0qogmf.jpg"></image>
-                <view class="card-methods-title">
-                    <text>扫一扫</text>
-                </view>
-            </view>
-            <view class="card-methods" style="margin-left: 5%;">
-                <view bindtap="Charge" class="sethw">
-                    <image class="methods-card-image" src="https://wx2.sinaimg.cn/mw690/006blzWmgy1g83r6w4o1zj30vk0hsaqh.jpg"></image>
-                    <view class="card-methods-title">
-                        <text>充\t值</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="methods">
-            <view class="card-methods" style="margin-right: 5%;">
-                <view bindtap="VirtualCard" class="sethw">
-                    <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wws0wdswj30qa0dcmya.jpg"></image>
-                    <view class="card-methods-title">
-                        <text>虚拟校园卡</text>
-                    </view>
-                </view>
-            </view>
-            <view class="card-methods" style="margin-left: 5%;">
-                <view bindtap="Transfer" class="sethw">
-                    <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwp2whe5j31hc0u0kjl.jpg"></image>
-                    <view class="card-methods-title">
-                        <text>账\t单</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="methods">
-            <view class="card-methods" style="margin-right: 5%;">
-                <view bindtap="AccessControl" class="sethw">
-                    <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwp8bw93j30xc0irn11.jpg"></image>
-                    <view class="card-methods-title">
-                        <text>开门密码</text>
-                    </view>
-                </view>
-            </view>
-            <view class="card-methods" style="margin-left: 5%;">
-                <view bindtap="ReportLoss" class="sethw">
-                    <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wws9638jj31hc0u0e81.jpg"></image>
-                    <view class="card-methods-title">
-                        <text>挂失</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="methods">
-            <view class="card-methods" style="margin-right: 5%;">
-                <view bindtap="Attendance" class="sethw">
-                    <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wwsetp20j30vk0hsh1p.jpg"></image>
-                    <view class="card-methods-title">
-                        <text>我\t的</text>
-                    </view>
-                </view>
-            </view>
-            <view class="card-methods" style="margin-left: 5%;">
-                <view bindtap="DoorPassword" class="sethw">
-                    <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwsjm7g7j30qa0dct9i.jpg"></image>
-                    <view class="card-methods-title">
-                        <text>课表成绩</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-    </view>
-</view> -->
-
 <view class="global">
   <view class="card">
     <view class="card-image">
@@ -100,8 +7,8 @@
     <view class="card-content">
       <view class="card-content-main">
         <view class="card-content-textblock">
-          <text style="text-align:left;padding-left:5%">{{AccNum}}</text>
-          <text style="text-align:right;margin-left:50%">{{MonDBCurr}}</text>
+          <text style="text-align:left;padding-left:5%;width:50%;">{{AccNum}}</text>
+          <text style="text-align:right;margin-left:50%;width:50%;">{{MonDBCurr}}</text>
         </view>
       </view>
     </view>
@@ -129,7 +36,7 @@
         </view>
     </view>
     <view bindtap="Transfer" class="card-methods" style="margin-left: 5%;">
-        <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwp2whe5j31hc0u0kjl.jpg"></image>
+        <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7z6nozt3cj30vk0hsjx5.jpg"></image>
         <view class="card-methods-title">
           <text>账\t单</text>
         </view>

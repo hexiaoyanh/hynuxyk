@@ -114,7 +114,7 @@ page{
 }
 .card-text-class{
   height: 100%;
-  width: 45%;
+  width: 35%;
   display: inline-block;
   position: relative;
 }
@@ -129,10 +129,7 @@ page{
 .text-detail{
   overflow : hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
+  white-space: nowrap;
   position: absolute;
   margin-top: 50rpx;
   text-align: left;
@@ -150,7 +147,7 @@ page{
 }
 .card-text-money{
   height: 100%;
-  width: 20%;
+  width: 30%;
   display: inline-block;
   position: relative;
 }

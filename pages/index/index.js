@@ -90,14 +90,6 @@ Page({
     onShareAppMessage: function() {
 
     },
-    backs: function(e) {
-        this.setData({
-            btn_loading: !this.data.btn_loading
-        })
-        wx.switchTab({
-            url: '../login/login',
-        })
-    },
     Scan: function(e) {
         wx.scanCode({
             success(res) {

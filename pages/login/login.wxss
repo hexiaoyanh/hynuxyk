@@ -37,6 +37,7 @@ page{
 }
 .card .card-content{
   z-index: 1;
+  position: relative;
   width: 100%;
   height: 40%;
 
@@ -62,6 +63,7 @@ page{
 }
 .card .card-content .card-content-tag{
   z-index: -1;
+  position: relative;
   display: inline-block;
   width: 12%;
   height: 50%;
@@ -78,6 +80,7 @@ input{
 }
 .card-button{
   z-index: 0;
+  position: relative;
   width: 100%;
   height: 100%;
   border-top-right-radius: 25rpx;

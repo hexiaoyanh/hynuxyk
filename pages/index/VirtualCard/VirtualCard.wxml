@@ -9,7 +9,7 @@
         <view class="card-title">
           <text>虚拟校园卡</text>
         </view>
-        <view class="card-2Dimage" bindtap="BigPic">
+        <view class="card-2Dimage" style="height:{{qrcode_w+18}}px" bindtap="BigPic">
           <canvas style="width:{{qrcode_w}}px; height:{{qrcode_w}}px;" canvas-id='canvas' bindlongtap='save'></canvas>
         </view>
       </view>

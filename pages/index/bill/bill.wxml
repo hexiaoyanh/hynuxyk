@@ -43,7 +43,8 @@
                                     </view>
                                     <view class="card-text-money">
                                         <view class="money">
-                                            <text>{{item2.MonDeal}}</text>
+                                            <text wx:if="{{item2.MonDeal[0]=='-'}}">{{item2.MonDeal}}</text>
+                                            <text wx:else>+{{item2.MonDeal}}</text>
                                         </view>
                                     </view>
                                 </view>

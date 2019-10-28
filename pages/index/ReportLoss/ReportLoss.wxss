@@ -32,7 +32,7 @@ page{
   height: 100%;
   width: 100%;
   border-radius: 20rpx;
-  box-shadow: 3px 3px 10px 0px rgb(36,53,107);
+  box-shadow: 6px 6px 10px 0px #244b79;
 }
 
 .card .card-content{

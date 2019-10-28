@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -24,7 +24,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.1",
-	"appid": "wx87b2e9598df82c7d",
+	"appid": "wx8a6127cc43fefc55",
 	"projectname": "hynu",
 	"debugOptions": {
 		"hidedInDevtools": []

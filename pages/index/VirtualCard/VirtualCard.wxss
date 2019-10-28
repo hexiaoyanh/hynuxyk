@@ -90,7 +90,7 @@ page {
 canvas {
     margin-left: 4%;
     margin-top: 3%;
-    height: 350rpx;
-    widows: 350rpx;
+    /* height: 350rpx;
+    width: 350rpx; */
     background-color: #fad689;
 }

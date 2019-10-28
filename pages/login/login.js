@@ -125,6 +125,13 @@ Page({
                 }
             })
         }
+        else{
+          wx.hideLoading();
+          wx.showModal({
+            title: '错误',
+            content: '请输入学号或密码',
+          })
+        }
     },
     
 })
