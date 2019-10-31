@@ -87,7 +87,8 @@ page{
 }
 .card-content-textblock .card-text-class{
   height: 100%;
-  width: 83%;
+  width: 80%;
+  padding-top: 1%;
   display: inline-block;
   position: absolute;
   color: #9B90C2;

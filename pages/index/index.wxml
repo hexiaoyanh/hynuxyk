@@ -7,8 +7,16 @@
     <view class="card-content">
       <view class="card-content-main">
         <view class="card-content-textblock">
-          <text style="text-align:left;padding-left:5%;width:50%;">{{AccNum}}</text>
-          <text style="text-align:right;margin-left:50%;width:50%;">{{MonDBCurr}}</text>
+          <view class="table">
+            <view class="tr-f">
+              <view class="td" style="text-align:left">
+                <text>{{AccNum}}</text>
+              </view>
+              <view class="td" style="text-align:right">
+                <text>{{MonDBCurr}}</text>
+              </view>
+            </view>
+          </view>
         </view>
       </view>
     </view>

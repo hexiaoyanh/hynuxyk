@@ -152,7 +152,7 @@ Page({
     },
     fc: function () {
         this.setData({
-            st: 'border: #895b8a;box-shadow: 0 0 20px #AAABD3;'
+          st: 'border: 1rpx solid rgb(255, 153, 98);box-shadow: 0 0 20px rgb(255, 153, 98);'
         })
     },
     

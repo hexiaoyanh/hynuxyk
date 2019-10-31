@@ -87,10 +87,11 @@ input{
     border-top-left-radius: 0; 
   border-bottom-right-radius: 25rpx;
     border-bottom-left-radius: 0;
-  font-size: 25rpx;
+  font-size: 28rpx;
   text-align: center;
   background-color: #5DAC81;
   color:#FCFAF2;
+  font-weight: bolder;
   display: inline-block;
   box-shadow: 6px 6px 10px 0px #00896C;
 

@@ -12,9 +12,7 @@ page{
   height: 100%;
   background-size: cover;
   display: inline-block;
-    background-image: linear-gradient(to bottom right,rgb(233,158,124),rgb(255, 205, 149));
-
-  /* background-image: linear-gradient(to bottom right,#FB9966,rgb(248, 201, 166)); */
+  background-image: linear-gradient(to bottom right,rgb(233,158,124),rgb(255, 205, 149));
 }
 .card{
   height: 80%;
@@ -109,5 +107,5 @@ input {
     text-align: center;
     font-size: 30rpx;
     width: 90%;
-    height: 30%;
+    height: 35%;
 }

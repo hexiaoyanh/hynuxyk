@@ -43,6 +43,7 @@ page{
   text-align: center;
   position: absolute;
   font-size: 40rpx;
+  font-weight: bolder;
   bottom: 0px;
   width: 100%;
 }
@@ -59,7 +60,7 @@ page{
   margin-left: 10%;
   margin-top: 3%;
   font-size: 30rpx;
-  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+  font-weight: bolder;
   width: 80%;
   height: 60%;
   text-align: center;
@@ -81,6 +82,7 @@ page{
   border-radius: 30rpx;
   background-color: rgb(150, 84, 84);
   font-size: 30rpx;
+  font-weight: bolder;
   text-align: center;
   color:snow;
   box-shadow: 3px 3px 10px 0px rgb(136,115,102);

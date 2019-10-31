@@ -12,8 +12,8 @@
         <view class="card-content animated slideInDown">
             <view class="ttitle">
                 <text>
-          校园卡当前状态：{{states}}
-        </text>
+                  校园卡当前状态：{{states}}
+                </text>
             </view>
             <form bindsubmit="passwordInput">
 

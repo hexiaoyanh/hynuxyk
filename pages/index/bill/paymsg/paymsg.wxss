@@ -71,7 +71,7 @@ page{
   background-color: #7DB9DE;
   color: #2E5C6E;
   border-radius: 20rpx;
-  padding-top: 30rpx;
+  padding-top: 4%;
   font-size: 25rpx;
 }
 
@@ -107,4 +107,20 @@ page{
   color: gray;
   height: 40%;
   width: 100%;
+}
+
+.table {
+  border: 0px solid darkgray;
+}
+.tr-f {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 1.5rem;
+  align-items: center;
+}
+.td {
+    font-size: 30rpx;
+    width:45%;
+    justify-content: center;
 }
