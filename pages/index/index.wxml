@@ -72,7 +72,7 @@
           <text>我\t的</text>
         </view>
     </view>
-    <view bindtap="DoorPassword" class="card-methods" style="margin-left: 5%;">
+    <view bindtap="Kbcj" class="card-methods" style="margin-left: 5%;">
        <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwsjm7g7j30qa0dct9i.jpg"></image>
         <view class="card-methods-title">
           <text>课表成绩</text>

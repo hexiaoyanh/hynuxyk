@@ -1,0 +1,107 @@
+/* pages/JW/JW.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.global{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right,rgb(25,43,57),rgb(75, 96, 115));
+}
+.card{
+  height: 50%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 30%;
+  margin-bottom: 5%;
+  border-radius: 20rpx; 
+  color:snow;
+}
+.card .card-image{
+  z-index: 3;
+  height: 60%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+  box-shadow: 3px 3px 10px 0px rgb(36,46,56);
+}
+.card .main-card-image{
+  height: 100%;
+  width: 100%;
+  border-radius: 20rpx; 
+
+}
+.card .card-content{
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 40%;
+
+}
+.card .card-content .card-content-main{
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  height: 100%;
+  margin-left: 8%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: rgb(100, 119, 134);
+  display: inline-block;
+  box-shadow: 3px 3px 10px 0px rgb(36,46,56);
+
+}
+.card .card-content .card-content-textblock{
+  margin-left: 10%;
+  margin-top: 3%;
+  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+  width: 80%;
+  height: 40%;
+  text-align: left;
+}
+.card .card-content .card-content-tag{
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: 12%;
+  height: 50%;
+}
+.input-title{
+  font-size: 35rpx;
+  display: inline-block;
+}
+input{
+  width:100%;
+  text-align: left;
+  margin-top: 3rpx;
+  border-bottom: 1rpx snow solid;
+}
+.card-button{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 25rpx;
+    border-top-left-radius: 0; 
+  border-bottom-right-radius: 25rpx;
+    border-bottom-left-radius: 0;
+  font-size: 25rpx;
+  text-align: center;
+  background-color: rgb(30, 36, 50);
+  color:#FCFAF2;
+  display: inline-block;
+  box-shadow: 3px 3px 10px 0px rgb(36,46,56);
+
+}
+
+.card .slogan{
+  padding-top: 20%;
+  width: 100%;
+  height: 20%;
+  font-style: italic;
+  text-shadow: 0.5px 0.5px 4px rgb(158, 88, 67);
+  color: rgb(196, 105, 77);
+}

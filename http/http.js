@@ -29,6 +29,7 @@ class http {
     BankCard = "";
     AccStatus = "";
     BankTransState = "";
+    JwCookie = "";
 
     setTime() {
         //当前时间化成yyyymmddhhmmss
@@ -562,6 +563,26 @@ class http {
                 fail(error) {
                     console.log(error)
                     reject(error)
+                }
+            })
+        })
+    }
+    JwLogin(username,password){
+        var that = this;
+        var url = that.url + "query/login"
+        return new Promise(function (resolve,reject){
+            wx.request({
+                url: url,
+                method:'POST',
+                data:{
+                    "username":username,
+                    "password":password
+                },
+                success(res){
+                    resolve(res)
+                },
+                fail(res){
+                    reject(res)
                 }
             })
         })

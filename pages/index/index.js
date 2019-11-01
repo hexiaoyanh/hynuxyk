@@ -162,9 +162,9 @@ Page({
             url: '../myself/myself',
         })
     },
-    DoorPassword: function(e) {
+    Kbcj: function(e) {
         wx.navigateTo({
-            url: './DoorPassword/DoorPassword',
+            url: './kbcj/kbcj',
         })
     }
 })
