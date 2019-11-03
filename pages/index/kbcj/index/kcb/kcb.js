@@ -51,7 +51,8 @@ Page({
             index: 7,
             day: week[6]
         }],
-        listData: null
+        listData: null,
+        allData:null
     },
 
     /**
@@ -63,10 +64,11 @@ Page({
         app.http.JwKb().then((res) => {
             wx.hideLoading();
             var jsons = JSON.parse(res.data['kb'])
-            jsons = that.dealData(jsons);
+            var listData = that.dealData(jsons);
             console.log(jsons)
             that.setData({
-                listData: jsons
+                listData: listData,
+                allData: jsons
             })
         },(error)=>{
             wx.hideLoading();
