@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "pages": [
         "pages/login/login",
         "pages/index/index",
@@ -27,4 +28,31 @@
         "navigationStyle": "custom"
     },
     "sitemapLocation": "sitemap.json"
+=======
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/myself/myself",
+    "pages/index/VirtualCard/VirtualCard",
+    "pages/index/AccessControl/AccessControl",
+    "pages/index/Charge/Charge",
+    "pages/index/DoorPassword/DoorPassword",
+    "pages/index/ReportLoss/ReportLoss",
+    "pages/index/Scan/Scan",
+    "pages/index/Wallent/Wallent",
+    "pages/index/VirtualCard/BigPic/BigPic",
+    "pages/index/bill/bill",
+    "pages/index/bill/paymsg/paymsg",
+    "pages/index/AccessControl/getpsw/getpsw",
+    "pages/myself/change/change"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json"
+>>>>>>> 1666ebdc5a3a803ac4c5c1ab0b2732dc9fa1fd16
 }
