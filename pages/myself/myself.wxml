@@ -22,7 +22,7 @@
     
 
     <view class="card-content animated slideInDown" style="animation-delay:0.1s;z-index:2;width: 90%;margin-left: 5%;">
-      <navigator>
+      <navigator url="change/change">
         <view class="card-content-textblock" style="background-color:rgb(134,150,167)">
           <text>修改密码</text>
         </view>
