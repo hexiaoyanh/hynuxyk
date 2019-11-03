@@ -5,7 +5,7 @@
   </view>
   <view class="card">
     <view class="card-image">
-      <image class="main-card-image" src="../../image/15.png" mode="aspectFill">
+      <image class="main-card-image" src="https://wx2.sinaimg.cn/mw690/006blzWmgy1g8itbaa43bj30vg0hrwlj.jpg" mode="aspectFill">
       </image>
     </view>
   </view>

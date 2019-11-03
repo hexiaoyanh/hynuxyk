@@ -34,127 +34,7 @@ Page({
                         value: "必修",
                     },
                 ]
-            },
-            {
-                cont: "语文",
-                gradeTotal: "100.0",
-                hiddena: true,
-                id: "1",
-                detail: [
-                    {
-                        name: "平时成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "考试成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "学分",
-                        value: "4",
-                    },
-                    {
-                        name: "课程类型",
-                        value: "必修",
-                    },
-                ]
-            },
-            {
-                cont: "语文",
-                gradeTotal: "100.0",
-                hiddena: true,
-                id: "2",
-                detail: [
-                    {
-                        name: "平时成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "考试成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "学分",
-                        value: "4",
-                    },
-                    {
-                        name: "课程类型",
-                        value: "必修",
-                    },
-                ]
-            },
-            {
-                cont: "语文",
-                gradeTotal: "100.0",
-                hiddena: true,
-                id: "3",
-                detail: [
-                    {
-                        name: "平时成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "考试成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "学分",
-                        value: "4",
-                    },
-                    {
-                        name: "课程类型",
-                        value: "必修",
-                    },
-                ]
-            },
-            {
-                cont: "语文",
-                gradeTotal: "100.0",
-                hiddena: true,
-                id: "4",
-                detail: [
-                    {
-                        name: "平时成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "考试成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "学分",
-                        value: "4",
-                    },
-                    {
-                        name: "课程类型",
-                        value: "必修",
-                    },
-                ]
-            },
-            {
-                cont: "语文",
-                gradeTotal: "100.0",
-                hiddena: true,
-                id: "5",
-                detail: [
-                    {
-                        name: "平时成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "考试成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "学分",
-                        value: "4",
-                    },
-                    {
-                        name: "课程类型",
-                        value: "必修",
-                    },
-                ]
-            },
+            }
         ]
     },
     isOpen: function (e) {
@@ -177,7 +57,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        
     },
 
     /**

@@ -1,60 +1,60 @@
 <!--pages/table/table.wxml-->
 <view class="global">
-  <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
-    <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
-      <text class="cuIcon-back" style="font-size:40rpx"></text>
-    </navigator>
-  </view>
-
-  <view class="card">
-    <view class="card-image">
-      <image class="main-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g8irety6ufj30q60dbab8.jpg" mode="aspectFill"></image>
-      <view class="cday" style="margin-top:25%">
-        <view class="table">
-          <view class="tr-day">
-            <view class="td-day" style="width:8%;"><text>{{month}}\n月</text></view>
-            <block wx:for="{{dayArray}}" wx:key="{{index}}">
-              <view class="td-day today" wx:if="{{item.day==day}}">{{item.day}}</view>
-              <view class="td-day" wx:else>{{item.day}}</view>
-            </block>
-          </view>
-        </view>
-      </view>
+    <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+        <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+            <text class="cuIcon-back" style="font-size:40rpx"></text>
+        </navigator>
     </view>
 
-    <view class="card-content">
-      <scroll-view style="height:99%;width:99%;border-radius:20rpx;" scroll-y="true">
-
-        <view class="table">
-          <view class="tr-f">
-            <view class="th-f" style="background: linear-gradient(to top right,rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0) calc(50% - 1.5px),rgba(0, 0, 0, 1) 50%,rgba(0, 0, 0, 0) calc(50% + 1.5px),rgba(0, 0, 0, 0) 100%)"></view>
-            <view class="th">一</view>
-            <view class="th">二</view>
-            <view class="th">三</view>
-            <view class="th">四</view>
-            <view class="th">五</view>
-            <view class="th">六</view>
-            <view class="th">七</view>
-          </view>
-
-          <block wx:for="{{listData}}" wx:key="{{code}}">
-            <view class="tr">
-              <view class="td-f">{{item.code}}</view>
-              <block wx:for="{{}}" wx:key="id">
-              </block>
-              <view class="td haveClass">{{item.class}}</view>
-              <view class="td haveClass">{{item.class}}</view>
-              <view class="td haveClass">{{item.class}}</view>
-              <view class="td haveClass">{{item.class}}</view>
-              <view class="td haveClass">{{item.class}}</view>
-              <view class="td haveClass">{{item.class}}</view>
-              <view class="td haveClass">{{item.class}}</view>
+    <view class="card">
+        <view class="card-image">
+            <image class="main-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g8irety6ufj30q60dbab8.jpg" mode="aspectFill"></image>
+            <view class="cday" style="margin-top:25%">
+                <view class="table">
+                    <view class="tr-day">
+                        <view class="td-day" style="width:8%;">
+                            <text>{{month}}\n月</text>
+                        </view>
+                        <block wx:for="{{dayArray}}" wx:key="{{index}}">
+                            <view class="td-day today" wx:if="{{item.day==day}}">{{item.day}}</view>
+                            <view class="td-day" wx:else>{{item.day}}</view>
+                        </block>
+                    </view>
+                </view>
             </view>
-          </block>
-
         </view>
 
-      </scroll-view>
+        <view class="card-content">
+            <scroll-view style="height:99%;width:99%;border-radius:20rpx;" scroll-y="true">
+
+                <view class="table">
+                    <view class="tr-f">
+                        <view class="th-f" style="background: linear-gradient(to top right,rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0) calc(50% - 1.5px),rgba(0, 0, 0, 1) 50%,rgba(0, 0, 0, 0) calc(50% + 1.5px),rgba(0, 0, 0, 0) 100%)"></view>
+                        <view class="th">一</view>
+                        <view class="th">二</view>
+                        <view class="th">三</view>
+                        <view class="th">四</view>
+                        <view class="th">五</view>
+                        <view class="th">六</view>
+                        <view class="th">七</view>
+                    </view>
+                    <block wx:for="{{listData}}" wx:key="{{id}}">
+                        <view class="tr">
+                            <view class="td-f">{{item.code}}</view>
+                            <view class="td haveClass">{{item[0]}}</view>
+                            <view class="td haveClass">{{item[1]}}</view>
+                            <view class="td haveClass">{{item[2]}}</view>
+                            <view class="td haveClass">{{item[3]}}</view>
+                            <view class="td haveClass">{{item[4]}}</view>
+                            <view class="td haveClass">{{item[5]}}</view>
+                            <view class="td haveClass">{{item[6]}}</view>
+                        </view>
+                    </block>
+
+
+                </view>
+
+            </scroll-view>
+        </view>
     </view>
-  </view>
 </view>

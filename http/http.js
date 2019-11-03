@@ -587,6 +587,52 @@ class http {
             })
         })
     }
+    JwKb(){
+        var that = this;
+        var date = new Date();
+        var jn = date.getFullYear().toString();
+        var mn = (Number(jn)+1).toString();
+        var m = 2;
+        if(date.getMonth()+1 >= 8)
+            m = 1;
+        var str = jn+'-'+mn+'-'+m;
+        return new Promise(function(resolve,reject){
+            wx.request({
+                url: that.url+'query/kb',
+                method: 'POST',
+                data:{
+                    "cookies":that.JwCookie,
+                    "date":str,
+                    "week":""
+                },
+                success(res){
+                    resolve(res)
+                },
+                fail(res){
+                    reject(res);
+                }
+            })
+        })
+    }
+    JwCj(str){
+        var that = this;
+        return new Promise(function(resolve,reject){
+            wx.request({
+                url: that.url+'query/cj',
+                method:'POST',
+                data:{
+                    "cookies":that.JwCookie,
+                    "data":str,
+                },
+                success(res){
+                    resolve(res)
+                },
+                fail(res){
+                    reject(res)
+                }
+            })
+        })
+    }
 }
 export {
     http
