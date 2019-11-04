@@ -58,9 +58,8 @@ page{
   margin-left: 5%;
   margin-top: 3%;
   font-size: 30rpx;
-  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
   width: 90%;
-  height: 30%;
+  height: 35%;
   text-align: center;
   padding-top: 3%;
   box-shadow: 3px 3px 10px 0px rgb(255, 153, 98);
@@ -74,20 +73,21 @@ page{
 
 
 .card-button {
-    margin-left: 35%;
-    color: black;
-    background-color: rgb(240, 156, 123);
-    border-radius: 30rpx;
-    width: 30%;
-    height: 15%;
-    box-shadow: 3px 3px 10px 0px rgb(255, 153, 98);
-    margin-top: 3%;
+  line-height: 65rpx;
+  margin-left: 35%;
+  color: black;
+  background-color: rgb(240, 156, 123);
+  border-radius: 30rpx;
+  width: 30%;
+  height: 15%;
+  box-shadow: 3px 3px 10px 0px rgb(255, 153, 98);
+  margin-top: 3%;
 }
 
 
 input {
     text-align: center;
-    margin-right: 5%;
+    margin-top: 3%;
     margin-left: 5%;
     width: 90%;
     height: 5%;

@@ -78,7 +78,7 @@ page{
   position: relative;
   z-index: 1;
   width: 76%;
-  height: 22%;
+  height: 25%;
   margin-left:12%; 
   border-bottom-right-radius: 20rpx;
   border-bottom-left-radius: 20rpx;

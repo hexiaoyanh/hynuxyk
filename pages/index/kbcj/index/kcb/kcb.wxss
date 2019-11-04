@@ -142,26 +142,25 @@ page {
 }
 
 .td {
-    /* overflow : hidden;
+  overflow : hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; */
-    margin-right: 7rpx;
-    line-height: 1rem;
-    padding-top: 3rpx;
-    height: 100%;
-    width: 13%;
-    justify-content: center;
-    text-align: left;
-    letter-spacing: 2rpx;
+  margin-right: 7rpx;
+  line-height: 1rem;
+  padding-top: 10rpx;
+  color: rgb(203, 210, 214);
+  height: 100%;
+  width: 13%;
+  justify-content: center;
+  text-align: left;
 }
 
 .td-f {
     margin-top: 3prx;
     padding-top: 3rpx;
     height: 100%;
-    width: 7%;
+    width: 10%;
     justify-content: center;
-    text-align: center;
+    text-align: left;
 }
 
 .td-day {
@@ -197,7 +196,7 @@ page {
     border-radius: 10rpx;
     background-color: rgb(59, 78, 95);
     box-shadow: 0px 0px 3px 0px rgb(36, 46, 56);
-    font-size: 35rpx;
+    font-size: 30rpx;
 }
 
 .today {

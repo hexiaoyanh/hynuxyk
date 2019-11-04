@@ -39,16 +39,29 @@
                         <view class="th">七</view>
                     </view>
                     <block wx:for="{{listData}}" wx:key="{{id}}">
-                        <view class="tr">
-                            <view class="td-f">{{item.code}}</view>
-                            <view class="td haveClass">{{item[0]}}</view>
-                            <view class="td haveClass">{{item[1]}}</view>
-                            <view class="td haveClass">{{item[2]}}</view>
-                            <view class="td haveClass">{{item[3]}}</view>
-                            <view class="td haveClass">{{item[4]}}</view>
-                            <view class="td haveClass">{{item[5]}}</view>
-                            <view class="td haveClass">{{item[6]}}</view>
-                        </view>
+                      <view class="tr">
+                        <view class="td-f">{{classArray[index]}}</view>
+                        <view wx:if="{{item[0]==\"\"}}" class="td"><text>{{item[0]}}</text></view>
+                        <view wx:else class="td haveClass"><text>{{item[0]}}</text></view>
+
+                        <view wx:if="{{item[1]==\"\"}}" class="td"><text>{{item[1]}}</text></view>
+                        <view wx:else class="td haveClass"><text>{{item[1]}}</text></view>
+
+                        <view wx:if="{{item[2]==\"\"}}" class="td"><text>{{item[2]}}</text></view>
+                        <view wx:else class="td haveClass"><text>{{item[2]}}</text></view>
+
+                        <view wx:if="{{item[3]==\"\"}}" class="td"><text>{{item[3]}}</text></view>
+                        <view wx:else class="td haveClass"><text>{{item[3]}}</text></view>
+
+                        <view wx:if="{{item[4]==\"\"}}" class="td"><text>{{item[4]}}</text></view>
+                        <view wx:else class="td haveClass"><text>{{item[4]}}</text></view>
+
+                        <view wx:if="{{item[5]==\"\"}}" class="td"><text>{{item[5]}}</text></view>
+                        <view wx:else class="td haveClass"><text>{{item[5]}}</text></view>
+
+                        <view wx:if="{{item[6]==\"\"}}" class="td"><text>{{item[6]}}</text></view>
+                        <view wx:else class="td haveClass"><text>{{item[6]}}</text></view>
+                      </view>
                     </block>
 
 

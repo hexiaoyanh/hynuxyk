@@ -1,18 +1,19 @@
 // pages/table/table.js
 var hei = wx.getMenuButtonBoundingClientRect().top;
 var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var weeks = [7, 1, 2, 3, 4, 5, 6];
 var date = new Date();
 var currentYear = date.getFullYear();
 var currentMonth = date.getMonth() + 1;
 var currentDay = date.getDate();
-var currentWeek = date.getUTCDay() + 1;
+var currentWeek = weeks[date.getUTCDay()];
 var week = [];
 for (var i = 0; i < currentWeek; i++) {
-    week[i] = currentDay - currentWeek + i + 2;
+    week[i] = currentDay - currentWeek + i + 1;
     if (week[i] <= 0)
         week[i] = week[i] + month[currentMonth - 2];
 }
-for (var i = currentWeek, j = 2; i < 7; i++, j++) {
+for (var i = currentWeek, j = 1; i < 7; i++, j++) {
     week[i] = currentDay + j;
     if (week[i] > month[currentMonth - 1])
         week[i] = week[i] - month[currentMonth - 1];
@@ -29,6 +30,7 @@ Page({
         year: currentYear,
         month: currentMonth,
         day: currentDay,
+        classArray:["1\\2","3\\4","5\\6","7\\8","9\\10"],
         dayArray: [{
             index: 1,
             day: week[0]
