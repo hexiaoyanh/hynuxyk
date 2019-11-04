@@ -492,13 +492,13 @@ class http {
         var b = [that.Time, that.AccNum, date, recnum, count]
         this.setSign(a, b);
         var url = that.url + "QueryAccountDoor.aspx"
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
                 data: {
                     "Time": that.Time,
                     "Sign": that.Sign,
-                    "AccNum":that.AccNum,
+                    "AccNum": that.AccNum,
                     "Date": date,
                     "RecNum": recnum,
                     "Count": count
@@ -513,14 +513,14 @@ class http {
             })
         })
     }
-    ApplyDoorPwd(devicesnum,doorid){
+    ApplyDoorPwd(devicesnum, doorid) {
         var that = this;
         var a = ['Time', "AccNum", "DeviceNum", "DoorID"]
         this.setTime();
-        var b = [that.Time, that.AccNum,devicesnum,doorid]
+        var b = [that.Time, that.AccNum, devicesnum, doorid]
         this.setSign(a, b);
         var url = that.url + "ApplyDoorPwd.aspx"
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -540,14 +540,14 @@ class http {
             })
         })
     }
-    ReportLost(password){
+    ReportLost(password) {
         var that = this;
         var a = ['Time', "AccNum", "OptType", "Password"]
         this.setTime();
         var b = [that.Time, that.AccNum, "1", password]
         this.setSign(a, b);
         var url = that.url + "ReportLost.aspx"
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -567,86 +567,114 @@ class http {
             })
         })
     }
-    JwLogin(username,password){
+    ModifyPassword(oldpassword, newpassword, PswType) {
         var that = this;
-        var url = that.url + "query/login"
-        return new Promise(function (resolve,reject){
+        var a = ['Time', "AccNum", "PswType", "OldPassword", "NewPassword"]
+        this.setTime();
+        var b = [that.Time, that.AccNum, PswType, that.OtherPassword(oldpassword), that.OtherPassword(newpassword)]
+        this.setSign(a, b);
+        var url = that.url + "ModifyPassword.aspx"
+        return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
-                method:'POST',
-                data:{
-                    "username":username,
-                    "password":password
+                data: {
+                    "Time": that.Time,
+                    "Sign": that.Sign,
+                    "AccNum": that.AccNum,
+                    "PswType": PswType,
+                    "OldPassword": that.OtherPassword(oldpassword),
+                    "NewPassword": that.OtherPassword(newpassword)
                 },
-                success(res){
+                success(res) {
                     resolve(res)
                 },
-                fail(res){
+                fail(error) {
+                    console.log(error)
+                    reject(error)
+                }
+            })
+        })
+    }
+    JwLogin(username, password) {
+        var that = this;
+        var url = that.url + "query/login"
+        return new Promise(function(resolve, reject) {
+            wx.request({
+                url: url,
+                method: 'POST',
+                data: {
+                    "username": username,
+                    "password": password
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(res) {
                     reject(res)
                 }
             })
         })
     }
-    JwKb(){
+    JwKb() {
         var that = this;
         var date = new Date();
         var jn = date.getFullYear().toString();
-        var mn = (Number(jn)+1).toString();
+        var mn = (Number(jn) + 1).toString();
         var m = 2;
-        if(date.getMonth()+1 >= 8)
+        if (date.getMonth() + 1 >= 8)
             m = 1;
-        var str = jn+'-'+mn+'-'+m;
-        return new Promise(function(resolve,reject){
+        var str = jn + '-' + mn + '-' + m;
+        return new Promise(function(resolve, reject) {
             wx.request({
-                url: that.url+'query/kb',
+                url: that.url + 'query/kb',
                 method: 'POST',
-                data:{
-                    "cookies":that.JwCookie,
-                    "date":str,
-                    "week":""
+                data: {
+                    "cookies": that.JwCookie,
+                    "date": str,
+                    "week": ""
                 },
-                success(res){
+                success(res) {
                     resolve(res)
                 },
-                fail(res){
+                fail(res) {
                     reject(res);
                 }
             })
         })
     }
-    JwCj(str){
+    JwCj(str) {
         var that = this;
-        return new Promise(function(resolve,reject){
+        return new Promise(function(resolve, reject) {
             wx.request({
-                url: that.url+'query/cj',
-                method:'POST',
-                data:{
-                    "cookies":that.JwCookie,
-                    "date":str,
+                url: that.url + 'query/cj',
+                method: 'POST',
+                data: {
+                    "cookies": that.JwCookie,
+                    "date": str,
                 },
-                success(res){
+                success(res) {
                     resolve(res)
                 },
-                fail(res){
+                fail(res) {
                     reject(res)
                 }
             })
         })
     }
-    JwPscj(url){
+    JwPscj(url) {
         var that = this;
-        return new Promise(function(resolve,reject){
+        return new Promise(function(resolve, reject) {
             wx.request({
-                url: that.url+'query/pscj',
-                method:'POST',
-                data:{
-                    "cookie":that.JwCookie,
-                    "url":url
+                url: that.url + 'query/pscj',
+                method: 'POST',
+                data: {
+                    "cookie": that.JwCookie,
+                    "url": url
                 },
-                success(res){
+                success(res) {
                     resolve(res);
                 },
-                fail(error){
+                fail(error) {
                     reject(error);
                 }
             })

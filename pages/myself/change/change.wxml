@@ -20,34 +20,34 @@
         </view>
 
         <view class="card-content">
-          <form>
+          <form bindsubmit="changep1">
             <view class="card-content-textblock">
 
               <view class="card-content-title">
                 输入当前密码：
               </view>
-              <input type="text">
+              <input type="number" name='oldpassword' maxlength="6">
               </input>
             </view>
 
             <view class="card-content-textblock">
 
               <view class="card-content-title">
-                输入当前密码：
+                输入新密码：
               </view>
-              <input type="text">
+              <input type="number" name='newpassword' maxlength="6">
               </input>
             </view>
 
             <view class="card-content-textblock">
               <view class="card-content-title">
-                输入当前密码：
+                再次输入新密码：
               </view>
-              <input type="text">
+              <input type="number" name='newpassword2' maxlength="6">
               </input>
             </view>
 
-            <button type="submit" class="card-button" style="animation-delay:0.4s;">提交</button>
+            <button form-type='submit' type="submit" class="card-button" style="animation-delay:0.4s;">提交</button>
           </form>
         </view>
       </view>
@@ -66,34 +66,34 @@
         </view>
 
         <view class="card-content">
-          <form>
+          <form bindsubmit="changep2">
             <view class="card-content-textblock">
 
               <view class="card-content-title">
                 输入当前密码：
               </view>
-              <input type="text">
+              <input type="number" name='oldpassword' maxlength="6">
               </input>
             </view>
 
             <view class="card-content-textblock">
 
               <view class="card-content-title">
-                输入当前密码：
+                输入新密码：
               </view>
-              <input type="text">
+              <input type="number" name='newpassword' maxlength="6">
               </input>
             </view>
 
             <view class="card-content-textblock">
               <view class="card-content-title">
-                输入当前密码：
+                再次输入新密码：
               </view>
-              <input type="text">
+              <input type="number" name='newpassword2' maxlength="6">
               </input>
             </view>
 
-            <button type="submit" class="card-button" style="animation-delay:0.4s;">提交</button>
+            <button form-type='submit' type="submit" class="card-button" style="animation-delay:0.4s;">提交</button>
           </form>
         </view>
       </view>

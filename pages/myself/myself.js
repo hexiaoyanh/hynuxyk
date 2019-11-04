@@ -103,5 +103,15 @@ Page({
             }
         }
         wx.showModal(conf)
+    },
+    record:function(){
+        wx.navigateTo({
+            url: './record/record',
+        })
+    },
+    change:function(){
+        wx.navigateTo({
+            url: './change/change',
+        })
     }
 })
