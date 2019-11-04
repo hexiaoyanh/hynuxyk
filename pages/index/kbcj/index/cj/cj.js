@@ -1,7 +1,7 @@
 // pages/grade/grade.js
 
 var hei = wx.getMenuButtonBoundingClientRect().top;
-
+const app = getApp();
 Page({
 
     /**
@@ -10,45 +10,25 @@ Page({
     data: {
         slideStyle: "slideInDown",
         stateH: hei,
-        memberList: [
-            {
-                cont: "语文",
-                gradeTotal: "100.0",
-                hiddena: true,
-                id: "0",
-                detail: [
-                    {
-                        name: "平时成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "考试成绩",
-                        value: "100.0",
-                    },
-                    {
-                        name: "学分",
-                        value: "4",
-                    },
-                    {
-                        name: "课程类型",
-                        value: "必修",
-                    },
-                ]
-            }
-        ]
+        allData: null,
+        memberList: null
     },
-    isOpen: function (e) {
-        var idx = e.currentTarget.dataset.index;
-        console.log(idx);
-        var list = this.data.memberList;
-        console.log(list);
-        console.log(list.length);
-        for (let i = 0; i < list.length; i++) {
-            if (idx == i) {
-                list[i].hiddena = !list[i].hiddena;
-            }
-        }
-        this.setData({ memberList: list });
+    isOpen: function(e) {
+        var idx = Number(e.currentTarget.dataset.index);
+        var that = this;
+        var list = that.data.memberList;
+        list[idx].hiddena = !list[idx].hiddena;
+        app.http.JwPscj(that.data.allData[idx]['gradeDetail']).then((res) => {
+            var datas = res.data;
+            list[idx].detail[1]['value'] = datas[0];
+            list[idx].detail[2]['value'] = datas[2];
+            that.setData({
+                memberList:list
+            })
+        })
+        this.setData({
+            memberList: list
+        });
         return true;
     },
 
@@ -56,56 +36,104 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        
+    onLoad: function(options) {
+        var that = this;
+        app.http.JwCj('2018-2019-1').then((res) => {
+            var jsons = JSON.parse(res.data['cj'])
+            var list = that.dealData(jsons);
+            console.log(list);
+            that.setData({
+                allData: jsons,
+                memberList: list
+            })
+        })
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
+    onReady: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
+    onShow: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
+    onUnload: function() {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
+    },
+    dealData: function(data) {
+        var list = Array();
+        console.log(data)
+        for (var i in data) {
+            var conf = {
+                cont: data[i]['className'],
+                gradeTotal: data[i]['grade'],
+                hiddena: true,
+                id: i,
+                detail: [{
+                        name: "课程名：",
+                        value: data[i]['className']
+                    },
+                    {
+                        name: "平时成绩：",
+                        value: "加载中",
+                    },
+                    {
+                        name: "考试成绩：",
+                        value: "加载中",
+                    },
+                    {
+                        name: "学分：",
+                        value: data[i]['classgrade'],
+                    },
+                    {
+                        name: "课程类型：",
+                        value: data[i]['courseCategory'],
+                    },
+                    {
+                        name: "类型：",
+                        value: data[i]['examinationNature']
+                    }
+                ]
+            }
+            list.push(conf);
+        }
+        return list;
     }
 })

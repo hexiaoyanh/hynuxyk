@@ -30,7 +30,7 @@ Page({
         year: currentYear,
         month: currentMonth,
         day: currentDay,
-        classArray:["1\\2","3\\4","5\\6","7\\8","9\\10"],
+        classArray: ["1\\2", "3\\4", "5\\6", "7\\8", "9\\10"],
         dayArray: [{
             index: 1,
             day: week[0]
@@ -54,7 +54,8 @@ Page({
             day: week[6]
         }],
         listData: null,
-        allData:null
+        allData: null,
+        cout: 0
     },
 
     /**
@@ -67,17 +68,16 @@ Page({
             wx.hideLoading();
             var jsons = JSON.parse(res.data['kb'])
             var listData = that.dealData(jsons);
-            console.log(jsons)
             that.setData({
                 listData: listData,
                 allData: jsons
             })
-        },(error)=>{
+        }, (error) => {
             wx.hideLoading();
             wx.showModal({
                 title: '错误',
                 content: '网络错误，请重新登录',
-                success(){
+                success() {
                     wx.navigateTo({
                         url: '../../kbcj',
                     })
@@ -150,6 +150,18 @@ Page({
             b = 1;
             newData.push(nowData);
         }
+        console.log(newData)
         return newData
+    },
+    showDetail: function(e) {
+        var nowuse = Number(e.currentTarget.id);
+        var data = this.data.allData;
+        var str = (Math.floor(nowuse / 7) + 1).toString() + '-' + (nowuse % 7 + 1).toString();
+        console.log(str)
+        wx.showModal({
+            title: '详细信息',
+            content: '课程名：' + data[nowuse][0][str + '-1'] + "\r\n" + "详细信息：" + data[nowuse][1][str + '-2'] + "\r\n" + "其他：" + (data[nowuse][1][str + '-3'] == undefined ? "" : data[nowuse][1][str + '-3']),
+            showCancel: false
+        })
     }
 })

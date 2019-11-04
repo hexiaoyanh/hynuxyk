@@ -115,7 +115,7 @@ Page({
                 }else{
                     wx.showModal({
                         title: '错误',
-                        content: '账号或密码错误',
+                        content: '账号或密码错误,也许是服务器错误，请重试。',
                     })
                 }
             })

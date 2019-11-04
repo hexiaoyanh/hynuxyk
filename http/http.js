@@ -622,13 +622,32 @@ class http {
                 method:'POST',
                 data:{
                     "cookies":that.JwCookie,
-                    "data":str,
+                    "date":str,
                 },
                 success(res){
                     resolve(res)
                 },
                 fail(res){
                     reject(res)
+                }
+            })
+        })
+    }
+    JwPscj(url){
+        var that = this;
+        return new Promise(function(resolve,reject){
+            wx.request({
+                url: that.url+'query/pscj',
+                method:'POST',
+                data:{
+                    "cookie":that.JwCookie,
+                    "url":url
+                },
+                success(res){
+                    resolve(res);
+                },
+                fail(error){
+                    reject(error);
                 }
             })
         })
