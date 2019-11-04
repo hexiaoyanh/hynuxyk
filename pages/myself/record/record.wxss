@@ -1,0 +1,130 @@
+/* pages/myself/record/record.wxss */
+
+page{
+  width: 100%;
+  height: 100%;
+}
+.global{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right,rgb(136,115,102),rgb(238, 192, 114));
+}
+.card{
+  z-index: 0;
+  height: 80%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 10%;
+  margin-top: 10%;
+  border-radius: 20rpx; 
+  /* color:black; */
+  /* box-shadow: 6px 6px 10px 0px rgb(136,115,102); */
+}
+.card .card-image{
+  z-index: 4;
+  height: 30%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+  box-shadow: 3px 3px 10px 0px rgb(136,115,102);
+
+}
+.card .main-card-image{
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+}
+.card .card-image .ctitle{
+  z-index: 4;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 35%;
+  text-align:center; 
+  font-weight: bolder;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  color:snow;
+  font-size: 60rpx; 
+  background-image: linear-gradient(to bottom left,rgb(238, 192, 114),rgb(169, 151, 233));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  line-height: 60rpx;
+}
+.card .card-content{
+  height: 70%;
+  width: 94%;
+  margin-left: 3%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: #DAC9A6;
+  box-shadow: 3px 3px 10px 0px rgb(136,115,102);
+}
+.card-content .card-content-textblock{
+  z-index: 3;
+  position: relative;
+  margin-left: 5%;
+  margin-top: 3%;
+  font-size: 30rpx;
+  width: 90%;
+  height: 10%;
+  font-weight: bolder;
+  background-color: rgb(238, 192, 114);
+  box-shadow: 3px 3px 10px 0px rgb(136,115,102);
+  text-align: center;
+  padding-top: 2%;
+  border-radius: 20rpx;
+}
+.card-content .card-content-textdetail
+{
+  z-index: 2;
+  position: relative;
+  margin-left: 8%;
+  font-size: 30rpx;
+  width: 84%;
+  height: 10%;
+  background-color: rgb(130, 117, 177);
+  /* border:5rpx solid rgb(141, 126, 194); */
+  border-bottom: 5rpx solid rgb(141, 126, 194);
+  border-top: 5rpx solid rgb(141, 126, 194);
+  text-align: center;
+  padding-top: 2%;
+}
+
+.card-text-void{
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  color: rgb(130, 117, 177);
+  font-size: 30rpx;
+}
+.table {
+  border: 0px solid darkgray;
+}
+.tr-f {
+  display: flex;
+  justify-content: center;
+  height: 1.5rem;
+  align-items: center;
+}
+.td {
+    color: rgb(45, 41, 59);
+    overflow : hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:50%;
+    justify-content: center;
+}
+.td-image{
+    width:22%;
+    height: 100%;
+    justify-content: center;
+}

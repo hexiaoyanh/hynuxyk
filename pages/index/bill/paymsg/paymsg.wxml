@@ -17,13 +17,14 @@
 
         <view class="card-content">
             <view class="card-texttitle">
-                <text>{{MonDeal}}</text>
+                <text wx:if="{{MonDeal[0]=='-'}}">{{MonDeal}}</text>
+                <text wx:else>+{{MonDeal}}</text>
                 <view class="card-textsub">
                     <text wx:if="{{FeeName == \"自动转帐\" }}">转账成功</text>
                     <text wx:else>消费成功</text>
                 </view>
             </view>
-            <view class="VerticalBox" style="height:80%;width:100%;margin-top:10rpx;">
+            <view class="VerticalBox" style="height:80%;width:100%;margin-top:20rpx;">
                 <scroll-view style="height:100%;width:100%;" scroll-y="true">
                     <view class="card-content-textblock">
                       <view class="table">

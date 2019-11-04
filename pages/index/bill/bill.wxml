@@ -31,7 +31,7 @@
                     </view>
                     
                     <view class="td-image" style="text-align:center">
-                      <image wx:if="{{item2.FeeName==\"自动转帐\" }}" class="state-image" src="../../../res/png/state2.png" style="width:43%"></image>
+                      <image wx:if="{{item2.MonDeal[0]!='-'}}" class="state-image" src="../../../res/png/state2.png" style="width:43%"></image>
                       <image wx:else class="state-image" src="../../../res/png/state1.png" style="width:40%"></image>
                     </view>
 

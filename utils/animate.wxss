@@ -1651,6 +1651,21 @@
   animation-name: slideInDown;
 }
 
+@keyframes slideInDownMy {
+  from {
+    transform: translate3d(0, -60%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDownMy {
+  animation-name: slideInDownMy;
+}
+
 
 
 @keyframes slideInLeft {

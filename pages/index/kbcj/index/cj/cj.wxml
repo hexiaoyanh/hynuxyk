@@ -1,7 +1,7 @@
 <!--pages/grade/grade.wxml-->
 <view class="global">
    <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
-    <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack"><text class="cuIcon-back" style="font-size:40rpx"></text></navigator>
+    <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack"><text class="cuIcon-back text-gray" style="font-size:40rpx"></text></navigator>
   </view>
   <view class="card">
     <view class="card-image">

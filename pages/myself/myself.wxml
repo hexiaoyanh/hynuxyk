@@ -13,7 +13,7 @@
     </view>
 
     <view class="card-content animated slideInDown" style=";z-index:3;width: 95%;margin-left: 2.5%;">
-      <navigator>
+      <navigator url="record/record">
         <view class="card-content-textblock" style="background-color:rgb(146,172,209)">
           <text>操作记录</text>
         </view>
