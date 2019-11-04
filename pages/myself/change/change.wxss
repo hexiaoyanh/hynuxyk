@@ -46,7 +46,7 @@ page{
   text-align:center; 
   font-weight: bolder;
   position: absolute;
-  height: 40%;
+  height: 45%;
   width: 100%;
   color:snow;
   font-size: 40rpx; 
