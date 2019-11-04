@@ -615,7 +615,7 @@ class http {
             })
         })
     }
-    JwKb() {
+    JwKb(week) {
         var that = this;
         var date = new Date();
         var jn = date.getFullYear().toString();
@@ -631,7 +631,7 @@ class http {
                 data: {
                     "cookies": that.JwCookie,
                     "date": str,
-                    "week": ""
+                    "week": week
                 },
                 success(res) {
                     resolve(res)
