@@ -67,6 +67,19 @@ page {
     font-size: 50rpx;
 }
 
+.card-image .cweek{
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    text-align: left;
+    font-weight: bolder;
+    position: absolute;
+    height: 30%;
+    width: 100%;
+    color: snow;
+    font-size: 40rpx;
+}
 .card-image .cday {
     left: 0;
     top: 0;

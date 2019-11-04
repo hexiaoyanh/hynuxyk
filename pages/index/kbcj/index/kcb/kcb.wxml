@@ -9,6 +9,11 @@
     <view class="card">
         <view class="card-image">
             <image class="main-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g8irety6ufj30q60dbab8.jpg" mode="aspectFill"></image>
+            <view class="cweek">
+              <picker bindchange="pickerChange" range="{{schoolWeek}}" value="{{weekIndex}}">
+                <text>第 {{schoolWeek[weekIndex]}} 周</text>
+              </picker>
+            </view>
             <view class="cday" style="margin-top:25%">
                 <view class="table">
                     <view class="tr-day">
