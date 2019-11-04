@@ -105,6 +105,7 @@ Page({
             app.http.JwLogin(objData.username,objData.password).then((res)=>{
                 wx.hideLoading();
                 var data = res.data;
+                console.log(res.data)
                 if(data['Msg']=="OK")
                 {
                     app.http.JwCookie = data['cookie']['JSESSIONID'];

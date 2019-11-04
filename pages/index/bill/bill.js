@@ -23,7 +23,7 @@ Page({
             year: currenttime_year,
             month: currenttime_month,
             allrecsum: null,
-            currentsum: 1,
+            currentsum: 0,
             over: 0,
             table: null,
             loading: true
@@ -32,7 +32,7 @@ Page({
             year: currenttime_year,
             month: currenttime_month - 1,
             allrecsum: null,
-            currentsum: 1,
+            currentsum: 0,
             over: 0,
             table: null,
             loading: true
@@ -59,7 +59,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        
+
     },
 
     /**
@@ -154,7 +154,7 @@ Page({
                 year: sitem[lens - 1].year - (sitem[lens - 1].month == 1 ? 1 : 0),
                 month: (sitem[lens - 1].month - 1) == 0 ? 12 : (sitem[lens - 1].month - 1),
                 allrecsum: null,
-                currentsum: 1,
+                currentsum: 0,
                 over: 0,
                 table: null,
                 loading: true
@@ -170,7 +170,6 @@ Page({
             console.log(times)
             app.http.QueryDealRec(times.beginTime, times.endTime, "0", "-1", "0", "1", "0").then((res) => {
                 var json = x2js.xml2js(res.data).ZYTK;
-
                 if (json.Code == "1")
                     sitem[nowuse].allrecsum = Number(json.AllRecSum);
                 else sitem[nowuse].allrecsum = 0;
@@ -184,9 +183,12 @@ Page({
 
                     app.http.QueryDealRec(times.beginTime, times.endTime, "0", "-1", "0", sitem[nowuse].currentsum, 15).then((res2) => {
                         var json2 = x2js.xml2js(res2.data).ZYTK;
-                        console.log(json2);
-                        sitem[nowuse].table = that.dealdate(json2.Table.Row);
-                        sitem[nowuse].currentsum += sitem[nowuse].table.length;
+                        var row = json2.Table.Row;
+                        sitem[nowuse].table = that.dealdate(row);
+                        if (sitem[nowuse].table.length != undefined)
+                            sitem[nowuse].currentsum += sitem[nowuse].table.length;
+                        else sitem[nowuse].currentsum += 1;
+                        console.log(sitem[nowuse].currentsum)
                         sitem[nowuse].loading = false;
                         that.setData({
                             swiper_item: sitem
@@ -206,6 +208,8 @@ Page({
     },
     //处理日期
     dealdate: function(row) {
+        if(row.length==undefined)
+            row = [row]
         for (var i = 0; i < row.length; ++i) {
             var date = row[i].Date;
             date = date.split("-");
@@ -228,11 +232,10 @@ Page({
         var times = that.createDate(nowuse);
         var citem;
         sitem[nowuse].loading = false;
-        if(sitem[nowuse].currentsum>=sitem[nowuse].allrecsum)
-        {
+        if (sitem[nowuse].currentsum >= sitem[nowuse].allrecsum) {
             sitem[nowuse].over = 1;
             that.setData({
-                swiper_item:sitem
+                swiper_item: sitem
             });
             return;
         }
@@ -242,21 +245,21 @@ Page({
             sitem[nowuse].table = sitem[nowuse].table.concat(that.dealdate(json.Table.Row))
             sitem[nowuse].currentsum += sitem[nowuse].table.length;
             that.setData({
-                swiper_item:sitem
+                swiper_item: sitem
             })
         })
 
-    
+
 
     },
-    paymsg:function(e){
+    paymsg: function(e) {
         var that = this;
         console.log(e);
         var nowuse = Number(e.currentTarget.id);
         console.log(nowuse)
         var data = that.data.swiper_item[that.data.current_item].table[nowuse];
         wx.navigateTo({
-            url: './paymsg/paymsg?FeeName=' + data.FeeName  + '&Time=' + data.Time + '&MonDeal=' + data.MonDeal + '&MonCard=' + data.MonCard + '&Source=' + data.Source,
+            url: './paymsg/paymsg?FeeName=' + data.FeeName + '&Time=' + data.Time + '&MonDeal=' + data.MonDeal + '&MonCard=' + data.MonCard + '&Source=' + data.Source,
         })
     }
 })
