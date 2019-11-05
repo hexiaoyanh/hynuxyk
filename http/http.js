@@ -279,9 +279,10 @@ class http {
         })
     }
     //虚拟校园卡
-    getQRcode() {
+    getQRcode(height,width) {
         var that = this;
-        var url = that.url + "proxy/qr"
+        //var url = that.url + "proxy/qr"
+        var url = "http://127.0.0.1:8080/" +"getqr";
         return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
@@ -294,7 +295,9 @@ class http {
                     "cardID": that.CarID,
                     "agentID": that.AgentID,
                     "accNum": that.AccNum,
-                    "accName": that.AccName
+                    "accName": that.AccName,
+                    "height": height,
+                    "width": width
                 },
                 success(res) {
                     resolve(res)

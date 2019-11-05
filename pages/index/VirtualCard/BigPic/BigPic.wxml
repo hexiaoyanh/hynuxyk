@@ -2,4 +2,4 @@
 <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
     <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack"><text class="cuIcon-back" style="font-size:40rpx"></text></navigator>
   </view>
-<canvas class='canvas' style="width:{{qrcode_w}}px; height:{{qrcode_w}}px;" canvas-id='canvas' bindlongtap='save'></canvas>
+<image src="{{PngPath}}" class='canvas' style="width:{{qrcode_w}}px; height:{{qrcode_w}}px;" canvas-id='canvas'></image>
