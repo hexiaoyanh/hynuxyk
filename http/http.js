@@ -282,7 +282,7 @@ class http {
     getQRcode(height,width) {
         var that = this;
         //var url = that.url + "proxy/qr"
-        var url = "http://127.0.0.1:8080/" +"getqr";
+        var url = that.url +"proxy/getqr";
         return new Promise(function(resolve, reject) {
             wx.request({
                 url: url,
@@ -296,8 +296,8 @@ class http {
                     "agentID": that.AgentID,
                     "accNum": that.AccNum,
                     "accName": that.AccName,
-                    "height": height,
-                    "width": width
+                    "height": height.toString(),
+                    "width": width.toString()
                 },
                 success(res) {
                     resolve(res)
