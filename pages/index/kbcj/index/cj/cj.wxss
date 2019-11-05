@@ -34,10 +34,6 @@ page{
   height: 100%;
   width: 100%;
   border-radius: 20rpx;
-  /* border-bottom-right-radius: 0; 
-  border-bottom-left-radius: 0; 
-  border-top-right-radius: 20rpx; 
-  border-top-left-radius: 20rpx;  */
 }
 .card .card-content{
   z-index: 0;
@@ -78,10 +74,11 @@ page{
 }
 
 .card-content-mini{
+  font-size: 30rpx;
   position: relative;
   z-index: 1;
   width: 76%;
-  height: 36%;
+  height: 42%;
   margin-left:12%; 
   border-bottom-right-radius: 20rpx;
   border-bottom-left-radius: 20rpx;
@@ -125,7 +122,6 @@ page{
 }
 
 .td{
-  font-size: 30rpx;
   color: rgb(86, 66, 112);
   overflow : hidden;
   text-overflow: ellipsis;
