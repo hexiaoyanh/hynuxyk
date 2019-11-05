@@ -1,42 +1,4 @@
-<!-- pages/index/Scan/Scan.wxml
-<view class="upline">
-    <image src="/res/png/business_icon.png"></image>
-    <text>{{where}}</text>
-</view>
-
-<view class="middleline">
-    <view class="divLine"></view>
-    <view>
-        <text id="my">消费金额</text>
-        <text id="mc">¥ {{money}}</text>
-    </view>
-    <view class="divLine"></view>
-    <view>
-        <text id="pay">使用 {{who}}-主钱包 支付</text>
-        <text id="ye">可用余额: {{had}}</text>
-    </view>
-    <view class="divLine"></view>
-
-</view>
-
-<view class="btn">
-    <button bindtap="passwordInput" form-type='submit' type='primary' loading="{{btn_loading}}">确认</button>
-<passwordInput 
-      wx:if="{{showPassword}}"
-      bindhidePassBord="hidePassBord"
-      bindvalueSix="valueSix" 
-      input_value="{{inputData.input_value}}" 
-      value_length="{{inputData.value_length}}" 
-      isNext="{{inputData.isNext}}" 
-      get_focus="{{inputData.get_focus}}" 
-      focus_class="{{inputData.focus_class}}" 
-      value_num="{{inputData.value_num}}"
-      height="{{inputData.height}}" 
-      width="{{inputData.width}}" 
-      see="{{inputData.see}}" 
-      interval="{{inputData.interval}}">
-    </passwordInput> 
-</view> -->
+<!-- pages/index/Scan/Scan.wxml -->
 
 <view class="global">
     <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">

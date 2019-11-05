@@ -73,6 +73,7 @@ page{
 
 
 .card-button {
+  font-size: 30rpx;
   line-height: 65rpx;
   margin-left: 35%;
   color: black;

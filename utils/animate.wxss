@@ -1653,7 +1653,7 @@
 
 @keyframes slideInDownMy {
   from {
-    transform: translate3d(0, -42%, 0);
+    transform: translate3d(0, -35%, 0);
     visibility: visible;
   }
 
