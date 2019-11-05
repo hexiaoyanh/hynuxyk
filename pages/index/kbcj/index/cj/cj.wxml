@@ -16,7 +16,8 @@
           <view class="tr-f" style="height:100%">
             <picker bindchange="pickerChange" value="{{pickerIndex}}" range="{{schoolYear}}" style="height:100%;width:100%">
               <view class="td" style="text-align:center;line-height:60rpx;font-size:40rpx;font-weight:bolder">
-                <text style="border:1px solid;">当前学年:{{schoolYear[pickerIndex]}}</text>
+                <text>当前学年: </text>
+                <text class="pickerYear"> {{schoolYear[pickerIndex]}} </text>
               </view>
             </picker>
           </view>

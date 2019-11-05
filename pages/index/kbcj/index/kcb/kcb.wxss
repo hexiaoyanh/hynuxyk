@@ -219,6 +219,11 @@ page {
     background-image: linear-gradient(to bottom right, rgb(155, 88, 68), rgb(102, 88, 96));
 }
 
+.pickerWeek{
+  border-radius: 25rpx;
+  background-image: linear-gradient(to bottom right, rgb(155, 88, 68), rgb(102, 88, 96)); 
+}
+
 .card .slogan {
     padding-top: 20%;
     width: 100%;

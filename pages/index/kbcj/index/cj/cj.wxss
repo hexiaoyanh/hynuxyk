@@ -132,3 +132,9 @@ page{
   white-space: nowrap;
   justify-content: center;
 }
+
+.pickerYear{
+  color: rgb(139, 114, 136);
+  border-radius: 10rpx;
+  background-image: linear-gradient(to bottom right,rgb(67, 56, 83),rgb(123, 91, 172));
+}
