@@ -131,26 +131,26 @@ class http {
                     "Password": that.Password
                 },
                 success(res) {
-                    var doc = xmlParser.parseFromString(res.data);
-                    var code = doc.getElementsByTagName('Code')['0'].firstChild.data.toString();
+                    var json = x2js.xml2js(res.data).ZYTK;
+                    var code = json.Code;
                     if (code == "1") {
-                        that.Msg = doc.getElementsByTagName('Msg')['0'].firstChild.data.toString();
-                        that.AccNum = doc.getElementsByTagName('AccNum')['0'].firstChild.data.toString();
-                        that.AccName = doc.getElementsByTagName('AccName')['0'].firstChild.data.toString();
-                        that.PerCode = doc.getElementsByTagName('PerCode')['0'].firstChild.data.toString();
-                        that.CarID = doc.getElementsByTagName('CardID')['0'].firstChild.data.toString();
-                        that.CustomerID = doc.getElementsByTagName('CustomerID')['0'].firstChild.data.toString();
-                        that.AgentID = doc.getElementsByTagName('AgentID')['0'].firstChild.data.toString();
-                        that.LostDate = doc.getElementsByTagName('LostDate')['0'].firstChild.data.toString();
-                        that.IsDefault = doc.getElementsByTagName('IsDefault')['0'].firstChild.data.toString();
-
+                        that.Msg = json.Msg
+                        that.AccNum = json.AccNum;
+                        that.AccName = json.AccName;
+                        that.PerCode = json.PerCode;
+                        that.CarID = json.CardID;
+                        that.CustomerID = json.CustomerID;
+                        that.AgentID = json.AgentID;
+                        that.LostDate = json.LostDate;
+                        that.IsDefault = json.IsDefault;
                     } else {
-                        that.Msg = doc.getElementsByTagName('Msg')['0'].firstChild.data.toString();
+                        that.Msg = json.Msg;
                     }
                     resolve(res);
                 },
                 fail(error) {
                     that.Msg = "NetError";
+                    reject(error);
                 }
             })
         })
@@ -175,11 +175,11 @@ class http {
                     "AccNum": that.AccNum
                 },
                 success(res) {
-                    var doc = xmlParser.parseFromString(res.data);
-                    var code = doc.getElementsByTagName('Code')['0'].firstChild.data.toString();
+                    var json = x2js.xml2js(res.data).ZYTK;
+                    var code = json.Code;
                     if (code == "1") {
-                        that.MonDBCurr = doc.getElementsByTagName('MonDBCurr')['0'].firstChild.data.toString();
-                        that.IsOpen = doc.getElementsByTagName('IsOpen')['0'].firstChild.data.toString();
+                        that.MonDBCurr = json.Table.Row.MonDBCurr;
+                        that.IsOpen = json.Table.Row.IsOpen;
                     }
                     resolve(res);
                 },
@@ -209,13 +209,13 @@ class http {
                     "AccNum": that.AccNum
                 },
                 success(res) {
-                    var doc = xmlParser.parseFromString(res.data);
-                    that.BankCard = doc.getElementsByTagName('BankCard')['0'].firstChild.data.toString();
-                    that.BankName = doc.getElementsByTagName('BankName')['0'].firstChild.data.toString();
-                    resolve();
+                    var json = x2js.xml2js(res.data).ZYTK;
+                    that.BankCard = json.BankCard;
+                    that.BankName = json.BankName;
+                    resolve(res);
                 },
                 fail(error) {
-                    reject()
+                    reject(error)
                     console.error("QueryAccInfo" + error);
                 }
             })
@@ -238,9 +238,8 @@ class http {
                     "AccNum": that.AccNum
                 },
                 success(res) {
-                    resolve(res)
-                    var doc = xmlParser.parseFromString(res.data);
-                    var RandomNum = doc.getElementsByTagName('RandomNum')['0'].firstChild.data.toString();
+                    var json = x2js.xml2js(res.data).ZYTK;
+                    var RandomNum = json.RandomNum;
                     that.RandomNum = RandomNum;
                     resolve(res);
                 },
@@ -267,11 +266,10 @@ class http {
                     "AccNum": that.AccNum
                 },
                 success(res) {
-                    resolve(res)
-                    var doc = xmlParser.parseFromString(res.data);
-                    var OrderNum = doc.getElementsByTagName('OrderNum')['0'].firstChild.data.toString();
+                    var json = x2js.xml2js(res.data).ZYTK;
+                    var OrderNum = json.OrderNum;
                     that.OrderNum = OrderNum;
-                    resolve();
+                    resolve(res);
                 },
                 fail(error) {
                     reject(error)
@@ -374,13 +372,14 @@ class http {
                     "AccNum": that.AccNum
                 },
                 success(res) {
+                    var json = x2js.xml2js(res.data).ZYTK;
+                    console.log(json);
                     var doc = xmlParser.parseFromString(res.data);
-                    var AccStatus = doc.getElementsByTagName('AccStatus')['0'].firstChild.data.toString();
-                    var BankTransState = doc.getElementsByTagName('BankTransState')['0'].firstChild.data.toString();
+                    var AccStatus = json.AccStatus;
+                    var BankTransState = json.BankTransState;
                     that.AccStatus = AccStatus;
                     that.BankTransState = BankTransState;
                     resolve(res)
-
                 },
                 fail(error) {
                     reject(error)

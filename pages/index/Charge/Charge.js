@@ -150,10 +150,4 @@ Page({
     onShareAppMessage: function () {
 
     },
-    fc: function () {
-        this.setData({
-          st: 'border: 1rpx solid rgb(255, 153, 98);box-shadow: 0 0 20px rgb(255, 153, 98);'
-        })
-    },
-    
 })
