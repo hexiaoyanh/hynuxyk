@@ -6,12 +6,14 @@ var X2JS = require('./http/x2j/x2js/we-x2js.js');
 App({
     globalData: {
         http: null,
-        x2js:null
+        x2js:null,
+        hei:null
     },
     /** 
      * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次） 
      */
     onLaunch: function () {
+        this.hei = wx.getMenuButtonBoundingClientRect().top;
         this.http = new http();
         this.x2js = new X2JS();
 

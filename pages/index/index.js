@@ -17,7 +17,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
 
         app.http.QueryAccWallent().then((res) => {
             this.setData({
@@ -33,12 +33,12 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {},
+    onReady: function () { },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         app.http.QueryAccWallent().then((res) => {
             this.setData({
                 AccNum: app.http.AccName,
@@ -51,21 +51,21 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
         wx.showNavigationBarLoading() //在标题栏中显示加载
         app.http.QueryAccWallent().then((res) => {
             this.setData({
@@ -80,17 +80,17 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     },
-    Scan: function(e) {
+    Scan: function (e) {
         wx.scanCode({
             success(res) {
                 wx.showLoading({
@@ -100,20 +100,22 @@ Page({
                 app.http.ScanQR(res.result).then((res) => {
                     console.log(res.data)
                     if (res.data.code == "1") {
-                        app.http.QueryAccAuth().then((res)=>{
-                            if (app.http.AccStatus != "1" || app.http.BankTransState!="1")
-                            {
+                        app.http.QueryAccAuth().then((res2) => {
+                            if (app.http.AccStatus != "1" || app.http.BankTransState != "1") {
                                 wx.hideLoading();
                                 wx.showModal({
                                     title: '错误',
-                                    content: '账号不能使用此功能!',
+                                    content: '账号状态错误!',
+                                    success() {
+                                        wx.navigateBack({});
+                                    }
                                 })
-                                wx.navigateBack({});
-                            }
+                            } else
+                                wx.navigateTo({
+                                    url: './Scan/Scan?array=' + res.data.data,
+                                })
                         })
-                        wx.navigateTo({
-                            url: './Scan/Scan?array=' + res.data.data,
-                        })
+
                         wx.hideLoading();
                     } else {
                         wx.hideLoading();
@@ -127,42 +129,42 @@ Page({
             }
         })
     },
-    VirtualCard: function(e) {
+    VirtualCard: function (e) {
         wx.navigateTo({
             url: './VirtualCard/VirtualCard',
         })
     },
-    Charge: function(e) {
+    Charge: function (e) {
         wx.navigateTo({
             url: './Charge/Charge',
         })
     },
-    Wallent: function(e) {
+    Wallent: function (e) {
         wx.navigateTo({
             url: './Wallent/Wallent',
         })
     },
-    Transfer: function(e) {
+    Transfer: function (e) {
         wx.navigateTo({
             url: './bill/bill',
         })
     },
-    AccessControl: function(e) {
+    AccessControl: function (e) {
         wx.navigateTo({
             url: './AccessControl/AccessControl',
         })
     },
-    ReportLoss: function(e) {
+    ReportLoss: function (e) {
         wx.navigateTo({
             url: './ReportLoss/ReportLoss',
         })
     },
-    Attendance: function(e) {
+    Attendance: function (e) {
         wx.navigateTo({
             url: '../myself/myself',
         })
     },
-    Kbcj: function(e) {
+    Kbcj: function (e) {
         wx.navigateTo({
             url: './kbcj/kbcj',
         })

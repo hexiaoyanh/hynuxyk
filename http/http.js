@@ -1,6 +1,4 @@
 var CryptoJS = require('./crypto-js/crypto-js.js')
-var xml = require('./xml/dom-parser.js')
-var xmlParser = new xml.DOMParser();
 var X2JS = require('../http/x2j/x2js/we-x2js.js');
 var x2js = new X2JS();
 
@@ -376,8 +374,6 @@ class http {
                 },
                 success(res) {
                     var json = x2js.xml2js(res.data).ZYTK;
-                    console.log(json);
-                    var doc = xmlParser.parseFromString(res.data);
                     var AccStatus = json.AccStatus;
                     var BankTransState = json.BankTransState;
                     that.AccStatus = AccStatus;

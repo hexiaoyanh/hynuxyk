@@ -6,7 +6,6 @@ const W = wx.getSystemInfoSync().windowWidth;
 const rate = 750.0 / W;
 // 300rpx 在6s上为 150px
 const qrcode_w = Math.floor(400 / rate);
-var hei = wx.getMenuButtonBoundingClientRect().top;
 
 Page({
 
@@ -14,7 +13,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        stateH :hei,
+        stateH :app.hei,
         qrcode_w: qrcode_w,
         RandomNum: "",
         AccName: app.http.AccName,

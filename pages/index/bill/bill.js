@@ -1,10 +1,7 @@
 // pages/index/bill/bill.js
 const app = getApp();
 var pages = 1;
-var X2JS = require('../../../http/x2j/x2js/we-x2js.js');
-var hei = wx.getMenuButtonBoundingClientRect().top;
 
-var x2js = new X2JS();
 var date = new Date();
 var currenttime_year = date.getFullYear();
 var currenttime_month = date.getMonth() + 1;
@@ -16,7 +13,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        stateH: hei,
+        stateH: app.hei,
         current_item: 0,
         swiper_item: [{
             id: 1,
@@ -167,9 +164,8 @@ Page({
         //加载当前标签
         if (sitem[nowuse].allrecsum == null) {
             var times = that.createDate(nowuse);
-            console.log(times)
             app.http.QueryDealRec(times.beginTime, times.endTime, "0", "-1", "0", "1", "0").then((res) => {
-                var json = x2js.xml2js(res.data).ZYTK;
+                var json = app.x2js.xml2js(res.data).ZYTK;
                 if (json.Code == "1")
                     sitem[nowuse].allrecsum = Number(json.AllRecSum);
                 else sitem[nowuse].allrecsum = 0;
@@ -182,13 +178,12 @@ Page({
                     // TODO:修改加载数量
 
                     app.http.QueryDealRec(times.beginTime, times.endTime, "0", "-1", "0", sitem[nowuse].currentsum, 15).then((res2) => {
-                        var json2 = x2js.xml2js(res2.data).ZYTK;
+                        var json2 = app.x2js.xml2js(res2.data).ZYTK;
                         var row = json2.Table.Row;
                         sitem[nowuse].table = that.dealdate(row);
                         if (sitem[nowuse].table.length != undefined)
                             sitem[nowuse].currentsum += sitem[nowuse].table.length;
                         else sitem[nowuse].currentsum += 1;
-                        console.log(sitem[nowuse].currentsum)
                         sitem[nowuse].loading = false;
                         that.setData({
                             swiper_item: sitem
@@ -240,8 +235,7 @@ Page({
             return;
         }
         app.http.QueryDealRec(times.beginTime, times.endTime, "0", "-1", "0", sitem[nowuse].currentsum, 15).then((res) => {
-            var json = x2js.xml2js(res.data).ZYTK;
-            console.log(json)
+            var json = app.x2js.xml2js(res.data).ZYTK;
             sitem[nowuse].table = sitem[nowuse].table.concat(that.dealdate(json.Table.Row))
             sitem[nowuse].currentsum += sitem[nowuse].table.length;
             that.setData({
@@ -254,9 +248,7 @@ Page({
     },
     paymsg: function(e) {
         var that = this;
-        console.log(e);
         var nowuse = Number(e.currentTarget.id);
-        console.log(nowuse)
         var data = that.data.swiper_item[that.data.current_item].table[nowuse];
         wx.navigateTo({
             url: './paymsg/paymsg?FeeName=' + data.FeeName + '&Time=' + data.Time + '&MonDeal=' + data.MonDeal + '&MonCard=' + data.MonCard + '&Source=' + data.Source,

@@ -1,5 +1,4 @@
 // pages/index/ReportLoss/ReportLoss.js
-var hei = wx.getMenuButtonBoundingClientRect().top;
 const app = getApp();
 
 Page({
@@ -8,7 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        stateH: hei, 
+        stateH: app.hei, 
         showPassword: false,
         // 输入框参数设置
         inputData: {

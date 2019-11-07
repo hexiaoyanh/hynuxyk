@@ -1,9 +1,6 @@
 // pages/index/Scan/Scan.js
 const app = getApp();
-var xml = require('../../../http/xml/dom-parser.js')
-var xmlParser = new xml.DOMParser();
 var arrays;
-var hei = wx.getMenuButtonBoundingClientRect().top;
 
 Page({
 
@@ -15,7 +12,7 @@ Page({
         who: "",
         had: "",
         money: "",
-        stateH:hei,
+        stateH: app.hei,
         showPassword: false,
         // 输入框参数设置
         inputData: {
@@ -40,29 +37,21 @@ Page({
         app.http.getRandomNum().then((res) => {
             app.http.getOrderNum().then((res) => {
                 app.http.Pay(arrays[4], arrays[7], arrays[8], e.detail, arrays[6] * 0.01).then((res) => {
-                    var doc = xmlParser.parseFromString(res.data);
-                    code = doc.getElementsByTagName('Code')['0'].firstChild.data.toString();
-                    msg = doc.getElementsByTagName('Msg')['0'].firstChild.data.toString();
+                    var json = app.x2js.xml2js(res.data).ZYTK;
                     wx.hideLoading();
-                    if (code == "1") {
+                    if (json.Code == "1") {
                         wx.showModal({
                             title: '成功',
                             content: '支付成功',
                             success(res) {
-                                wx.switchTab({
-                                    url: '../index',
-                                })
+
                             }
                         })
                     } else {
                         wx.showModal({
                             title: '错误',
-                            content: msg,
-                            success() {
-                                wx.switchTab({
-                                    url: '../index',
-                                })
-                            }
+                            content: json.Msg,
+                            
                         })
 
                     }
@@ -109,18 +98,31 @@ Page({
                 }
             });
 
-        }
-        if (array[1] == "3")
+        } else
             app.http.GetDealerInfo(array[4], array[7], array[8]).then((res) => {
-                var doc = xmlParser.parseFromString(res.data);
-                var DealerName = doc.getElementsByTagName('DealerName')['0'].firstChild.data.toString();
-                var MonDBCur = doc.getElementsByTagName('MonDBCur')['0'].firstChild.data.toString();
-                that.setData({
-                    where: DealerName,
-                    who: app.http.AccName,
-                    had: MonDBCur,
-                    money: array[6] * 0.01
-                })
+                var json = app.x2js.xml2js(res.data).ZYTK;
+                if (json.Code == "1") {
+                    var DealerName = json.DealerName;
+                    var MonDBCur = json.MonDBCur;
+                    that.setData({
+                        where: DealerName,
+                        who: app.http.AccName,
+                        had: MonDBCur,
+                        money: array[6] * 0.01
+                    })
+                } else {
+                    wx.showModal({
+                        title: '错误',
+                        content: json.Msg,
+                        success() {
+                            wx.navigateBack({
+
+                            });
+                        }
+                    })
+                }
+
+
             })
     },
 

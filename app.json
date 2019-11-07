@@ -6,7 +6,6 @@
     "pages/index/VirtualCard/VirtualCard",
     "pages/index/AccessControl/AccessControl",
     "pages/index/Charge/Charge",
-    "pages/index/DoorPassword/DoorPassword",
     "pages/index/ReportLoss/ReportLoss",
     "pages/index/Scan/Scan",
     "pages/index/Wallent/Wallent",

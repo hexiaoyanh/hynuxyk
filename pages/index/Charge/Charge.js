@@ -1,9 +1,6 @@
 // pages/index/Charge/Charge.js
 const app = getApp()
 var Money=""
-var xml = require('../../../http/xml/dom-parser.js')
-var xmlParser = new xml.DOMParser();
-var hei = wx.getMenuButtonBoundingClientRect().top;
 Page({
 
     /**
@@ -26,16 +23,16 @@ Page({
             see: false,//是否明文展示
             interval: true,//是否显示间隔格子
         },
-        stateH:hei
+        stateH:app.hei
     },
     valueSix(e) {
         this.hidePassBord()
         // 模态交互效果
         var code = app.http.Recharge(Money,e.detail).then((res)=>{
-            console.log('111')
-            var doc = xmlParser.parseFromString(res.data);
-            var code = doc.getElementsByTagName('Code')['0'].firstChild.data.toString();
-            if (code == "1") {
+            console.log(res.data);
+            var json = app.x2js.xml2js(res.data).ZYTK;
+            console.log(json)
+            if (json.Code == "1") {
                 wx.showModal({
                     title: '提交成功',
                     content: '充值提交成功',
@@ -46,17 +43,10 @@ Page({
                     }
                 })
                 
-            } else if (code == "2") {
+            }  else {
                 wx.showModal({
-                    title: 'Error',
-                    content: '密码错误',
-                    success(res) {
-                    }
-                })
-            } else {
-                wx.showModal({
-                    title: 'Error',
-                    content: '未知错误',
+                    title: '错误',
+                    content: json.Msg,
                     success(res) {
                         wx.navigateBack({    
                             delta: 1,
