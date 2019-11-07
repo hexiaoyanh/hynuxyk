@@ -6,23 +6,23 @@
         </navigator>
     </view>
     <view class="card">
-      <view class="card-image">
-        <image class="main-card-image" src="https://wx2.sinaimg.cn/mw690/006blzWmgy1g8itbaa43bj30vg0hrwlj.jpg" mode="aspectFill"></image>
-      </view>
-
-        
-      <view class="card-content">
-        <view class="table" style="marigin-top:3%;">
-          <view class="tr-f" style="height:100%">
-            <picker bindchange="pickerChange" value="{{pickerIndex}}" range="{{schoolYear}}" style="height:100%;width:100%">
-              <view class="td" style="text-align:center;line-height:60rpx;font-size:40rpx;font-weight:bolder">
-                <text>当前学年: </text>
-                <text class="pickerYear"> {{schoolYear[pickerIndex]}} </text>
-              </view>
-            </picker>
-          </view>
+        <view class="card-image">
+            <image class="main-card-image" src="https://wx2.sinaimg.cn/mw690/006blzWmgy1g8itbaa43bj30vg0hrwlj.jpg" mode="aspectFill"></image>
         </view>
-      </view>
+
+
+        <view class="card-content">
+            <view class="table" style="marigin-top:3%;">
+                <view class="tr-f" style="height:100%">
+                    <picker bindchange="pickerChange" value="{{pickerIndex}}" range="{{schoolYear}}" style="height:100%;width:100%">
+                        <view class="td" style="text-align:center;line-height:60rpx;font-size:40rpx;font-weight:bolder">
+                            <text>当前学年: </text>
+                            <text class="pickerYear"> {{schoolYear[pickerIndex]}} </text>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+        </view>
     </view>
 
     <view class="cells">
@@ -55,7 +55,7 @@
                     </view>
                 </view>
             </block>
-            <view wx:if="{{memberList==null}}" class="card-text-void">加载中......</view>
+            <view wx:if="{{showloading}}" class="card-text-void">加载中......</view>
             <view wx:else class="card-text-void">
                 <text>
             没有更多记录

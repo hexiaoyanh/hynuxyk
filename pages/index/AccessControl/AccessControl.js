@@ -1,5 +1,4 @@
 // pages/index/AccessControl/AccessControl.js
-var hei = wx.getMenuButtonBoundingClientRect().top;
 const app = getApp();
 var date = new Date();
 var currenttime_year = date.getFullYear();
@@ -12,7 +11,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        stateH: hei,
+        stateH: app.hei,
         year: currenttime_year,
         month: currenttime_month,
         day: currenttime_day,

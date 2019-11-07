@@ -44,7 +44,18 @@ Page({
                             title: '成功',
                             content: '支付成功',
                             success(res) {
-
+                                if(res.confirm)
+                                {
+                                    wx.navigateBack({
+                                        
+                                    });
+                                }
+                                if(res.cancel)
+                                {
+                                    wx.navigateBack({
+                                        
+                                    })
+                                }
                             }
                         })
                     } else {

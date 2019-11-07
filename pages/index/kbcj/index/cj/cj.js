@@ -14,6 +14,7 @@ Page({
         memberList: null,
         pickerIndex: 0,
         schoolYear: null,
+        showloading:true
     },
     isOpen: function(e) {
         var idx = Number(e.currentTarget.dataset.index);
@@ -51,7 +52,8 @@ Page({
             list.push(str);
         }
         that.setData({
-            schoolYear:list
+            schoolYear:list,
+            showloading:true
         })
         that.getData(list[that.data.pickerIndex]);
     },
@@ -112,13 +114,15 @@ Page({
             console.log(list);
             that.setData({
                 allData: jsons,
-                memberList: list
+                memberList: list,
+                showloading:false
             })
         })
     },
     pickerChange: function(e) {
         this.setData({
             pickerIndex: e.detail.value,
+            showloading:true
         })
         var list = this.data.schoolYear;
         this.getData(list[e.detail.value]);
