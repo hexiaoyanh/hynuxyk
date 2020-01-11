@@ -89,6 +89,9 @@ Page({
                 BankCard: app.http.BankCard.substr(app.http.BankCard.length - 4)
             })
         })
+        this.setData({
+            stateH: app.hei
+        })
     },
 
     /**

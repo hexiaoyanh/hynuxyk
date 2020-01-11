@@ -26,8 +26,8 @@ Page({
             loading: true
         }, {
             id: 2,
-            year: currenttime_year,
-            month: currenttime_month - 1,
+            year: currenttime_month == 1 ? currenttime_year - 1 : currenttime_year,
+            month: currenttime_month == 1 ? 12 : currenttime_month,
             allrecsum: null,
             currentsum: 0,
             over: 0,
@@ -39,7 +39,11 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {},
+    onLoad: function(options) {
+        this.setData({
+            stateH:app.hei
+        })
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -103,6 +107,10 @@ Page({
         }
         var month = currenttime_month - months;
         var year = currenttime_year - years;
+        if(month<=0){
+            month+=12;
+            year-=1;
+        }
         var day;
 
         if (mon != 0)
@@ -143,7 +151,6 @@ Page({
                 swiper_item: sitem
             })
         }
-
         //加入新的标签
         if (nowuse + 1 == lens && sitem[lens - 1].id <= 12) {
             sitem.push({

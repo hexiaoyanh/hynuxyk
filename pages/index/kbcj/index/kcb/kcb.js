@@ -11,7 +11,7 @@ var week = [];
 for (var i = 0; i < currentWeek; i++) {
     week[i] = currentDay - currentWeek + i + 1;
     if (week[i] <= 0)
-        week[i] = week[i] + month[currentMonth - 2];
+        week[i] = week[i] + month[(currentMonth - 2 >= 0) ? (currentMonth - 2) : (12 + (currentMonth - 2))];
 }
 for (var i = currentWeek, j = 1; i < 7; i++, j++) {
     week[i] = currentDay + j;
@@ -64,6 +64,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        this.setData({
+            stateH: app.hei
+        })
         var that = this;
         wx.showLoading({
             title: '加载中',
@@ -128,10 +131,24 @@ Page({
     },
     getData: function(week) {
         var that = this;
-        if(week=="0")week='';
+        if (week == "0") week = '';
         app.http.JwKb(week).then((res) => {
             wx.hideLoading();
-            var jsons = JSON.parse(res.data['kb'])
+            try{
+                var jsons = JSON.parse(res.data['kb'])
+
+            }catch(e){
+                wx.hideLoading();
+                wx.showModal({
+                    title: '错误',
+                    content: '当前没有课程表或网络错误',
+                    success() {
+                        wx.navigateBack({
+                            
+                        });
+                    }
+                })
+            }
             var listData = that.dealData(jsons);
             that.setData({
                 listData: listData,
@@ -189,5 +206,30 @@ Page({
             content: '课程名：' + data[nowuse][0][str + '-1'] + "\r\n" + "详细信息：" + data[nowuse][1][str + '-2'] + "\r\n" + "其他：" + (data[nowuse][1][str + '-3'] == undefined ? "" : data[nowuse][1][str + '-3']),
             showCancel: false
         })
-    }
+    },
+    // subscribemessage: function() {
+    //     wx.login({
+    //         success(res) {
+    //             if (res.code) {
+    //                console.log(res.code);
+    //                app.http.JwKbLogin(res.code).then((res)=>{
+    //                    console.log(res);
+                       
+    //                })
+    //             } else {
+    //                 console.log('登录失败！' + res.errMsg)
+    //             }
+    //         }
+    //     })
+    //     wx.requestSubscribeMessage({
+    //         tmplIds: ['VV1gJIgKKPLtmUYfTytD2H5g5p6f6EKbm6WjnTmfZ9E'],
+    //         success(res) {
+    //             console.log(res);
+    //         },
+    //         fail(res) {
+    //             console.log(res);
+    //         }
+
+    //     })
+    // }
 })

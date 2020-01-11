@@ -616,12 +616,15 @@ class http {
     JwKb(week) {
         var that = this;
         var date = new Date();
-        var jn = date.getFullYear().toString();
-        var mn = (Number(jn) + 1).toString();
-        var m = 2;
-        if (date.getMonth() + 1 >= 8)
-            m = 1;
-        var str = jn + '-' + mn + '-' + m;
+        var year = Number(date.getFullYear().toString());
+        var month = Number(date.getMonth() + 1)
+        var str = null;
+        if(month<=2 || month>=9){
+            str = (year-1).toString()+'-'+year.toString()+'-1';
+        }else if(month>=3 && month<=8){
+            str = (year-1).toString()+'-'+year.toString()+'-2';
+        }
+
         return new Promise(function(resolve, reject) {
             wx.request({
                 url: that.url + 'query/kb',
@@ -678,6 +681,39 @@ class http {
             })
         })
     }
+    getmsg(){
+        var that = this;
+        return new Promise(function(resolve,reject){
+            wx.request({
+                url: that.url+'query/getMsg',
+                method:"POST",
+                success(res){
+                    resolve(res);
+                },
+                fail(error){
+                    reject(res);
+                }
+            })
+        })
+    }
+    // JwKbLogin(code){
+    //     var that = this;
+    //     return new Promise(function (resolve, reject) {
+    //         wx.request({
+    //             url: that.url + 'submsg/login',
+    //             method: 'POST',
+    //             data: {
+    //                 "code": code,
+    //             },
+    //             success(res) {
+    //                 resolve(res);
+    //             },
+    //             fail(error) {
+    //                 reject(error);
+    //             }
+    //         })
+    //     })
+    // }
 }
 export {
     http

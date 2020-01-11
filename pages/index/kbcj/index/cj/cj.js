@@ -40,14 +40,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        this.setData({
+            stateH: app.hei
+        })
         var that = this;
         var date = new Date();
         var year = date.getFullYear();
         year += 1;
         var list = Array();
         for (var i = 1; i <= 4; ++i) {
-            var str = (year - i).toString() + '-' + (year - i + 1).toString() + '-1';
-            var str2 = (year - i).toString() + '-' + (year - i + 1).toString() + '-2';
+            var str = (year - i -1).toString() + '-' + (year - i ).toString() + '-1';
+            var str2 = (year - i -1).toString() + '-' + (year - i ).toString() + '-2';
             list.push(str2);
             list.push(str);
         }

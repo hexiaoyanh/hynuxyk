@@ -38,6 +38,9 @@ Page({
         else that.setData({
             states:"不可用"
         })
+        this.setData({
+            stateH: app.hei
+        })
     },
 
     /**

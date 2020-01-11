@@ -1,6 +1,5 @@
 // pages/JW/JW.js
 
-var hei = wx.getMenuButtonBoundingClientRect().top;
 var app = getApp();
 Page({
 
@@ -8,7 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        stateH: hei,
+        stateH: null,
         username:"",
         password:""
     },
@@ -17,6 +16,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+            stateH: app.hei
+        })
         var that = this;
         wx.getStorage({
             key: 'Jwusername',

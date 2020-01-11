@@ -6,16 +6,34 @@ var X2JS = require('./http/x2j/x2js/we-x2js.js');
 App({
     globalData: {
         http: null,
-        x2js:null,
-        hei:null
+        x2js: null,
+        hei: null
     },
     /** 
      * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次） 
      */
-    onLaunch: function () {
-        this.hei = wx.getMenuButtonBoundingClientRect().top;
+    onLaunch: function() {
+        var that = this;
         this.http = new http();
         this.x2js = new X2JS();
+        console.log(that.hei);
+        wx.getStorage({
+            key: 'hei',
+            success: function(res) {
+                console.log(res);
+                that.hei = res.data;
+            },
+            fail(ern) {
+                that.hei = wx.getMenuButtonBoundingClientRect().top;
+                console.log(that.hei);
+
+                wx.setStorage({
+                    key: 'hei',
+                    data: that.hei,
+                })
+            }
+        })
+
 
         //监测小程序更新
         if (wx.canIUse("getUpdateManager")) {
@@ -27,7 +45,8 @@ App({
             updateManager.onUpdateReady(() => {
                 wx.showModal({
                     title: '更新提示',
-                    content: '新版本已经准备好，是否重启应用？',
+                    content: '修复偶尔顶栏消失bug\r\n修复账单日期显示错误的bug\r\n修复课程表日期设置错误的bug\r\n',
+                    confirmText: "更新",
                     success: (res) => {
                         if (res.confirm) {
                             // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
@@ -50,7 +69,7 @@ App({
         }
         var conf = {
             title: '提示',
-            content: '本程序为校园卡第三方程序，登录密码为校园卡密码，我们不会上传您的任何数据，服务器端代码开源地址为：https://github.com/hexiaoyanh/hynuxykbackstage，图片来自于Alto\'s Adventure，如有疑问请联系QQ：785010323，我们不负任何法律责任。',
+            content: '本程序为校园卡第三方程序，登录密码为校园卡密码（初始密码为888888），我们不会上传您的任何数据，服务器端代码开源地址为：https://github.com/hexiaoyanh/hynuxykbackstage，图片来自于Alto\'s Adventure，如有疑问请联系QQ：785010323，我们不负任何法律责任。',
             cancelText: '不再显示',
             confirmText: '确定',
             success(res) {
@@ -64,34 +83,33 @@ App({
         };
         wx.getStorage({
             key: 'msgconfim',
-            success: function(res) {
-            },
-            fail(res){
+            success: function(res) {},
+            fail(res) {
                 wx.showModal(conf);
             }
         })
-        
+
         //提示语
     },
-
     /** 
      * 当小程序启动，或从后台进入前台显示，会触发 onShow 
      */
-    onShow: function (options) {
 
+
+    onShow: function(options) {
     },
 
     /** 
      * 当小程序从前台进入后台，会触发 onHide 
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /** 
      * 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息 
      */
-    onError: function (msg) {
+    onError: function(msg) {
 
     }
 });

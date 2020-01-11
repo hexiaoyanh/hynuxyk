@@ -24,6 +24,9 @@ Page({
      */
     onLoad: function(options) {
         this.setData({
+            stateH: app.hei
+        })
+        this.setData({
             PngPath: options.PngPath
         })
     },

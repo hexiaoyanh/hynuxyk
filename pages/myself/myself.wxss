@@ -67,6 +67,7 @@ page{
   padding-top: 2%;
   box-shadow: 3px 3px 10px 0px rgb(136,115,102);
   border-radius: 20rpx;
+  line-height: 50rpx;
 }
 .card .card-content .card-content-tag{
   z-index: 0;

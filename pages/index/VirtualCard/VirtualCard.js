@@ -27,6 +27,9 @@ Page({
      */
     onLoad: function(options) {
         this.setData({
+            stateH: app.hei
+        })
+        this.setData({
             AccName: app.http.AccName,
             UserNumber: app.http.UserNumber
         });

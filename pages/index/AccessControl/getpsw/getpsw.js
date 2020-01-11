@@ -24,6 +24,9 @@ Page({
                 pwd: json.PassWord
             })
         })
+        this.setData({
+            stateH: app.hei
+        })
     },
 
     /**
