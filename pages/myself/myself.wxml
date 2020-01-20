@@ -41,15 +41,15 @@
         <form bindtap="logout">
             <button type="submit" class="card-button animated slideInDown" style="animation-delay:0.4s;">退出登陆</button>
         </form>
-
         <view class="slogan">
             <text>
-        "To Die By Your Side, Is Such a Heavenly Way To Die."
-      </text>
+                    "To Die By Your Side, Is Such a Heavenly Way To Die."
+            </text>
             <view style="text-align:right;margin-top:10rpx">
                 <text>———The Smiths </text>
             </view>
         </view>
-
     </view>
+    <ad unit-id="adunit-52126a77aa60434c"></ad>
+
 </view>
