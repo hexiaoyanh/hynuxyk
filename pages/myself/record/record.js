@@ -15,6 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      wx.showModal({
+          title: '帮我一下',
+          content: '因为服务器运行和维护需要成本，点一下广告即是对我最大的帮助，谢谢！',
+      })
 
   },
 

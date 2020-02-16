@@ -15,7 +15,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        
+
         var that = this;
         wx.getStorage({
             key: 'username',
@@ -24,24 +24,48 @@ Page({
                     username: res.data
                 })
             },
-        })
+        });
         wx.getStorage({
             key: 'password',
             success: function(res) {
                 that.setData({
                     password: res.data
                 })
-            },
-        })
-        app.http.getmsg().then((res) => {
-            if (res.data['code'] != 0) {
-                wx.showModal({
-                    title: '一些信息',
-                    content: res.data['msg'],
+                wx.showLoading({
+                    title: '登录中',
+                });
+                app.http.setUsername(that.data.username);
+                app.http.setPassword(that.data.password);
+                app.http.Login().then((res) => {
+                    wx.hideLoading();
+                    if (app.http.Msg == "NetError") {
+                        wx.showModal({
+                            title: '提示',
+                            content: '网络错误',
+                        });
+                        app.http.Msg = "";
+
+                    } else if (app.http.Msg == "登录成功") {
+                        wx.redirectTo({
+                            url: '../index/index',
+                        })
+
+                    } else {
+                        wx.showModal({
+                            title: '提示',
+                            content: '用户名或密码错误',
+                        });
+                        app.http.Msg = "";
+                    }
+                }).catch((error)=>{
+                    console.log(error);
                 })
-            }
-        })
+            },
+        });
         
+
+
+
     },
 
     /**
@@ -112,7 +136,7 @@ Page({
             });
             app.http.setUsername(objData.username);
             app.http.setPassword(objData.password);
-            app.http.Login().then((res)=>{
+            app.http.Login().then((res) => {
                 wx.hideLoading();
                 if (app.http.Msg == "NetError") {
                     wx.showModal({
@@ -120,7 +144,7 @@ Page({
                         content: '网络错误',
                     });
                     app.http.Msg = "";
-                    
+
                 } else if (app.http.Msg == "登录成功") {
                     wx.redirectTo({
                         url: '../index/index',
@@ -131,17 +155,18 @@ Page({
                         title: '提示',
                         content: '用户名或密码错误',
                     });
-                    app.http.Msg = "";   
+                    app.http.Msg = "";
                 }
+            }).catch((error) => {
+                console.log(error);
+            })
+        } else {
+            wx.hideLoading();
+            wx.showModal({
+                title: '错误',
+                content: '请输入学号或密码',
             })
         }
-        else{
-          wx.hideLoading();
-          wx.showModal({
-            title: '错误',
-            content: '请输入学号或密码',
-          })
-        }
     },
-    
+
 })

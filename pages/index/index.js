@@ -18,7 +18,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        app.http.getmsg().then((res) => {
+            if (res.data['code'] != 0) {
+                wx.showModal({
+                    title: '一些信息',
+                    content: res.data['msg'],
+                })
+            }
+        });
         app.http.QueryAccWallent().then((res) => {
             this.setData({
                 AccNum: app.http.AccName,

@@ -27,7 +27,7 @@ Page({
         }, {
             id: 2,
             year: currenttime_month == 1 ? currenttime_year - 1 : currenttime_year,
-            month: currenttime_month == 1 ? 12 : currenttime_month,
+            month: currenttime_month == 1 ? 12 : currenttime_month-1,
             allrecsum: null,
             currentsum: 0,
             over: 0,

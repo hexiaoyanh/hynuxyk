@@ -45,7 +45,7 @@ App({
             updateManager.onUpdateReady(() => {
                 wx.showModal({
                     title: '更新提示',
-                    content: '修复偶尔顶栏消失bug\r\n修复账单日期显示错误的bug\r\n修复课程表日期设置错误的bug\r\n',
+                    content: '更新一下哦😝',
                     confirmText: "更新",
                     success: (res) => {
                         if (res.confirm) {

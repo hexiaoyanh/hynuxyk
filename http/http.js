@@ -619,9 +619,9 @@ class http {
         var year = Number(date.getFullYear().toString());
         var month = Number(date.getMonth() + 1)
         var str = null;
-        if(month<=2 || month>=9){
+        if(month<=1 || month>=8){
             str = (year-1).toString()+'-'+year.toString()+'-1';
-        }else if(month>=3 && month<=8){
+        }else{
             str = (year-1).toString()+'-'+year.toString()+'-2';
         }
 
