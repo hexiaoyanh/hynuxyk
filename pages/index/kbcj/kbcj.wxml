@@ -22,6 +22,10 @@
                         <view class="input-title">教务网密码</view>
                         <input type='password' name='password' placeholder='请输入密码' value='{{password}}'></input>
                     </view>
+                    <view class="card-content-switchblock">
+                      <text style="margin-right:20%">是否为南岳学院</text>
+                      <switch class="orange" bindchange="switchChange" checked="{{switchValue}}"></switch>
+                    </view>
                 </view>
                 <view class="card-content-tag ">
                     <button form-type='submit' type="submit" class="card-button animated slideInLeft">登陆 </button>

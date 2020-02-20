@@ -9,7 +9,8 @@ Page({
     data: {
         stateH: null,
         username:"",
-        password:""
+        password:"",
+        switchValue:false,//保存选择按钮值
     },
 
     /**
@@ -85,6 +86,13 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    //开关变更函数
+    switchChange:function(e){
+      console.log(e.detail.value);
+      this.setData({
+        switchValue: e.detail.value
+      })
     },
     login:function(e){
         wx.showLoading({

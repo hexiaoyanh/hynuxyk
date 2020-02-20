@@ -11,18 +11,18 @@ page{
   background-image: linear-gradient(to bottom right,rgb(25,43,57),rgb(75, 96, 115));
 }
 .card{
-  height: 50%;
+  height: 60%;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 30%;
+  margin-top: 20%;
   margin-bottom: 5%;
   border-radius: 20rpx; 
   color:snow;
 }
 .card .card-image{
   z-index: 3;
-  height: 60%;
+  height: 50%;
   width: 100%;
   border-radius: 20rpx; 
   position: relative;
@@ -38,7 +38,7 @@ page{
   position: relative;
   z-index: 0;
   width: 100%;
-  height: 40%;
+  height: 50%;
 
 }
 .card .card-content .card-content-main{
@@ -59,7 +59,15 @@ page{
   margin-top: 3%;
   font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
   width: 80%;
-  height: 40%;
+  height: 30%;
+  text-align: left;
+}
+.card .card-content .card-content-switchblock{
+  margin-left: 10%;
+  margin-top: 3%;
+  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+  width: 80%;
+  height: 30%;
   text-align: left;
 }
 .card .card-content .card-content-tag{
@@ -67,7 +75,7 @@ page{
   z-index: 1;
   display: inline-block;
   width: 12%;
-  height: 50%;
+  height: 30%;
 }
 .input-title{
   font-size: 35rpx;
