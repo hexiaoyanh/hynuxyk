@@ -72,6 +72,7 @@ Page({
 
     },
     logout:function(e){
+        wx.clearStorage();
         wx.reLaunch({
             url: '../login/login',
         })

@@ -92,10 +92,6 @@ page {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 20rpx;
-    border: 2rpx;
-    border-color: #78c2c4;
-    box-shadow: 3px 3px 10px 0px rgb(36, 46, 56);
 }
 
 .card-methods .card-methods-title {

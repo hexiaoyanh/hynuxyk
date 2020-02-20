@@ -28,12 +28,20 @@ Page({
                     username: res.data
                 })
             },
-        })
+        });
         wx.getStorage({
             key: 'Jwpassword',
             success: function (res) {
                 that.setData({
                     password: res.data
+                })
+            },
+        });
+        wx.getStorage({
+            key: 'Jwnanyue',
+            success: function(res) {
+                that.setData({
+                    switchValue:res.data
                 })
             },
         })
@@ -93,6 +101,7 @@ Page({
       this.setData({
         switchValue: e.detail.value
       })
+      app.http.Nanyue = e.detail.value;
     },
     login:function(e){
         wx.showLoading({
@@ -112,6 +121,10 @@ Page({
                 key: 'Jwpassword',
                 data: objData.password,
             });
+            wx.setStorage({
+                key: 'Jwnanyue',
+                data: app.http.Nanyue,
+            })
             app.http.JwLogin(objData.username,objData.password).then((res)=>{
                 wx.hideLoading();
                 var data = res.data;
@@ -125,7 +138,7 @@ Page({
                 }else{
                     wx.showModal({
                         title: '错误',
-                        content: '账号或密码错误,也许是服务器错误，请重试。',
+                        content: res.data['Msg'],
                     })
                 }
             })

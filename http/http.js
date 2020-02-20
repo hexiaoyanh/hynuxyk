@@ -28,6 +28,7 @@ class http {
     AccStatus = "";
     BankTransState = "";
     JwCookie = "";
+    Nanyue = "";
 
     setTime() {
         //当前时间化成yyyymmddhhmmss
@@ -602,7 +603,8 @@ class http {
                 method: 'POST',
                 data: {
                     "username": username,
-                    "password": password
+                    "password": password,
+                    "nanyue":that.Nanyue
                 },
                 success(res) {
                     resolve(res)
@@ -632,7 +634,8 @@ class http {
                 data: {
                     "cookies": that.JwCookie,
                     "date": str,
-                    "week": week
+                    "week": week,
+                    "nanyue": that.Nanyue
                 },
                 success(res) {
                     resolve(res)
@@ -652,6 +655,7 @@ class http {
                 data: {
                     "cookies": that.JwCookie,
                     "date": str,
+                    "nanyue": that.Nanyue
                 },
                 success(res) {
                     resolve(res)
@@ -670,7 +674,8 @@ class http {
                 method: 'POST',
                 data: {
                     "cookie": that.JwCookie,
-                    "url": url
+                    "url": url,
+                    "nanyue": that.Nanyue
                 },
                 success(res) {
                     resolve(res);
