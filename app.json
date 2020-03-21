@@ -1,30 +1,30 @@
 {
-  "pages": [
-    "pages/login/login",
-    "pages/index/index",
-    "pages/myself/myself",
-    "pages/index/VirtualCard/VirtualCard",
-    "pages/index/AccessControl/AccessControl",
-    "pages/index/Charge/Charge",
-    "pages/index/ReportLoss/ReportLoss",
-    "pages/index/Scan/Scan",
-    "pages/index/Wallent/Wallent",
-    "pages/index/VirtualCard/BigPic/BigPic",
-    "pages/index/bill/bill",
-    "pages/index/bill/paymsg/paymsg",
-    "pages/index/AccessControl/getpsw/getpsw",
-    "pages/index/kbcj/kbcj",
-    "pages/index/kbcj/index/index",
-    "pages/index/kbcj/index/cj/cj",
-    "pages/index/kbcj/index/kcb/kcb",
-    "pages/myself/record/record"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/login/login",
+        "pages/index/index",
+        "pages/myself/myself",
+        "pages/index/VirtualCard/VirtualCard",
+        "pages/index/AccessControl/AccessControl",
+        "pages/index/Charge/Charge",
+        "pages/index/ReportLoss/ReportLoss",
+        "pages/index/Scan/Scan",
+        "pages/index/Wallent/Wallent",
+        "pages/index/VirtualCard/BigPic/BigPic",
+        "pages/index/bill/bill",
+        "pages/index/bill/paymsg/paymsg",
+        "pages/index/AccessControl/getpsw/getpsw",
+        "pages/index/kbcj/kbcj",
+        "pages/index/kbcj/index/index",
+        "pages/index/kbcj/index/cj/cj",
+        "pages/index/kbcj/index/kcb/kcb",
+        "pages/myself/record/record"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    },
+    "sitemapLocation": "sitemap.json"
 }

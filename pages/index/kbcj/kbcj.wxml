@@ -23,28 +23,26 @@
                         <input type='password' name='password' placeholder='请输入密码' value='{{password}}'></input>
                     </view>
                     <view class="card-content-switchblock">
-                      <text style="margin-right:20%">是否为南岳学院</text>
-                      <switch class="orange" bindchange="switchChange" checked="{{switchValue}}"></switch>
+                        <text style="margin-right:20%">是否为南岳学院</text>
+                        <switch class="orange" bindchange="switchChange" checked="{{switchValue}}"></switch>
                     </view>
                 </view>
                 <view class="card-content-tag ">
                     <button form-type='submit' type="submit" class="card-tag-button animated slideInLeft">登陆 </button>
                 </view>
-                <view>
-                  <button form-type="submit" type="submit" class="animated slideInDown card-button">找回密码</button>
-                </view>
+            
             </form>
 
         </view>
 
 
         <view class="slogan">
-          <text>
-            "Is this the real life? Is this just fantasy?"
+            <text>
+            "Is This The Real Life? Is This Just Fantasy?"
           </text>
-          <view style="text-align:right;margin-top:10rpx">
-              <text>———Queen</text>
-          </view>
+            <view style="text-align:right;margin-top:10rpx">
+                <text>———Queen</text>
+            </view>
         </view>
     </view>
 </view>

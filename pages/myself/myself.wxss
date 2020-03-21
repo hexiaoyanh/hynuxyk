@@ -12,7 +12,7 @@ page{
 }
 .card{
   z-index: 0;
-  height: 75%;
+  height: 70%;
   width: 90%;
   margin-left: 5%;
   margin-right: 10%;
@@ -96,4 +96,10 @@ page{
   font-style: italic;
   text-shadow: 2px 2px 4px rgb(54, 54, 60);
   color: rgb(74, 75, 84);
+}
+
+.ad {
+    height: 90rpx;
+    width: 100%;
+    margin-top: 10px;
 }

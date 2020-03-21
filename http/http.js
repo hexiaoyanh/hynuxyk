@@ -14,6 +14,7 @@ class http {
     AccName = "";
     PerCode = "";
     CarID = "";
+    CertCode="";
     CustomerID = "";
     AgentID = "";
     LostDate = "";
@@ -211,6 +212,7 @@ class http {
                     var json = x2js.xml2js(res.data).ZYTK;
                     that.BankCard = json.BankCard;
                     that.BankName = json.BankName;
+                    that.CertCode = json.CertCode;
                     resolve(res);
                 },
                 fail(error) {
@@ -626,7 +628,7 @@ class http {
         }else{
             str = (year-1).toString()+'-'+year.toString()+'-2';
         }
-
+        console.log(that.Nanyue)
         return new Promise(function(resolve, reject) {
             wx.request({
                 url: that.url + 'query/kb',
@@ -701,24 +703,29 @@ class http {
             })
         })
     }
-    // JwKbLogin(code){
-    //     var that = this;
-    //     return new Promise(function (resolve, reject) {
-    //         wx.request({
-    //             url: that.url + 'submsg/login',
-    //             method: 'POST',
-    //             data: {
-    //                 "code": code,
-    //             },
-    //             success(res) {
-    //                 resolve(res);
-    //             },
-    //             fail(error) {
-    //                 reject(error);
-    //             }
-    //         })
-    //     })
-    // }
+    ResetPassword(username,idcard){
+        var that = this;
+        return new Promise(function(resolve,reject){
+            wx.request({
+                //url: that.url +'query/resetPassword',
+                url:"http://127.0.0.1:5000/query/resetPassword",
+                method:"POST",
+                data:{
+                    "username":that.UserNumber,
+                    "idcardnum": that.CertCode,
+                    "nanyue":that.Nanyue
+                },
+                success(res){
+                    console.log(res)
+                    resolve(res);
+                },
+                fail(error){
+                    reject(error)
+                }
+            })
+        })
+    }
+
 }
 export {
     http

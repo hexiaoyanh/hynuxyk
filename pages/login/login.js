@@ -20,6 +20,7 @@ Page({
         wx.getStorage({
             key: 'username',
             success: function(res) {
+                app.http.setUsername(res.data);
                 that.setData({
                     username: res.data
                 })
@@ -34,8 +35,7 @@ Page({
                 wx.showLoading({
                     title: '登录中',
                 });
-                app.http.setUsername(that.data.username);
-                app.http.setPassword(that.data.password);
+                app.http.setPassword(res.data);
                 app.http.Login().then((res) => {
                     wx.hideLoading();
                     if (app.http.Msg == "NetError") {
@@ -58,6 +58,10 @@ Page({
                         app.http.Msg = "";
                     }
                 }).catch((error)=>{
+                    wx.showModal({
+                        title: '提示',
+                        content: error,
+                    });
                     console.log(error);
                 })
             },
