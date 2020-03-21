@@ -28,18 +28,23 @@
                     </view>
                 </view>
                 <view class="card-content-tag ">
-                    <button form-type='submit' type="submit" class="card-button animated slideInLeft">登陆 </button>
+                    <button form-type='submit' type="submit" class="card-tag-button animated slideInLeft">登陆 </button>
+                </view>
+                <view>
+                  <button form-type="submit" type="submit" class="animated slideInDown card-button">找回密码</button>
                 </view>
             </form>
+
         </view>
 
+
         <view class="slogan">
-            <text>
-        "Is this the real life? Is this just fantasy?"
-      </text>
-            <view style="text-align:right;margin-top:10rpx">
-                <text>———Queen</text>
-            </view>
+          <text>
+            "Is this the real life? Is this just fantasy?"
+          </text>
+          <view style="text-align:right;margin-top:10rpx">
+              <text>———Queen</text>
+          </view>
         </view>
     </view>
 </view>
