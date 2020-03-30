@@ -175,7 +175,12 @@ Page({
     },
     Kbcj: function (e) {
         wx.navigateTo({
-            url: './kbcj/kbcj',
+            url: './kbcj/index/index',
         })
-    }
+    },
+    Exam: function(e){
+        wx.navigateTo({
+          url: '../Exam/Exam',
+        })
+    },
 })

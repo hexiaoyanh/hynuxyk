@@ -1,7 +1,6 @@
 // pages/myself/myself.js
 const app = getApp();
 var hei = wx.getMenuButtonBoundingClientRect().top;
-
 Page({
 
     /**

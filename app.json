@@ -17,7 +17,11 @@
     "pages/index/kbcj/index/index",
     "pages/index/kbcj/index/cj/cj",
     "pages/index/kbcj/index/kcb/kcb",
-    "pages/myself/record/record"
+    "pages/myself/record/record",
+    "pages/Exam/Exam",
+    "pages/Exam/CET/CET",
+    "pages/Exam/cet/cet",
+    "pages/index/kbcj/index/xk/xk"
   ],
   "window": {
     "backgroundTextStyle": "light",

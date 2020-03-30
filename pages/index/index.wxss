@@ -81,12 +81,12 @@ page {
 .main-methods {
     position: relative;
     z-index: 0;
-    height: 60%;
+    height: 63%;
     width: 100%;
 }
 
 .methods {
-    height: 21%;
+    height: 20%;
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;
