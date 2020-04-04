@@ -311,12 +311,17 @@ Page({
     },
     Kbcj: function(e) {
         wx.navigateTo({
-            url: './kbcj/kbcj',
+            url: './kbcj/index/index',
         })
     },
     login: function(e) {
         wx.redirectTo({
             url: '../login/login',
         })
-    }
+    },
+    Exam: function(e){
+        wx.navigateTo({
+          url: '../Exam/Exam',
+        })
+    },
 })

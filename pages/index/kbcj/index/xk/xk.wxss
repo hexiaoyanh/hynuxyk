@@ -1,0 +1,138 @@
+/* pages/index/kbcj/index/xk/xk.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.global{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right,rgb(133, 29, 60),rgb(252, 134, 98));
+}
+.card{
+  height: 25%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 35rpx;
+  margin-bottom: 5%;
+  border-radius: 20rpx;
+}
+
+
+
+.card .card-image{
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+  box-shadow: 6px 6px 10px 0px rgb(133, 29, 60);
+}
+.card .main-card-image{
+  height: 100%;
+  width: 100%;
+  border-radius: 20rpx;
+}
+.card .card-content{
+  z-index: 0;
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  height: 20%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: rgb(241, 146, 115);
+  box-shadow: 6px 6px 10px 0px rgb(133, 29, 60);
+}
+.card .card-content .card-content-textblock{
+  margin-left: 10%;
+  margin-top: 3%;
+  font-size: 30rpx;
+  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+  width: 80%;
+  height: 30%;
+  text-align: center;
+  padding-top: 3%;
+  box-shadow: 3px 3px 10px 0px rgb(133, 29, 60);
+  background-color: #F4A7B9;
+  border-radius: 20rpx;
+}
+
+.card-text-void{
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  color: rgb(218, 119, 73);
+  font-size: 30rpx;
+}
+.cells{
+  margin-top: 10%;
+  height: 58%;
+  width: 100%;
+}
+
+.card-content-mini{
+  font-size: 30rpx;
+  position: relative;
+  z-index: 1;
+  width: 76%;
+  height: 42%;
+  margin-left:12%; 
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: rgb(171, 152, 189);
+  display: inline-block
+}
+.card-mini{
+  position: relative;
+  z-index: 2;
+  height: 30%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 25rpx;
+  border-radius: 20rpx; 
+  color:black;
+  background-color: rgb(112, 37, 60);
+  box-shadow: 6px 6px 10px 0px rgb(133, 29, 60);
+}
+
+.table {
+  border: 0px solid darkgray;
+  width: 100%;
+  height: 100%;
+}
+.tr-f {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.th {
+  padding: 1%;
+  width: 48%;
+  font-size: 30rpx;
+  color: rgb(252, 134, 98);
+  font-weight: bolder;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.td{
+  color: rgb(90, 34, 34);
+  overflow : hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.pickerYear{
+  color: rgb(241, 146, 115);
+  border-radius: 10rpx;
+  background-image: linear-gradient(to bottom right,rgb(133, 29, 60),rgb(252, 134, 98));
+}

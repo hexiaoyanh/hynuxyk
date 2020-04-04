@@ -2,7 +2,6 @@
 const app = getApp();
 var hei = wx.getMenuButtonBoundingClientRect().top;
 let videoAd = null
-
 Page({
 
     /**

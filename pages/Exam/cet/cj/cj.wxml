@@ -1,0 +1,51 @@
+<!--pages/Exam/cet/cj/cj.wxml-->
+<view class="global">
+  <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+    <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+      <text class="cuIcon-back text-gray" style="font-size:40rpx"></text>
+    </navigator>
+  </view>
+  <view class="card">
+    <view class="card-image">
+      <image class="main-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gd8snq9v23j21400u00zw.jpg" mode="aspectFill"></image>
+      <view class="ctitle">
+        <text>
+          CET成绩
+        </text>
+      </view>
+    </view>
+    <view class="card-content">
+      <view class="table">
+        <view class="tr-h">
+          <view class="td">准考证号码</view>
+        </view>
+        <view class="tr">
+          <view class="td">43040719981010</view>
+        </view>
+        <view class="tr-h">
+          <view class="td">姓名</view>
+          <view class="td">学校</view>
+          <view class="td">总分</view>
+        </view>
+        <view class="tr">
+          <view class="td">慕容小明</view>
+          <view class="td">伊犁哈萨克自治州农业工程职业技术师范学校</view>
+          <view class="td">424</view>
+        </view>
+        <view class="tr-h">
+          <view class="td">听力</view>
+          <view class="td">阅读</view>
+          <view class="td">写作与翻译</view>
+        </view>
+        <view class="tr">
+          <view class="td">130</view>
+          <view class="td">130</view>
+          <view class="td">130</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>
+
