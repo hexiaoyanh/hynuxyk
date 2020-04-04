@@ -24,7 +24,11 @@
     "pages/index/kbcj/index/xk/xk",
     "pages/Exam/pth/pth",
     "pages/Exam/teacher/tch",
-    "pages/Exam/ncre/ncre"
+    "pages/Exam/ncre/ncre",
+    "pages/Exam/cet/cj/cj",
+    "pages/Exam/ncre/cj/cj",
+    "pages/Exam/teacher/cj/cj",
+    "pages/Exam/pth/cj/cj"
   ],
   "window": {
     "backgroundTextStyle": "light",

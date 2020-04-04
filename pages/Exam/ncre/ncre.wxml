@@ -1,5 +1,4 @@
 <!--pages/Exam/ncre/ncre.wxml-->
-<!--pages/Exam/cet/cet.wxml-->
 <view class="global">
   <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
     <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">

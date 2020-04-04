@@ -1,4 +1,4 @@
-/* pages/Exam/teacher/tch.wxss */
+/* pages/Exam/teacher/cj/cj.wxss */
 page{
   width: 100%;
   height: 100%;
@@ -12,14 +12,12 @@ page{
 }
 .card{
   z-index: 0;
-  height: 75%;
-  width: 88%;
-  margin-left: 6%;
+  height: 85%;
+  width: 90%;
+  margin-left: 5%;
   margin-right: 10%;
-  margin-top: 4%;
-  border-radius: 20rpx; 
-  /* color:black; */
-  /* box-shadow: 6px 6px 10px 0px rgb(136,115,102); */
+  margin-top: 10%;
+  border-radius: 20rpx;
 }
 .card .card-image{
   z-index: 3;
@@ -56,9 +54,10 @@ page{
 }
 
 .card .card-content{
+  align-items: center;
   display: inline-block;
   position: relative;
-  height: 85%;
+  height: 70%;
   width: 96%;
   text-align: center;
   margin-left: 2%;
@@ -70,12 +69,12 @@ page{
 
 .card .card-content .card-content-textblock{
   margin-left: 5%;
-  margin-top: 3%;
-  font-size: 26rpx;
+  margin-top: 7%;
+  font-size: 30rpx;
   font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
   width: 90%;
   color: snow;
-  height: 15%;
+  height: 20%;
   padding-top: 3%;
   box-shadow: 3px 3px 10px 0px rgba(209, 110, 64, 0.808);
   background-color: rgb(55,49,63);
@@ -86,7 +85,7 @@ page{
   line-height: 50rpx;
   width: 40%;
   height: 7%;
-  margin-top: 5%;
+  margin-top: 7%;
   margin-left: 30%;
   border-radius: 30rpx;
   background-color: rgb(170, 102, 101);
@@ -131,12 +130,62 @@ input {
   color: rgb(74, 75, 84);
 }
 
+.table{
+  height: 94%;
+  width: 94%;
+  margin: 3% 3% 3% 3%;
+  padding: 1% 5% 1% 5%;
+  border: 5px solid rgb(84, 91, 124);
+  border-radius: 5%;
+}
 
-.pickerYear{
-  font-size: 20px;
-  margin-top: 2px;
-  color: rgb(55,49,63);
-  font-weight: bolder;
-  border-radius: 10rpx;
-  background-image: linear-gradient(to bottom right,rgb(202, 60, 31),rgb(223, 131, 84));
+.table .tr{
+  color: rgb(216, 141, 106);
+  padding: 2%;
+  margin-top: 10rpx;
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  min-height: 13%;
+  align-items: center;
+  border: 1px solid rgb(84, 91, 124);
+  background-color: rgb(84, 91, 124);
+}
+.table .tr-h{
+  color: rgb(216, 141, 106);
+  padding: 2%;
+  margin-top: 10rpx;
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  min-height: 13%;
+  align-items: center;
+  border: 1px solid rgb(41, 46, 70);
+  background-color: rgb(41, 46, 70);
+}
+.table .tr .td {
+  text-align: center;
+  border-radius: 5%;
+  padding: 2%;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  margin-right: 7rpx;
+  line-height: 1rem;
+  padding-top: 10rpx;
+  max-height: 100%;
+  min-width: 30%;
+  justify-content: center;
+}
+.table .tr-h .td {
+  text-align: center;
+  border-radius: 5%;
+  padding: 2%;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  margin-right: 7rpx;
+  line-height: 1rem;
+  padding-top: 10rpx;
+  max-height: 100%;
+  min-width: 30%;
+  justify-content: center;
 }

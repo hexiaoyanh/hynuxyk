@@ -1,4 +1,4 @@
-// pages/Exam/pth/pth.js
+// pages/Exam/cet/cj/cj.js
 const app = getApp();
 Page({
 
