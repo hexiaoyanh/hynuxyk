@@ -41,7 +41,7 @@
         <view class="card-content animated slideInDown" style=";z-index:1;width: 75%;margin-left: 12%;">
             <view>
                 <button class="card-content-textblock" style="background-color:#8D6E63" bindtap="adshow">
-                    <text>解锁平时成绩查询</text>
+                    <text>看广告解锁平时成绩查询</text>
                 </button>
             </view>
         </view>

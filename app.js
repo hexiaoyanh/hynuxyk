@@ -34,7 +34,6 @@ App({
             }
         })
 
-
         //监测小程序更新
         if (wx.canIUse("getUpdateManager")) {
             let updateManager = wx.getUpdateManager();
@@ -67,29 +66,8 @@ App({
                 });
             });
         }
-        var conf = {
-            title: '提示',
-            content: '本程序为校园卡第三方程序，登录密码为校园卡密码（初始密码为888888），我们不会上传您的任何数据，服务器端代码开源地址为：https://github.com/hexiaoyanh/hynuxykbackstage，图片来自于Alto\'s Adventure，如有疑问请联系QQ：785010323，我们不负任何法律责任。',
-            cancelText: '不再显示',
-            confirmText: '确定',
-            success(res) {
-                if (res.cancel) {
-                    wx.setStorage({
-                        key: 'msgconfim',
-                        data: '1',
-                    })
-                }
-            }
-        };
-        wx.getStorage({
-            key: 'msgconfim',
-            success: function(res) {},
-            fail(res) {
-                wx.showModal(conf);
-            }
-        })
-
-        //提示语
+        //读取缓存
+        
     },
     /** 
      * 当小程序启动，或从后台进入前台显示，会触发 onShow 

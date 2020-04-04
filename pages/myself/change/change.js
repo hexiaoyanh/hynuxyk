@@ -18,6 +18,20 @@ Page({
         this.setData({
             stateH: app.hei
         })
+        if (app.http.AccNum == "") {
+            wx.showModal({
+                title: '请先登录',
+                content: '要先登录才能使用校园卡修改密码功能哦',
+                success(res) {
+                    if (res.confirm) {
+                        wx.redirectTo({
+                            url: '../../login/login',
+                        })
+                    }
+                }
+            });
+            return;
+        }
     },
 
     /**

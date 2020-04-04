@@ -9,15 +9,16 @@ Page({
      */
     data: {
         btn_loading: false,
-        MonDBCurr: app.http.MonDBCurr,
-        AccNum: app.http.AccNum,
+        MonDBCurr: "",
+        AccNum: "",
 
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
+        var that = this;
         app.http.getmsg().then((res) => {
             if (res.data['code'] != 0) {
                 wx.showModal({
@@ -26,55 +27,111 @@ Page({
                 })
             }
         });
-        app.http.QueryAccWallent().then((res) => {
-            this.setData({
-                AccNum: app.http.AccName,
-                MonDBCurr: app.http.MonDBCurr
-            })
+        //读取缓存
+        var that = this;
+        wx.getStorage({
+            key: 'AccNum',
+            success: function(res) {
+                app.http.AccNum = res.data;
+                app.http.QueryAccWallent().then((res) => {
+                    that.setData({
+                        AccNum: app.http.AccName,
+                        MonDBCurr: app.http.MonDBCurr
+                    })
+                });
+                app.http.QueryAccAuth();
+            },
+            fail: function() {
+                that.setData({
+                    AccNum: "您未登录",
+                    MonDBCurr: "点击登录"
+                });
+            }
+        });
+        wx.getStorage({
+            key: 'AccName',
+            success: function(res) {
+                app.http.AccName = res.data
+            },
+        });
+
+        wx.getStorage({
+            key: 'PerCode',
+            success: function(res) {
+                app.http.PerCode = res.data
+            },
+        });
+        wx.getStorage({
+            key: 'CardID',
+            success: function(res) {
+                app.http.CardID = res.data
+            },
+        });
+        wx.getStorage({
+            key: 'CustomerID',
+            success: function(res) {
+                app.http.CustomerID = res.data
+            },
+        });
+        wx.getStorage({
+            key: 'AgentID',
+            success: function(res) {
+                app.http.AgentID = res.data
+            },
+        });
+        wx.getStorage({
+            key: 'LostDate',
+            success: function(res) {
+                app.http.LostDate = res.data
+            },
+        });
+        wx.getStorage({
+            key: 'IsDefault',
+            success: function(res) {
+                app.http.IsDefault = res.data
+            },
+        });
+        wx.getStorage({
+            key: 'UserNumber',
+            success: function(res) {
+                app.http.UserNumber = res.data
+            },
         })
-        app.http.getRandomNum();
-        app.http.getOrderNum();
-        app.http.QueryAccAuth();
+
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
-        
-     },
+    onReady: function() {
+
+    },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-        app.http.QueryAccWallent().then((res) => {
-            this.setData({
-                AccNum: app.http.AccName,
-                MonDBCurr: app.http.MonDBCurr
-            })
-        })
+    onShow: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
+    onUnload: function() {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
         wx.showNavigationBarLoading() //在标题栏中显示加载
         app.http.QueryAccWallent().then((res) => {
             this.setData({
@@ -89,17 +146,31 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     },
-    Scan: function (e) {
+    Scan: function(e) {
+        if (app.http.AccNum == "") {
+            wx.showModal({
+                title: '请先登录',
+                content: '要先登录才能使用校园卡扫码功能哦',
+                success(res) {
+                    if (res.confirm) {
+                        wx.redirectTo({
+                            url: '../login/login',
+                        })
+                    }
+                }
+            });
+            return;
+        }
         wx.scanCode({
             success(res) {
                 wx.showLoading({
@@ -138,44 +209,114 @@ Page({
             }
         })
     },
-    VirtualCard: function (e) {
+    VirtualCard: function(e) {
+        if (app.http.AccNum == "") {
+            wx.showModal({
+                title: '请先登录',
+                content: '要先登录才能使用虚拟校园卡功能哦',
+                success(res) {
+                    if (res.confirm) {
+                        wx.redirectTo({
+                            url: '../login/login',
+                        })
+                    }
+                }
+            });
+            return;
+        }
         wx.navigateTo({
             url: './VirtualCard/VirtualCard',
         })
     },
-    Charge: function (e) {
+    Charge: function(e) {
+        if (app.http.AccNum == "") {
+            wx.showModal({
+                title: '请先登录',
+                content: '要先登录才能使用校园卡充值功能哦',
+                success(res) {
+                    if (res.confirm) {
+                        wx.redirectTo({
+                            url: '../login/login',
+                        })
+                    }
+                }
+            });
+            return;
+        }
         wx.navigateTo({
             url: './Charge/Charge',
         })
     },
-    Wallent: function (e) {
-        wx.navigateTo({
-            url: './Wallent/Wallent',
-        })
-    },
-    Transfer: function (e) {
+    Transfer: function(e) {
+        if (app.http.AccNum == "") {
+            wx.showModal({
+                title: '请先登录',
+                content: '要先登录才能使用账单功能哦',
+                success(res) {
+                    if (res.confirm) {
+                        wx.redirectTo({
+                            url: '../login/login',
+                        })
+                    }
+                }
+            });
+            return;
+        }
         wx.navigateTo({
             url: './bill/bill',
         })
     },
-    AccessControl: function (e) {
+    AccessControl: function(e) {
+        if (app.http.AccNum == "") {
+            wx.showModal({
+                title: '请先登录',
+                content: '要先登录才能使用开门密码功能哦',
+                success(res) {
+                    if (res.confirm) {
+                        wx.redirectTo({
+                            url: '../login/login',
+                        })
+                    }
+                }
+            });
+            return;
+        }
         wx.navigateTo({
             url: './AccessControl/AccessControl',
         })
     },
-    ReportLoss: function (e) {
+    ReportLoss: function(e) {
+        if (app.http.AccNum == "") {
+            wx.showModal({
+                title: '请先登录',
+                content: '要先登录才能使用挂失功能哦',
+                success(res) {
+                    if (res.confirm) {
+                        wx.redirectTo({
+                            url: '../login/login',
+                        })
+                    }
+                }
+            });
+            return;
+        }
         wx.navigateTo({
             url: './ReportLoss/ReportLoss',
         })
     },
-    Attendance: function (e) {
+    Attendance: function(e) {
         wx.navigateTo({
             url: '../myself/myself',
         })
     },
-    Kbcj: function (e) {
+    Kbcj: function(e) {
         wx.navigateTo({
             url: './kbcj/kbcj',
+        })
+    },
+    login: function(e) {
+        wx.redirectTo({
+            url: '../login/login',
         })
     }
 })

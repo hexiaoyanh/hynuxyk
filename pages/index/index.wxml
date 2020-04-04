@@ -12,8 +12,11 @@
               <view class="td" style="text-align:left">
                 <text>{{AccNum}}</text>
               </view>
-              <view class="td" style="text-align:right">
+              <view wx:if="{{MonDBCurr != '点击登录'}}" class="td" style="text-align:right">
                 <text>{{MonDBCurr}}</text>
+              </view>
+              <view wx:else class="td" style="text-align:right">
+                <text bindtap="login">{{MonDBCurr}}</text>
               </view>
             </view>
           </view>

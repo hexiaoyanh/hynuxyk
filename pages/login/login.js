@@ -15,6 +15,27 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        var conf = {
+            title: '提示',
+            content: '本程序为校园卡第三方程序，登录密码为校园卡密码（初始密码为888888），我们不会上传您的任何数据，服务器端代码开源地址为：https://github.com/hexiaoyanh/hynuxykbackstage，图片来自于Alto\'s Adventure，如有疑问请加QQ群：127652979，我们不负任何法律责任。',
+            cancelText: '不再显示',
+            confirmText: '确定',
+            success(res) {
+                if (res.cancel) {
+                    wx.setStorage({
+                        key: 'msgconfim',
+                        data: '1',
+                    })
+                }
+            }
+        };
+        wx.getStorage({
+            key: 'msgconfim',
+            success: function(res) {},
+            fail(res) {
+                wx.showModal(conf);
+            }
+        })
 
         var that = this;
         wx.getStorage({
@@ -57,7 +78,7 @@ Page({
                         });
                         app.http.Msg = "";
                     }
-                }).catch((error)=>{
+                }).catch((error) => {
                     wx.showModal({
                         title: '提示',
                         content: error,
@@ -66,7 +87,7 @@ Page({
                 })
             },
         });
-        
+
 
 
 

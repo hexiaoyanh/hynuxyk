@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/login/login",
         "pages/index/index",
+        "pages/login/login",
         "pages/myself/myself",
         "pages/index/VirtualCard/VirtualCard",
         "pages/index/AccessControl/AccessControl",

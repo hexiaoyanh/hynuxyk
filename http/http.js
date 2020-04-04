@@ -86,6 +86,10 @@ class http {
     setUsername(str) {
         //设置用户名
         this.UserNumber = str;
+        wx.setStorage({
+            key: 'UserNumber',
+            data: str,
+        })
     }
     //密码加密
     setPassword(str) {
@@ -143,6 +147,38 @@ class http {
                         that.AgentID = json.AgentID;
                         that.LostDate = json.LostDate;
                         that.IsDefault = json.IsDefault;
+                        wx.setStorage({
+                            key: 'AccNum',
+                            data: that.AccNum,
+                        });
+                        wx.setStorage({
+                            key: 'AccName',
+                            data: that.AccName,
+                        });
+                        wx.setStorage({
+                            key: 'PerCode',
+                            data: that.PerCode,
+                        });
+                        wx.setStorage({
+                            key: 'CardID',
+                            data: that.CarID,
+                        });
+                        wx.setStorage({
+                            key: 'CustomerID',
+                            data: that.CustomerID,
+                        });
+                        wx.setStorage({
+                            key: 'AgentID',
+                            data: that.AgentID,
+                        });
+                        wx.setStorage({
+                            key: 'LostDate',
+                            data: that.LostDate,
+                        });
+                        wx.setStorage({
+                            key: 'IsDefault',
+                            data: that.IsDefault,
+                        })
                     } else {
                         that.Msg = json.Msg;
                     }
@@ -707,8 +743,8 @@ class http {
         var that = this;
         return new Promise(function(resolve,reject){
             wx.request({
-                //url: that.url +'query/resetPassword',
-                url:"http://127.0.0.1:5000/query/resetPassword",
+                url: that.url +'query/resetPassword',
+                //url:"http://127.0.0.1:5000/query/resetPassword",
                 method:"POST",
                 data:{
                     "username":that.UserNumber,

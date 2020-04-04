@@ -131,6 +131,7 @@ Page({
         }
     },
     change: function() {
+        
         wx.navigateTo({
             url: './change/change',
         })
