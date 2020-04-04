@@ -19,7 +19,7 @@
             </navigator>
         </view>
         <view class="card-methods" style="margin-left: 5%;">
-            <navigator url="./cj/cj">
+            <navigator url="./pth/pth">
                 <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gd8snq9v23j21400u00zw.jpg"></image>
                 <view class="card-methods-title">
                     <text>普通话</text>
@@ -29,7 +29,7 @@
       </view>
       <view class="methods">
         <view class="card-methods" style="margin-right: 5%;">
-            <navigator url="./kcb/kcb">
+            <navigator url="./teacher/tch">
                 <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gd8snq9v23j21400u00zw.jpg"></image>
                 <view class="card-methods-title">
                     <text>教师资格证</text>
@@ -37,7 +37,7 @@
             </navigator>
         </view>
         <view class="card-methods" style="margin-left: 5%;">
-            <navigator url="./cj/cj">
+            <navigator url="./ncre/ncre">
                 <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gd8snq9v23j21400u00zw.jpg"></image>
                 <view class="card-methods-title">
                     <text>计算机二级</text>

@@ -21,7 +21,10 @@
     "pages/Exam/Exam",
     "pages/Exam/CET/CET",
     "pages/Exam/cet/cet",
-    "pages/index/kbcj/index/xk/xk"
+    "pages/index/kbcj/index/xk/xk",
+    "pages/Exam/pth/pth",
+    "pages/Exam/teacher/tch",
+    "pages/Exam/ncre/ncre"
   ],
   "window": {
     "backgroundTextStyle": "light",
