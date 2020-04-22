@@ -71,7 +71,7 @@
       <view bindtap="Attendance" class="card-methods" style="margin-right: 5%;">
           <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wwsetp20j30vk0hsh1p.jpg"></image>
           <view class="card-methods-title">
-            <text>我\t的</text>
+            <text>其\t它</text>
           </view>
       </view>
       <view bindtap="Kbcj" class="card-methods" style="margin-left: 5%;">

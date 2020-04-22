@@ -20,7 +20,7 @@
           <view class="td">准考证号码</view>
         </view>
         <view class="tr">
-          <view class="td">43040719981010</view>
+          <view class="td">{{id_num}}</view>
         </view>
         <view class="tr-h">
           <view class="td">姓名</view>
@@ -28,9 +28,9 @@
           <view class="td">总分</view>
         </view>
         <view class="tr">
-          <view class="td">慕容小明</view>
-          <view class="td">伊犁哈萨克自治州农业工程职业技术师范学校</view>
-          <view class="td">424</view>
+          <view class="td">{{name}}</view>
+          <view class="td">{{school}}</view>
+          <view class="td">{{score}}</view>
         </view>
         <view class="tr-h">
           <view class="td">听力</view>
@@ -38,9 +38,9 @@
           <view class="td">写作与翻译</view>
         </view>
         <view class="tr">
-          <view class="td">130</view>
-          <view class="td">130</view>
-          <view class="td">130</view>
+          <view class="td">{{listening}}</view>
+          <view class="td">{{reading}}</view>
+          <view class="td">{{writing}}</view>
         </view>
       </view>
     </view>

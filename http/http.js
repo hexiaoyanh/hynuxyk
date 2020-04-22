@@ -14,7 +14,7 @@ class http {
     AccName = "";
     PerCode = "";
     CarID = "";
-    CertCode="";
+    CertCode = "";
     CustomerID = "";
     AgentID = "";
     LostDate = "";
@@ -54,6 +54,7 @@ class http {
         this.Time = time;
 
     }
+
     //签名生成
     setSign(str1, str2) {
         //设置签名
@@ -82,6 +83,7 @@ class http {
         var md5 = CryptoJS.MD5(sign).toString();
         this.Sign = md5;
     }
+
     //设置用户名
     setUsername(str) {
         //设置用户名
@@ -91,6 +93,7 @@ class http {
             data: str,
         })
     }
+
     //密码加密
     setPassword(str) {
         //设置密码
@@ -104,6 +107,7 @@ class http {
         }).toString();
         this.Password = encrypted;
     }
+
     //支付密码加密
     OtherPassword(str) {
         //设置密码
@@ -117,6 +121,7 @@ class http {
         }).toString();
         return encrypted;
     }
+
     //登录
     Login() {
         var a = ['Time', 'UserNumber', 'Password'];
@@ -125,7 +130,7 @@ class http {
         this.setSign(a, b);
         var that = this;
 
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: that.url,
                 data: {
@@ -193,6 +198,7 @@ class http {
 
         that.QueryAccWallent();
     }
+
     //查询钱包信息
     QueryAccWallent() {
         //接口:AccNum
@@ -202,7 +208,7 @@ class http {
         var b = [that.Time, that.AccNum]
         this.setSign(a, b);
         var url = that.url + "QueryAccWallet.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -226,6 +232,7 @@ class http {
             })
         })
     }
+
     //查询用户信息
     QueryAccInfo() {
         //接口:AccNum
@@ -236,7 +243,7 @@ class http {
         this.setSign(a, b);
         console.log(this)
         var url = that.url + "QueryAccInfo.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -258,6 +265,7 @@ class http {
             })
         })
     }
+
     //请求RandomNum
     getRandomNum() {
         var that = this;
@@ -266,7 +274,7 @@ class http {
         var b = [that.Time, that.AccNum]
         this.setSign(a, b);
         var url = that.url + "GetRandomNum.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -294,7 +302,7 @@ class http {
         var b = [that.Time, that.AccNum]
         this.setSign(a, b);
         var url = that.url + "GetOrderNum.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -315,12 +323,13 @@ class http {
             })
         })
     }
+
     //虚拟校园卡
-    getQRcode(height,width) {
+    getQRcode(height, width) {
         var that = this;
         //var url = that.url + "proxy/qr"
-        var url = that.url +"proxy/getqr";
-        return new Promise(function(resolve, reject) {
+        var url = that.url + "proxy/getqr";
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 method: "POST",
@@ -345,6 +354,7 @@ class http {
             })
         })
     }
+
     //充值
     Recharge(money, password) {
         var that = this;
@@ -353,7 +363,7 @@ class http {
         var b = [that.Time, that.AccNum, money, that.OtherPassword(password)]
         this.setSign(a, b);
         var url = that.url + "BankTransfer.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -373,11 +383,12 @@ class http {
             })
         })
     }
+
     //扫描二维码
     ScanQR(str) {
         var that = this;
         var url = that.url + "proxy/scan"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 method: "POST",
@@ -395,6 +406,7 @@ class http {
             })
         })
     }
+
     //获取账号有效性
     QueryAccAuth() {
         var that = this;
@@ -403,7 +415,7 @@ class http {
         var b = [that.Time, that.AccNum]
         this.setSign(a, b);
         var url = that.url + "QueryAccAuth.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -425,6 +437,7 @@ class http {
             })
         })
     }
+
     //获取付款信息
     GetDealerInfo(dealerNum, staNum, terNum) {
         var that = this;
@@ -434,7 +447,7 @@ class http {
         this.setSign(a, b);
         var url = that.url + "GetDealerInfo.aspx"
 
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -455,6 +468,7 @@ class http {
             })
         })
     }
+
     Pay(dealerNum, staNum, terNum, password, mondeal) {
         var that = this;
         var a = ['Time', "AccNum", "OrderNum", "DealerNum", "StaNum", "TerNum", "Password", "MonDeal"]
@@ -465,7 +479,7 @@ class http {
         this.setSign(a, b);
         var url = that.url + "ScanPayMon.aspx"
 
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -489,6 +503,7 @@ class http {
             })
         })
     }
+
     QueryDealRec(begindate, enddate, type, viceaccnum, walletnum, recnum, count) {
         var that = this;
         var a = ['Time', "AccNum", "BeginDate", "EndDate", "Type", "ViceAccNum", "WalletNum", "RecNum", "Count"]
@@ -497,7 +512,7 @@ class http {
         this.setSign(a, b);
         var url = that.url + "QueryDealRec.aspx"
 
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -522,6 +537,7 @@ class http {
             })
         })
     }
+
     QueryAccountDoor(date, recnum, count) {
         var that = this;
         var a = ['Time', "AccNum", "Date", "RecNum", "Count"]
@@ -529,7 +545,7 @@ class http {
         var b = [that.Time, that.AccNum, date, recnum, count]
         this.setSign(a, b);
         var url = that.url + "QueryAccountDoor.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -550,6 +566,7 @@ class http {
             })
         })
     }
+
     ApplyDoorPwd(devicesnum, doorid) {
         var that = this;
         var a = ['Time', "AccNum", "DeviceNum", "DoorID"]
@@ -557,7 +574,7 @@ class http {
         var b = [that.Time, that.AccNum, devicesnum, doorid]
         this.setSign(a, b);
         var url = that.url + "ApplyDoorPwd.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -577,6 +594,7 @@ class http {
             })
         })
     }
+
     ReportLost(password) {
         var that = this;
         var a = ['Time', "AccNum", "OptType", "Password"]
@@ -584,7 +602,7 @@ class http {
         var b = [that.Time, that.AccNum, "1", password]
         this.setSign(a, b);
         var url = that.url + "ReportLost.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -604,6 +622,7 @@ class http {
             })
         })
     }
+
     ModifyPassword(oldpassword, newpassword, PswType) {
         var that = this;
         var a = ['Time', "AccNum", "PswType", "OldPassword", "NewPassword"]
@@ -611,7 +630,7 @@ class http {
         var b = [that.Time, that.AccNum, PswType, that.OtherPassword(oldpassword), that.OtherPassword(newpassword)]
         this.setSign(a, b);
         var url = that.url + "ModifyPassword.aspx"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 data: {
@@ -632,17 +651,18 @@ class http {
             })
         })
     }
+
     JwLogin(username, password) {
         var that = this;
         var url = that.url + "query/login"
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: url,
                 method: 'POST',
                 data: {
                     "username": username,
                     "password": password,
-                    "nanyue":that.Nanyue
+                    "nanyue": that.Nanyue
                 },
                 success(res) {
                     resolve(res)
@@ -653,19 +673,20 @@ class http {
             })
         })
     }
+
     JwKb(week) {
         var that = this;
         var date = new Date();
         var year = Number(date.getFullYear().toString());
         var month = Number(date.getMonth() + 1)
         var str = null;
-        if(month<=1 || month>=8){
-            str = (year-1).toString()+'-'+year.toString()+'-1';
-        }else{
-            str = (year-1).toString()+'-'+year.toString()+'-2';
+        if (month <= 1 || month >= 8) {
+            str = (year - 1).toString() + '-' + year.toString() + '-1';
+        } else {
+            str = (year - 1).toString() + '-' + year.toString() + '-2';
         }
         console.log(that.Nanyue)
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: that.url + 'query/kb',
                 method: 'POST',
@@ -684,9 +705,10 @@ class http {
             })
         })
     }
+
     JwCj(str) {
         var that = this;
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: that.url + 'query/cj',
                 method: 'POST',
@@ -704,9 +726,10 @@ class http {
             })
         })
     }
+
     JwPscj(url) {
         var that = this;
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: that.url + 'query/pscj',
                 method: 'POST',
@@ -724,45 +747,138 @@ class http {
             })
         })
     }
-    getmsg(){
+
+    getmsg() {
         var that = this;
-        return new Promise(function(resolve,reject){
+        return new Promise(function (resolve, reject) {
             wx.request({
-                url: that.url+'query/getMsg',
-                method:"POST",
-                success(res){
+                url: that.url + 'query/getMsg',
+                method: "POST",
+                success(res) {
                     resolve(res);
                 },
-                fail(error){
+                fail(error) {
                     reject(res);
                 }
             })
         })
     }
-    ResetPassword(username,idcard){
+
+    ResetPassword(username, idcard) {
         var that = this;
-        return new Promise(function(resolve,reject){
+        return new Promise(function (resolve, reject) {
             wx.request({
-                url: that.url +'query/resetPassword',
+                url: that.url + 'query/resetPassword',
                 //url:"http://127.0.0.1:5000/query/resetPassword",
-                method:"POST",
-                data:{
-                    "username":that.UserNumber,
+                method: "POST",
+                data: {
+                    "username": that.UserNumber,
                     "idcardnum": that.CertCode,
-                    "nanyue":that.Nanyue
+                    "nanyue": that.Nanyue
                 },
-                success(res){
+                success(res) {
                     console.log(res)
                     resolve(res);
                 },
-                fail(error){
+                fail(error) {
                     reject(error)
                 }
             })
         })
     }
 
+    CetGetVerify(id_num, name) {
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: that.url + 'publicexam/cetgetverify',
+                method: "POST",
+                data: {
+                    "id_num": id_num,
+                    "name": name
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    reject(error)
+                }
+            })
+        })
+    }
+
+    CetGetScore(id_num, name, capcha, cookie) {
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: that.url + 'publicexam/cetgetscore',
+                method: "POST",
+                data: {
+                    "id_num": id_num,
+                    "name": name,
+                    "capcha": capcha,
+                    "cookie": cookie
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    reject(error)
+                }
+            })
+        })
+    }
+    GetAboutus(){
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: that.url + 'query/getaboutus',
+                method: "GET",
+                data: null,
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    reject(error)
+                }
+            })
+        })
+    }
+    ViewAd(){
+        var that = this;
+        wx.request({
+            url: that.url + 'query/viewadd',
+            method: "POST",
+            data: {
+                "userid": that.UserNumber==""?"游客":that.UserNumber,
+                "username":that.AccName==""?"游客":that.AccName
+            },
+            success(res) {
+                resolve(res)
+            },
+            fail(error) {
+                reject(error)
+            }
+        })
+    }
+    GetAdData(){
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: that.url + 'query/getviewad',
+                method: "GET",
+                data: null,
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    reject(error)
+                }
+            })
+        })
+    }
 }
+
 export {
     http
 }

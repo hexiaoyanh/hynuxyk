@@ -27,7 +27,7 @@
                 </navigator>
             </view>
         </view>
-        <view class="methods">
+        <!-- <view class="methods">
             <view class="card-methods" style="margin-right: 5%;">
                 <navigator url="./xk/xk">
                     <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gdb1yh6j20j20q50db75t.jpg"></image>
@@ -36,7 +36,7 @@
                     </view>
                 </navigator>
             </view>
-        </view>
+        </view> -->
     </view>
     <view class="ad-methods">
         <ad unit-id="adunit-8d4d18ec4fa5a27a"></ad>

@@ -1,7 +1,7 @@
 // pages/myself/myself.js
 const app = getApp();
 var hei = wx.getMenuButtonBoundingClientRect().top;
-let videoAd = null
+let videoAd = null;
 Page({
 
     /**
@@ -10,20 +10,23 @@ Page({
     data: {
         stateH: hei,
         name: "",
-        id: ""
+        id: "",
+        adtext: "看广告解锁平时成绩查询",
+        disabled: false,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         this.setData({
             name: app.http.AccName,
-            id: app.http.UserNumber
+            id: app.http.UserNumber,
         })
+        var that = this;
         if (wx.createRewardedVideoAd) {
             videoAd = wx.createRewardedVideoAd({
-                adUnitId: 'adunit-11c3b9b24ab293cc'
+                adUnitId: 'adunit11c3b9b24ab293cc'
             })
             videoAd.onLoad(() => {
                 console.log("正在准备ad")
@@ -31,7 +34,7 @@ Page({
             videoAd.onError((err) => {
                 console.log(err);
                 wx.showToast({
-                    icon:"error",
+                    icon: "none",
                     title: '广告拉取失败',
                 })
             })
@@ -42,7 +45,28 @@ Page({
                     wx.showModal({
                         title: '万分感谢',
                         content: '非常感谢您帮助了可怜的开发者，给你一个么么哒😘，平时成绩已经解锁了哦',
-                    })
+                    });
+                    app.http.ViewAd();
+                    var times = 0;
+                    var num = setInterval(function () {
+                        times++
+                        if (times >= 600) {
+                            that.setData({
+                                disabled: false,
+                                adtext: "看广告解锁平时成绩查询"
+                            })
+                            clearInterval(num)
+                        } else {
+                            var timess = 600 - times;
+                            var min = Math.floor(timess / 60);
+                            var sec = timess % 60;
+                            var strtime = min.toString() + ":" + sec.toString();
+                            that.setData({
+                                disabled: true,
+                                adtext: strtime
+                            })
+                        }
+                    }, 1000);
                 } else {
                     // 播放中途退出，不下发游戏奖励
                     wx.showModal({
@@ -57,63 +81,73 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     },
-    logout: function(e) {
+    logout: function (e) {
         wx.clearStorage();
         wx.reLaunch({
             url: '../login/login',
         })
     },
-    record: function() {
+    record: function () {
         wx.navigateTo({
             url: './record/record',
         })
     },
-    adshow: function() {
+    aboutus: function () {
+        app.http.GetAboutus().then((res) => {
+            console.log(res)
+            if (res.data.code == 1)
+            wx.showModal({
+                title: '你好呀',
+                content: res.data.msg,
+            });
+        })
+    },
+    adshow: function () {
         if (videoAd) {
             videoAd.show().catch(() => {
                 // 失败重试
@@ -129,10 +163,14 @@ Page({
             })
         }
     },
-    change: function() {
-        
+    change: function () {
         wx.navigateTo({
             url: './change/change',
+        })
+    },
+    addata:function(){
+        wx.navigateTo({
+            url: './addata/addata',
         })
     }
 })

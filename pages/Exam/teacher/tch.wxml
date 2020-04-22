@@ -10,7 +10,7 @@
       <image class="main-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gd8snq9v23j21400u00zw.jpg" mode="aspectFill"></image>
       <view class="ctitle">
         <text>
-          NCRE成绩查询
+          NTCE成绩查询
         </text>
       </view>
     </view>
@@ -18,32 +18,16 @@
       <form bindsubmit="changep1">
         <view class="card-content-textblock">
           <view class="card-content-title">
-            考试时间：
+            输入证件号：
           </view>
-          <picker bindchange="timePickerChange" value="{{tPickerIndex}}" range="{{examTime}}">
-            <text class="pickerYear" style="font-size:20px"> {{examTime[tPickerIndex]}}</text>
-          </picker>
-        </view>
-        <view class="card-content-textblock">
-          <view class="card-content-title">
-            考试科目：
-          </view>
-          <picker bindchange="subPickerChange" value="{{sPickerIndex}}" range="{{subjects}}">
-            <text class="pickerYear" style="font-size:16px"> {{subjects[sPickerIndex]}}</text>
-          </picker>
-        </view>
-        <view class="card-content-textblock">
-          <view class="card-content-title">
-            输入准考证号：
-          </view>
-          <input type="number" name='oldpassword' maxlength="6">
+          <input type="number" name='oldpassword'>
           </input>
         </view>
         <view class="card-content-textblock">
           <view class="card-content-title">
             输入姓名：
           </view>
-          <input type="number" name='newpassword'>
+          <input type="number">
           </input>
         </view>
         <view class="card-content-textblock">

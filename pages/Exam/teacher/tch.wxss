@@ -70,12 +70,12 @@ page{
 
 .card .card-content .card-content-textblock{
   margin-left: 5%;
-  margin-top: 3%;
+  margin-top: 7%;
   font-size: 26rpx;
   font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
   width: 90%;
   color: snow;
-  height: 15%;
+  height: 20%;
   padding-top: 3%;
   box-shadow: 3px 3px 10px 0px rgba(209, 110, 64, 0.808);
   background-color: rgb(55,49,63);
@@ -86,7 +86,7 @@ page{
   line-height: 50rpx;
   width: 40%;
   height: 7%;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-left: 30%;
   border-radius: 30rpx;
   background-color: rgb(170, 102, 101);

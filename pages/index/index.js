@@ -311,7 +311,7 @@ Page({
     },
     Kbcj: function(e) {
         wx.navigateTo({
-            url: './kbcj/index/index',
+            url: './kbcj/kbcj',
         })
     },
     login: function(e) {

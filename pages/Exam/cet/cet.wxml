@@ -1,116 +1,70 @@
 <!--pages/Exam/cet/cet.wxml-->
 <view class="global">
-  <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
-    <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
-      <text class="cuIcon-back text-gray" style="font-size:40rpx"></text>
-    </navigator>
-  </view>
+    <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+        <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+            <text class="cuIcon-back text-gray" style="font-size:40rpx"></text>
+        </navigator>
+    </view>
 
 
-   <swiper style="height:90%;width:100%;" indicator-dots indicator-color="rgb(169, 151, 233)" indicator-active-color="rgb(105,100,123)">
+    <swiper style="height:90%;width:100%;" indicator-dots indicator-color="rgb(169, 151, 233)" indicator-active-color="rgb(105,100,123)">
 
-    <swiper-item>
-      <view class="card">
-        <view class="card-image">
-          <image class="main-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gd8snq9v23j21400u00zw.jpg" mode="aspectFill"></image>
-          <view class="ctitle">
-            <text>
+        <swiper-item>
+            <view class="card">
+                <view class="card-image">
+                    <image class="main-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gd8snq9v23j21400u00zw.jpg" mode="aspectFill"></image>
+                    <view class="ctitle">
+                        <text>
               CET成绩查询
             </text>
-          </view>
-        </view>
+                    </view>
+                </view>
 
-        <view class="card-content">
-          <form bindsubmit="changep1">
-            <view class="card-content-textblock">
+                <view class="card-content">
+                    <form bindsubmit="submits">
+                        <view class="card-content-textblock">
 
-              <view class="card-content-title">
-                输入准考证号：
-              </view>
-              <input type="number" name='oldpassword' maxlength="6">
-              </input>
+                            <view class="card-content-title">
+                                输入准考证号:
+                            </view>
+                            <input bindinput="changeid" type="number" name='id_num' value="{{id_num}}">
+                            </input>
+                        </view>
+
+                        <view class="card-content-textblock">
+                            <view class="card-content-title">
+                                输入姓名:
+                            </view>
+                            <input bindinput="changename" type="text" name='name' value="{{name}}">
+                            </input>
+                        </view>
+
+                        <view class="card-content-textblock">
+                            <view class="card-content-title">
+                                输入验证码:
+                            </view>
+                            <input bindinput="changeverify" type="text" name='verify' style="width:40%;" value="{{verify_code}}">
+                            </input>
+                            <view class="verifyCode">
+                                <a style="width:100%;height:100%">
+                                <block wx:if="{{verify_img == \"\"}}">
+                                    <text bindtap="getverify">获取验证码</text>
+                                </block>
+                                <block wx:else>
+                                    <image bindtap="getverify" style="width:100%;height:100%;" src="{{verify_img}}"></image>
+                                </block>
+                                </a>
+                            </view>
+                        </view>
+
+                        <button form-type='submit' type="submit" class="card-button" style="animation-delay:0.4s;">提交</button>
+                    </form>
+                </view>
             </view>
+        </swiper-item>
 
-            <view class="card-content-textblock">
 
-              <view class="card-content-title">
-                输入姓名：
-              </view>
-              <input type="number" name='newpassword'>
-              </input>
-            </view>
-
-            <view class="card-content-textblock">
-              <view class="card-content-title">
-                输入验证码：
-              </view>
-              <input type="number" name='newpassword2' style="width:40%;">
-              </input>
-               <view class="verifyCode">
-                <a style="width:100%;height:100%">
-                  <text>hhhhhh</text>
-                  <!-- <image style="width:100%;height:100%;" src=""></image> -->
-                </a>
-              </view>
-            </view>
-
-            <button form-type='submit' type="submit" class="card-button" style="animation-delay:0.4s;">提交</button>
-          </form>
-        </view>
-      </view>
-    </swiper-item>
-
-    <swiper-item>
-      <view class="card">
-        <view class="card-image">
-          <image class="main-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gd8snq9v23j21400u00zw.jpg" mode="aspectFill"></image>
-          <view class="ctitle">
-            <text>
-              CET准考证查询
-            </text>
-          </view>
-        </view>
-
-        <view class="card-content">
-          <form bindsubmit="changep2">
-            <view class="card-content-textblock">
-
-              <view class="card-content-title">
-                输入身份证号：
-              </view>
-              <input type="number" name='oldpassword' maxlength="6">
-              </input>
-            </view>
-
-            <view class="card-content-textblock">
-
-              <view class="card-content-title">
-                输入姓名：
-              </view>
-              <input type="number" name='newpassword' maxlength="6">
-              </input>
-            </view>
-
-            <view class="card-content-textblock">
-              <view class="card-content-title">
-                输入验证码：
-              </view>
-              <input type="number" name='newpassword2' maxlength="6" style="width:40%;">
-              </input>
-              <view class="verifyCode">
-                <a style="width:100%;height:100%">
-                  <text>hhhhhh</text>
-                  <!-- <image style="width:100%;height:100%;" src=""></image> -->
-                </a>
-              </view>
-            </view>
-            <button form-type='submit' type="submit" class="card-button" style="animation-delay:0.4s;">提交</button>
-          </form>
-        </view>
-      </view>
-    </swiper-item>
-
-   </swiper>
+    </swiper>
 
 
 </view>

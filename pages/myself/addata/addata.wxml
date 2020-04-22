@@ -1,0 +1,49 @@
+<view class="global">
+  <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+      <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+          <text class="cuIcon-back" style="font-size:40rpx"></text>
+      </navigator>
+  </view>
+
+  <view style="height:90%;width:100%;" indicator-dots indicator-color="#7DB9DE" indicator-active-color="#3A8FB7">
+
+      <view class="card">
+        <view class="card-image">
+          <image class="main-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7z6nozt3cj30vk0hsjx5.jpg" mode="aspectFill"></image>
+        
+        </view>
+
+        <view class="card-content">
+          <view class="VerticalBox" style="height:100%;width:100%">
+            <scroll-view style="height:100%;width:100%;" scroll-y="true">
+
+              <view class="card-content-textblock" wx:for="{{datas}}" wx:for-item="item" wx:for-index="idx" wx:key="{{datas.userid}}">
+                <view class="table">
+                  <view class="tr-f">
+                    <view class="td" style="text-align:left">
+                      <text style="font-weight:bolder">{{item.userid}}</text>
+                    </view>
+                    
+                    <view class="td" style="text-align:left">
+                      <text style="font-weight:bolder">{{item.username}}</text>
+                    </view>
+
+                    <view class="td" style="text-align:right;font-size:35rpx">
+                      <text>{{item.num}}</text>
+                    </view>
+
+                  </view>
+
+                </view>
+
+              </view>
+
+
+            </scroll-view>
+
+          </view>
+        </view>
+      </view>
+
+  </view>
+</view>
