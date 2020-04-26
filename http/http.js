@@ -854,10 +854,8 @@ class http {
                 "username":that.AccName==""?"游客":that.AccName
             },
             success(res) {
-                resolve(res)
             },
             fail(error) {
-                reject(error)
             }
         })
     }

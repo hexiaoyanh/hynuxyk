@@ -13,6 +13,7 @@
 		"coverView": true,
 		"nodeModules": true,
 		"autoAudits": false,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -21,11 +22,11 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"uglifyFileName": true
+		"bundle": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.1",
-	"appid": "wx8a6127cc43fefc55",
+	"appid": "wx87b2e9598df82c7d",
 	"projectname": "hynu",
 	"debugOptions": {
 		"hidedInDevtools": []

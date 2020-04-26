@@ -1,5 +1,7 @@
 // pages/Exam/cet/cj/cj.js
 const app = getApp();
+let interstitialAd = null
+
 Page({
 
     /**
@@ -30,7 +32,16 @@ Page({
             listening: options.listening,
             school: options.school,
             reading: options.reading
-        })
+        });
+        if (wx.createInterstitialAd) {
+            interstitialAd = wx.createInterstitialAd({
+              adUnitId: 'adunit-77f7566412eb47c1'
+            })
+            interstitialAd.onLoad(() => {})
+            interstitialAd.onError((err) => {})
+            interstitialAd.onClose(() => {})
+          }
+          
     },
 
     /**
@@ -44,7 +55,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        if (interstitialAd) {
+            interstitialAd.show().catch((err) => {
+              console.error(err)
+            })
+          }
     },
 
     /**
