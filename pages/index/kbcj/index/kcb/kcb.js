@@ -63,7 +63,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         this.setData({
             stateH: app.hei
         })
@@ -84,67 +84,67 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     },
-    getData: function(week) {
+    getData: function (week) {
         var that = this;
         if (week == "0") week = '';
         app.http.JwKb(week).then((res) => {
             wx.hideLoading();
-            try{
+            try {
                 var jsons = JSON.parse(res.data['kb'])
 
-            }catch(e){
+            } catch (e) {
                 wx.hideLoading();
                 wx.showModal({
                     title: '错误',
                     content: '当前没有课程表或网络错误',
                     success() {
                         wx.navigateBack({
-                            
+
                         });
                     }
                 })
@@ -167,7 +167,7 @@ Page({
             })
         })
     },
-    pickerChange: function(e) {
+    pickerChange: function (e) {
         console.log(e.detail.value);
         this.setData({
             weekIndex: e.detail.value,
@@ -177,7 +177,7 @@ Page({
         })
         this.getData(e.detail.value);
     },
-    dealData: function(data) {
+    dealData: function (data) {
         var newData = Array();
         var temp = 0;
         var a = 1;
@@ -196,7 +196,7 @@ Page({
         console.log(newData)
         return newData
     },
-    showDetail: function(e) {
+    showDetail: function (e) {
         var nowuse = Number(e.currentTarget.id);
         var data = this.data.allData;
         var str = (Math.floor(nowuse / 7) + 1).toString() + '-' + (nowuse % 7 + 1).toString();
@@ -207,29 +207,16 @@ Page({
             showCancel: false
         })
     },
-    // subscribemessage: function() {
-    //     wx.login({
-    //         success(res) {
-    //             if (res.code) {
-    //                console.log(res.code);
-    //                app.http.JwKbLogin(res.code).then((res)=>{
-    //                    console.log(res);
-                       
-    //                })
-    //             } else {
-    //                 console.log('登录失败！' + res.errMsg)
-    //             }
-    //         }
-    //     })
-    //     wx.requestSubscribeMessage({
-    //         tmplIds: ['VV1gJIgKKPLtmUYfTytD2H5g5p6f6EKbm6WjnTmfZ9E'],
-    //         success(res) {
-    //             console.log(res);
-    //         },
-    //         fail(res) {
-    //             console.log(res);
-    //         }
-
-    //     })
-    // }
+    redtokb: function () {
+        wx.navigateToMiniProgram({
+            appId: 'wx365d77f700333956', // 要跳转的小程序的appid
+            path: '', // 跳转的目标页面
+            extarData: {
+                open: 'auth'
+            },
+            success(res) {
+                // 打开成功  
+            }
+        })
+    }
 })

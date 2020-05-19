@@ -15,7 +15,7 @@
                 <text class="pickerWeek" style="text-aligin:center"> {{schoolWeek[weekIndex]}} </text>
                 <text>周</text>
               </picker>
-              <!-- <view bindtap="subscribemessage">订阅上课提醒</view> -->
+              <view bindtap="redtokb" style="color:pink">用衡师课表查看</view>
             </view>
             <view class="cday" style="margin-top:25%">
                 <view class="table">

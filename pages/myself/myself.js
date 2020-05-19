@@ -29,29 +29,29 @@ Page({
         var that = this;
         wx.getStorage({
             key: 'timer',
-            success:function(res){
+            success: function (res) {
                 let dates = new Date(res.data);
                 let datess = new Date();
                 let sec = Math.floor((datess - dates) / 1000);
-                if(sec<600){
+                if (sec < 600) {
                     num = setInterval(function () {
                         wx.getStorage({
                             key: 'timer',
-                            success:function(res){
+                            success: function (res) {
                                 let dates = new Date(res.data);
                                 let datess = new Date();
                                 let sec = Math.floor((datess - dates) / 1000);
-                                if(sec>=600){
+                                if (sec >= 600) {
                                     clearInterval(num);
                                     that.setData({
                                         disabled: false,
-                                        adtext:"看广告解锁平时成绩查询"
+                                        adtext: "看广告解锁平时成绩查询"
                                     });
-                                }else{
-                                    sec = 600-sec;
+                                } else {
+                                    sec = 600 - sec;
                                     that.setData({
                                         disabled: true,
-                                        adtext:(Math.floor((sec)/60)).toString() + ":" + (sec%60).toString()
+                                        adtext: (Math.floor((sec) / 60)).toString() + ":" + (sec % 60).toString()
                                     })
                                 }
                             }
@@ -60,7 +60,6 @@ Page({
                 }
             }
         })
-
 
         if (wx.createRewardedVideoAd) {
             videoAd = wx.createRewardedVideoAd({
@@ -92,21 +91,21 @@ Page({
                     num = setInterval(function () {
                         wx.getStorage({
                             key: 'timer',
-                            success:function(res){
+                            success: function (res) {
                                 let dates = new Date(res.data);
                                 let datess = new Date();
                                 let sec = Math.floor((datess - dates) / 1000);
-                                if(sec>=600){
+                                if (sec >= 600) {
                                     clearInterval(num);
                                     that.setData({
                                         disabled: false,
-                                        adtext:"看广告解锁平时成绩查询"
+                                        adtext: "看广告解锁平时成绩查询"
                                     });
-                                }else{
-                                    sec = 600-sec;
+                                } else {
+                                    sec = 600 - sec;
                                     that.setData({
                                         disabled: true,
-                                        adtext:(Math.floor(sec/60)).toString() + ":" + (sec%60).toString()
+                                        adtext: (Math.floor(sec / 60)).toString() + ":" + (sec % 60).toString()
                                     })
                                 }
 
@@ -203,7 +202,7 @@ Page({
                 console.log(dates, datess);
                 let sec = Math.floor((dates - datess) / 1000);
                 console.log(sec);
-                if (sec > 600 || click>=5)
+                if (sec > 600 || click >= 5)
                     if (videoAd) {
                         click = 0;
                         videoAd.show().catch(() => {
@@ -220,7 +219,7 @@ Page({
                         })
                     }
             },
-            fail:function(){
+            fail: function () {
                 if (videoAd) {
                     videoAd.show().catch(() => {
                         // 失败重试
