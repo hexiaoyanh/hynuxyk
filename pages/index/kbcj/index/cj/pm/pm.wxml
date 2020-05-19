@@ -1,0 +1,120 @@
+<!--pages/index/kbcj/index/cj/pm/pm.wxml-->
+<view class="global">
+	<view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+		<navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+			<text class="cuIcon-back" style="font-size:40rpx"></text>
+		</navigator>
+	</view>
+
+	<view class="card">
+		<view class="card-image">
+			<image class="main-card-image" src="https://wx2.sinaimg.cn/mw690/006blzWmgy1g8itbaa43bj30vg0hrwlj.jpg" mode="aspectFill"></image>
+			<view class="ctitle">
+				<text style="width:100%">{{schoolYear}}学年</text>
+			</view>
+		</view>
+
+		<view class="card-content">
+			<view class="VerticalBox" style="height:100%;width:100%">
+				<scroll-view style="height:100%;width:100%;" scroll-y="true" bindscrolltolower="loadingmore">
+				<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">期末平均成绩</text>
+								</view>
+								<view class="td" style="text-align:right;font-size:35rpx">
+									{{rankList.average_num}}
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">平均成绩排名</text>
+								</view>
+								<view class="td" style="text-align:right;font-size:35rpx">
+									{{rankList.num_rank}}
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">总分</text>
+								</view>
+								<view class="td" style="text-align:right;font-size:35rpx">
+									{{rankList.total_num}}
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">总平均gpa</text>
+								</view>
+								<view class="td" style="text-align:right;font-size:35rpx">
+									{{rankList.total_ave_gpa}}
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">总平均gpa排名</text>
+								</view>
+								<view class="td" style="text-align:right;font-size:35rpx">
+									{{rankList.avegpa_rank}}
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">gpa北大算法</text>
+								</view>
+								<view class="td" style="text-align:right;font-size:35rpx">
+									{{rankList.total_pku_gpa}}
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">北大gpa排名</text>
+								</view>
+								<view class="td" style="text-align:right;font-size:35rpx">
+									{{rankList.pku_gpa_rank}}
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">学分绩</text>
+								</view>
+								<view class="td" style="text-align:right;font-size:35rpx">
+								{{rankList.total_credit}}
+								</view>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+	</view>
+</view>
