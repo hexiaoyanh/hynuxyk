@@ -102,7 +102,18 @@ Page({
     onReachBottom: function() {
 
     },
-
+    /**
+     * 排名按钮点击事件
+     */
+    rankTap: function(){
+        var that = this;
+        var time;
+        var index = that.data.pickerIndex;
+        time = that.data.schoolYear[index];
+        wx.navigateTo({
+          url: './pm/pm?time='+time,
+        })
+    },
     /**
      * 用户点击右上角分享
      */

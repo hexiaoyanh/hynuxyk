@@ -1,0 +1,110 @@
+/* pages/index/kbcj/index/cj/pm/pm.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.global{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right,rgb(38,31,48),rgb(139,115,135));
+}
+
+.card{
+  display: inline-block;
+  height: 85%;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50rpx;
+  margin-bottom: 5%;
+  border-radius: 20rpx; 
+  box-shadow: 6px 6px 10px 0px rgb(38,31,48);
+}
+.card .card-image{
+  height: 20%;
+  width: 100%;
+  border-radius: 20rpx; 
+  position: relative;
+}
+.card .main-card-image{
+  height: 100%;
+  width: 100%;
+  border-bottom-right-radius: 0; 
+  border-bottom-left-radius: 0; 
+  border-top-right-radius: 20rpx; 
+  border-top-left-radius: 20rpx;
+}
+
+.card .card-image .ctitle{
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 25%;
+  text-align:left; 
+  font-weight: bolder;
+  position: absolute;
+  height: 38%;
+  width: 100%;
+  color:rgb(243, 229, 244);
+  font-size: 50rpx; 
+}
+.card .card-content{
+  padding: 1%;
+  width: 100%;
+  height: 80%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: rgb(144, 118, 139);
+  display: inline-block
+}
+.card .card-content .card-content-textblock{
+  line-height: 1rem;
+  position: relative;
+  margin: 2% 3% 2% 3%;
+  padding: 2%;
+  font-size: 15px;
+  width: 94%;
+  height: 9%;
+  box-shadow: 3px 3px 10px 0px rgb(38,31,48);
+  background-color: rgb(171, 152, 189);
+  border-radius: 20rpx;
+}
+.card-content-textblock .state-image{
+  height: 117%;
+}
+.card-text-void{
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  color: rgb(218, 119, 73);
+  font-size: 30rpx;
+}
+
+.table {
+  width: 100%;
+  height: 100%;
+  border: 0px solid darkgray;
+}
+.tr-f {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.td {
+  color: rgb(86, 66, 112);
+    overflow : hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:48%;
+    justify-content: center;
+}
+.td-image{
+    width:22%;
+    height: 100%;
+    justify-content: center;
+}
