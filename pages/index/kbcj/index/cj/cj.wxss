@@ -69,7 +69,7 @@ page{
 }
 .cells{
   margin-top: 20%;
-  height: 58%;
+  height: 50%;
   width: 100%;
 }
 
@@ -136,10 +136,10 @@ page{
 }
 
 .my-btn{
-  width: 50%;
+  width: 55%;
   height: 80%;
   padding: 1%;
-  margin: 0 25% 2% 25%;
+  margin: 0 22% 2% 22%;
   background-color: rgb(38,31,48);
   color: rgb(139,115,135);
   font-size: 13px;
