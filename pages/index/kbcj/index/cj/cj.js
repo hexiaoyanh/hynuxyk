@@ -2,6 +2,8 @@
 
 var hei = wx.getMenuButtonBoundingClientRect().top;
 const app = getApp();
+let videoAd = null
+
 Page({
 
     /**
@@ -14,9 +16,9 @@ Page({
         memberList: null,
         pickerIndex: 0,
         schoolYear: null,
-        showloading:true
+        showloading: true
     },
-    isOpen: function(e) {
+    isOpen: function (e) {
         var idx = Number(e.currentTarget.dataset.index);
         var that = this;
         var list = that.data.memberList;
@@ -39,7 +41,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         this.setData({
             stateH: app.hei
         })
@@ -49,78 +51,137 @@ Page({
         year += 1;
         var list = Array();
         for (var i = 1; i <= 4; ++i) {
-            var str = (year - i -1).toString() + '-' + (year - i ).toString() + '-1';
-            var str2 = (year - i -1).toString() + '-' + (year - i ).toString() + '-2';
+            var str = (year - i - 1).toString() + '-' + (year - i).toString() + '-1';
+            var str2 = (year - i - 1).toString() + '-' + (year - i).toString() + '-2';
             list.push(str2);
             list.push(str);
         }
         that.setData({
-            schoolYear:list,
-            showloading:true
+            schoolYear: list,
+            showloading: true
         })
         that.getData(list[that.data.pickerIndex]);
+        that.adCreate();
     },
+    adCreate: function () {
+        var that = this;
 
+        if (wx.createRewardedVideoAd) {
+            videoAd = wx.createRewardedVideoAd({
+                adUnitId: 'adunit-f1cbccc279268640'
+            })
+            videoAd.onLoad(() => {
+                console.log("正在准备ad")
+            })
+            videoAd.onError((err) => {
+                console.log(err);
+                wx.showToast({
+                    icon: "none",
+                    title: '广告拉取失败',
+                })
+            })
+            videoAd.onClose((res) => {
+                console.log(res);
+                if (res && res.isEnded) {
+                    app.http.ViewAd();
+                    var time;
+                    var index = that.data.pickerIndex;
+                    time = that.data.schoolYear[index];
+                    wx.navigateTo({
+                        url: './pm/pm?time=' + time,
+                    })
+
+                } else {
+                    // 播放中途退出，不下发游戏奖励
+                    wx.showModal({
+                        title: '好吧',
+                        content: '看广告才能查排名哦，还有GPA，难道你不想知道自己考的怎么样吗🤭',
+                    })
+                }
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
     /**
      * 排名按钮点击事件
      */
-    rankTap: function(){
-        var that = this;
-        var time;
-        var index = that.data.pickerIndex;
-        time = that.data.schoolYear[index];
-        wx.navigateTo({
-          url: './pm/pm?time='+time,
+    rankTap: function () {
+        wx.getStorage({
+            key: 'Jwnanyue',
+            success: function (res) {
+                console.log(res.data);
+                if (res.data == true) {
+                    wx.showModal({
+                        'title': "8行",
+                        'content': "南岳学院的暂时8行",
+                        cancelColor: 'cancelColor',
+                    })
+                }else if (videoAd) {
+                    videoAd.show().catch(() => {
+                        // 失败重试
+                        videoAd.load()
+                            .then(() => videoAd.show())
+                            .catch(err => {
+                                console.log('激励视频 广告显示失败')
+                            })
+                    })
+                } else {
+                    wx.showToast({
+                        'icon': 'none',
+                        title: '广告加载出现问题',
+                    })
+                }
+            },
         })
+
     },
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     },
-    getData: function(str) {
+    getData: function (str) {
         var that = this;
         app.http.JwCj(str).then((res) => {
             var jsons = JSON.parse(res.data['cj'])
@@ -129,19 +190,19 @@ Page({
             that.setData({
                 allData: jsons,
                 memberList: list,
-                showloading:false
+                showloading: false
             })
         })
     },
-    pickerChange: function(e) {
+    pickerChange: function (e) {
         this.setData({
             pickerIndex: e.detail.value,
-            showloading:true
+            showloading: true
         })
         var list = this.data.schoolYear;
         this.getData(list[e.detail.value]);
     },
-    dealData: function(data) {
+    dealData: function (data) {
         var list = Array();
         console.log(data)
         for (var i in data) {

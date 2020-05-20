@@ -35,7 +35,7 @@ Page({
             if (json.Code == "1") {
                 wx.showModal({
                     title: '提交成功',
-                    content: '充值提交成功',
+                    content: '充值提交成功, 已将请求发送至服务器，请稍后返回主页下拉刷新查看。',
                     success(res) {
                         wx.navigateBack({
                             delta: 1,

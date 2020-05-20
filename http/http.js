@@ -100,6 +100,8 @@ class http {
         var key = "12347890";
         var keyHex = CryptoJS.enc.Utf8.parse(key);
         var ivHex = CryptoJS.enc.Utf8.parse(key);
+        console.log(keyHex);
+        console.log(ivHex)
         var encrypted = CryptoJS.DES.encrypt(str, keyHex, {
             iv: ivHex,
             mode: CryptoJS.mode.CBC,
@@ -828,7 +830,7 @@ class http {
             })
         })
     }
-    GetAboutus(){
+    GetAboutus() {
         var that = this;
         return new Promise(function (resolve, reject) {
             wx.request({
@@ -844,22 +846,20 @@ class http {
             })
         })
     }
-    ViewAd(){
+    ViewAd() {
         var that = this;
         wx.request({
             url: that.url + 'query/viewadd',
             method: "POST",
             data: {
-                "userid": that.UserNumber==""?"游客":that.UserNumber,
-                "username":that.AccName==""?"游客":that.AccName
+                "userid": that.UserNumber == "" ? "游客" : that.UserNumber,
+                "username": that.AccName == "" ? "游客" : that.AccName
             },
-            success(res) {
-            },
-            fail(error) {
-            }
+            success(res) {},
+            fail(error) {}
         })
     }
-    GetAdData(){
+    GetAdData() {
         var that = this;
         return new Promise(function (resolve, reject) {
             wx.request({
@@ -871,6 +871,25 @@ class http {
                 },
                 fail(error) {
                     reject(error)
+                }
+            })
+        })
+    }
+    GetRankList(userid, xqmc) {
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url: that.url + "rank/getrankmsg",
+                method: "POST",
+                data: {
+                    "userid": userid,
+                    "xqmc": xqmc
+                },
+                success(res) {
+                    resolve(res);
+                },
+                fail(error) {
+                    reject(error);
                 }
             })
         })

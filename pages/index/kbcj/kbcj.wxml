@@ -1,47 +1,47 @@
 <!--pages/JW/JW.wxml-->
 <view class="global">
 
-    <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
-        <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
-            <text class="cuIcon-back text-gray" style="font-size:40rpx"></text>
-        </navigator>
-    </view>
+	<view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+		<navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+			<text class="cuIcon-back text-gray" style="font-size:40rpx"></text>
+		</navigator>
+	</view>
 
-    <view class="card">
-        <view class="card-image">
-            <image class="main-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g8irety6ufj30q60dbab8.jpg" mode="aspectFill"></image>
-        </view>
-        <view class="card-content animated slideInDown">
-            <form bindsubmit="login">
-                <view class="card-content-main">
-                    <view class="card-content-textblock">
-                        <view class="input-title">教务网学号</view>
-                        <input type='text' name='username' placeholder='请输入账号' value='{{username}}'></input>
-                    </view>
-                    <view class="card-content-textblock">
-                        <view class="input-title">教务网密码</view>
-                        <input type='password' name='password' placeholder='请输入密码' value='{{password}}'></input>
-                    </view>
-                    <view class="card-content-switchblock">
-                        <text style="margin-right:20%">是否为南岳学院</text>
-                        <switch class="orange" bindchange="switchChange" checked="{{switchValue}}"></switch>
-                    </view>
-                </view>
-                <view class="card-content-tag ">
-                    <button form-type='submit' type="submit" class="card-tag-button animated slideInLeft">登陆 </button>
-                </view>
-            
-            </form>
+	<view class="card">
+		<view class="card-image">
+			<image class="main-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g8irety6ufj30q60dbab8.jpg" mode="aspectFill"></image>
+		</view>
+		<view class="card-content animated slideInDown">
+			<form bindsubmit="login">
+				<view class="card-content-main">
+					<view class="card-content-textblock">
+						<view class="input-title">教务网学号</view>
+						<input type='text' name='username' placeholder='请输入账号' value='{{username}}'></input>
+					</view>
+					<view class="card-content-textblock">
+						<view class="input-title">教务网密码</view>
+						<input type='password' name='password' placeholder='请输入密码' value='{{password}}'></input>
+					</view>
+					<view class="card-content-switchblock">
+						<text style="margin-right:20%">是否为南岳学院</text>
+						<switch class="orange" bindchange="switchChange" checked="{{switchValue}}"></switch>
+					</view>
+				</view>
+				<view class="card-content-tag ">
+					<button form-type='submit' type="submit" class="card-tag-button animated slideInLeft">登陆 </button>
+				</view>
 
-        </view>
-        <navigator url="./index/cj/cj"><button>直接进入成绩页面</button></navigator>
-        <view class="slogan">
-            <text>
+			</form>
+
+		</view>
+		<!-- <navigator url="./index/cj/cj"><button>直接进入成绩页面</button></navigator> -->
+		<view class="slogan">
+			<text>
             "Is This The Real Life? Is This Just Fantasy?"
           </text>
-            <view style="text-align:right;margin-top:10rpx">
-                <text>———Queen</text>
-            </view>
-        </view>
-    </view>
+			<view style="text-align:right;margin-top:10rpx">
+				<text>———Queen</text>
+			</view>
+		</view>
+	</view>
 </view>

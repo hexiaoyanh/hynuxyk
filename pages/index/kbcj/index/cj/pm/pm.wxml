@@ -33,7 +33,7 @@
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
-									<text style="font-weight:bolder">平均成绩排名</text>
+									<text style="font-weight:bolder">总分排名</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
 									{{rankList.num_rank}}
@@ -57,7 +57,7 @@
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
-									<text style="font-weight:bolder">总平均gpa</text>
+									<text style="font-weight:bolder">平均学分绩</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
 									{{rankList.total_ave_gpa}}
@@ -69,7 +69,7 @@
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
-									<text style="font-weight:bolder">总平均gpa排名</text>
+									<text style="font-weight:bolder">平均学分绩排名</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
 									{{rankList.avegpa_rank}}
@@ -81,7 +81,7 @@
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
-									<text style="font-weight:bolder">gpa北大算法</text>
+									<text style="font-weight:bolder">北大GPA4.0</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
 									{{rankList.total_pku_gpa}}
@@ -93,7 +93,7 @@
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
-									<text style="font-weight:bolder">北大gpa排名</text>
+									<text style="font-weight:bolder">北大GPA排名</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
 									{{rankList.pku_gpa_rank}}
@@ -105,7 +105,7 @@
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
-									<text style="font-weight:bolder">学分绩</text>
+									<text style="font-weight:bolder">总学分</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
 								{{rankList.total_credit}}
