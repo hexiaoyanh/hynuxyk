@@ -1,7 +1,6 @@
 // pages/index/VirtualCard/VirtualCard.js
 
 const app = getApp();
-var QRCode = require('../../../utils/weapp-qrcode.js')
 const W = wx.getSystemInfoSync().windowWidth;
 const rate = 750.0 / W;
 // 300rpx 在6s上为 150px
