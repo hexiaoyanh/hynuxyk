@@ -29,7 +29,6 @@
                 <text>———Eric Clapton</text>
             </view>
         </view>
-        <ad unit-id="adunit-2cf51f95d2acb925"></ad>
     </view>
 </view>
 <passwordInput wx:if="{{showPassword}}" bindhidePassBord="hidePassBord" bindvalueSix="valueSix" input_value="{{inputData.input_value}}" value_length="{{inputData.value_length}}" isNext="{{inputData.isNext}}" get_focus="{{inputData.get_focus}}" focus_class="{{inputData.focus_class}}"

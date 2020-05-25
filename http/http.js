@@ -1,4 +1,4 @@
-var CryptoJS = require('./crypto-js/crypto-js.js')
+const crypto = requirePlugin("crypto");
 var X2JS = require('../http/x2j/x2js/we-x2js.js');
 var x2js = new X2JS();
 
@@ -79,8 +79,7 @@ class http {
             }
         }
         sign += key;
-        //MD5 32位加密
-        var md5 = CryptoJS.MD5(sign).toString();
+        var md5 = new crypto["MD5"](sign).toString();
         this.Sign = md5;
     }
 
@@ -97,31 +96,27 @@ class http {
     //密码加密
     setPassword(str) {
         //设置密码
-        var key = "12347890";
-        var keyHex = CryptoJS.enc.Utf8.parse(key);
-        var ivHex = CryptoJS.enc.Utf8.parse(key);
-        console.log(keyHex);
-        console.log(ivHex)
-        var encrypted = CryptoJS.DES.encrypt(str, keyHex, {
-            iv: ivHex,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7
-        }).toString();
-        this.Password = encrypted;
+        const key = "12347890";
+        const keyHex = crypto.Utf8.parse(key);
+        const encrypted = new crypto.DES().encrypt(str, keyHex, {
+            iv: keyHex,
+            mode: crypto.Mode.CBC,
+            padding: crypto.Padding.Pkcs7
+          });
+        this.Password = encrypted.toString();
     }
 
     //支付密码加密
     OtherPassword(str) {
         //设置密码
         var key = "12347890";
-        var keyHex = CryptoJS.enc.Utf8.parse(key);
-        var ivHex = CryptoJS.enc.Utf8.parse(key);
-        var encrypted = CryptoJS.DES.encrypt(str, keyHex, {
-            iv: ivHex,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7
-        }).toString();
-        return encrypted;
+        var keyHex = crypto.Utf8.parse(key);
+        var encrypted = new crypto.DES().encrypt(str, keyHex, {
+            iv: keyHex,
+            mode: crypto.Mode.CBC,
+            padding: crypto.Padding.Pkcs7
+        });
+        return encrypted.toString();
     }
 
     //登录
@@ -131,7 +126,6 @@ class http {
         var b = [this.Time, this.UserNumber, this.Password];
         this.setSign(a, b);
         var that = this;
-
         return new Promise(function (resolve, reject) {
             wx.request({
                 url: that.url,

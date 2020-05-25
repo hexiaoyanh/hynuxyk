@@ -29,8 +29,7 @@
     "pages/Exam/teacher/cj/cj",
     "pages/Exam/pth/cj/cj",
     "pages/myself/addata/addata",
-    "pages/index/kbcj/index/cj/pm/pm",
-    "pages/findYou/findyou"
+    "pages/index/kbcj/index/cj/pm/pm"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,5 +38,11 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "crypto": {
+      "version": "0.0.003",
+      "provider": "wxf25d506ff81e19fb"
+    }
+  }
 }
