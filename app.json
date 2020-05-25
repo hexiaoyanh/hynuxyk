@@ -29,7 +29,8 @@
     "pages/Exam/teacher/cj/cj",
     "pages/Exam/pth/cj/cj",
     "pages/myself/addata/addata",
-    "pages/index/kbcj/index/cj/pm/pm"
+    "pages/index/kbcj/index/cj/pm/pm",
+    "pages/findYou/findyou"
   ],
   "window": {
     "backgroundTextStyle": "light",

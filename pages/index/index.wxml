@@ -1,94 +1,100 @@
 <view class="global">
-  <view class="card">
-    <view class="card-image">
-      <image class="main-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wwuvrg80j31hc0u0dio.jpg" mode="aspectFill"></image>
+	<view class="card">
+		<view class="card-image">
+			<image class="main-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wwuvrg80j31hc0u0dio.jpg" mode="aspectFill"></image>
 
-    </view>
-    <view class="card-content">
-      <view class="card-content-main">
-        <view class="card-content-textblock">
-          <view class="table">
-            <view class="tr-f">
-              <view class="td" style="text-align:left">
-                <text>{{AccNum}}</text>
-              </view>
-              <view wx:if="{{MonDBCurr != '点击登录'}}" class="td" style="text-align:right">
-                <text>{{MonDBCurr}}</text>
-              </view>
-              <view wx:else class="td" style="text-align:right">
-                <text bindtap="login">{{MonDBCurr}}</text>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <scroll-view scroll-y="true" class="main-methods">
-    <view class="methods">
-      <view bindtap="Scan" class="card-methods" style="margin-right: 5%;">
-          <image class="methods-card-image" src="https://wx3.sinaimg.cn/mw690/006blzWmgy1g7wwopj2pgj30zk0qogmf.jpg"></image>
-          <view class="card-methods-title">
-            <text>扫一扫</text>
-          </view>
-      </view>
-      <view  bindtap="Charge" class="card-methods" style="margin-left: 5%;">
-          <image class="methods-card-image" src="https://wx2.sinaimg.cn/mw690/006blzWmgy1g83r6w4o1zj30vk0hsaqh.jpg"></image>
-          <view class="card-methods-title">
-            <text>充\t值</text>
-          </view>
-      </view>
-    </view>
-    <view class="methods">
-      <view bindtap="VirtualCard" class="card-methods" style="margin-right: 5%;">
-          <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wws0wdswj30qa0dcmya.jpg"></image>
-          <view class="card-methods-title">
-            <text>虚拟校园卡</text>
-          </view>
-      </view>
-      <view bindtap="Transfer" class="card-methods" style="margin-left: 5%;">
-          <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7z6nozt3cj30vk0hsjx5.jpg"></image>
-          <view class="card-methods-title">
-            <text>账\t单</text>
-          </view>
-      </view>
-    </view>
-    <view class="methods">
-      <view bindtap="AccessControl" class="card-methods" style="margin-right: 5%;">
-          <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwp8bw93j30xc0irn11.jpg"></image>
-          <view class="card-methods-title">
-            <text>开门密码</text>
-          </view>
-      </view>
-      <view bindtap="ReportLoss" class="card-methods" style="margin-left: 5%;">
-          <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wws9638jj31hc0u0e81.jpg"></image>
-          <view class="card-methods-title">
-            <text>挂失</text>
-          </view>
-      </view>
-    </view>
-    <view class="methods">
-      <view bindtap="Attendance" class="card-methods" style="margin-right: 5%;">
-          <image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wwsetp20j30vk0hsh1p.jpg"></image>
-          <view class="card-methods-title">
-            <text>其\t它</text>
-          </view>
-      </view>
-      <view bindtap="Kbcj" class="card-methods" style="margin-left: 5%;">
-         <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwsjm7g7j30qa0dct9i.jpg"></image>
-          <view class="card-methods-title">
-            <text>课表成绩</text>
-          </view>
-      </view>
-    </view>
-    <view class="methods">
-      <view bindtap="Exam" class="card-methods" style="margin-right: 5%;">
-        <image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/ed9cb6cagy1gd8so5zu88j21hc0u0e81.jpg"></image>
-        <view class="card-methods-title">
-          <text>公共考试</text>
-        </view>
-      </view>
-    </view>
-  </scroll-view>
+		</view>
+		<view class="card-content">
+			<view class="card-content-main">
+				<view class="card-content-textblock">
+					<view class="table">
+						<view class="tr-f">
+							<view class="td" style="text-align:left">
+								<text>{{AccNum}}</text>
+							</view>
+							<view wx:if="{{MonDBCurr != '点击登录'}}" class="td" style="text-align:right">
+								<text>{{MonDBCurr}}</text>
+							</view>
+							<view wx:else class="td" style="text-align:right">
+								<text bindtap="login">{{MonDBCurr}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<scroll-view scroll-y="true" class="main-methods">
+		<view class="methods">
+			<view bindtap="Scan" class="card-methods card-left">
+				<image class="methods-card-image" src="https://wx3.sinaimg.cn/mw690/006blzWmgy1g7wwopj2pgj30zk0qogmf.jpg"></image>
+				<view class="card-methods-title">
+					<text>扫一扫</text>
+				</view>
+			</view>
+			<view bindtap="Charge" class="card-methods card-right">
+				<image class="methods-card-image" src="https://wx2.sinaimg.cn/mw690/006blzWmgy1g83r6w4o1zj30vk0hsaqh.jpg"></image>
+				<view class="card-methods-title">
+					<text>充\t值</text>
+				</view>
+			</view>
+		</view>
+		<view class="methods">
+			<view bindtap="VirtualCard" class="card-methods card-left">
+				<image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wws0wdswj30qa0dcmya.jpg"></image>
+				<view class="card-methods-title">
+					<text>虚拟校园卡</text>
+				</view>
+			</view>
+			<view bindtap="Transfer" class="card-methods card-right">
+				<image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7z6nozt3cj30vk0hsjx5.jpg"></image>
+				<view class="card-methods-title">
+					<text>账\t单</text>
+				</view>
+			</view>
+		</view>
+		<view class="methods">
+			<view bindtap="AccessControl" class="card-methods card-left">
+				<image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwp8bw93j30xc0irn11.jpg"></image>
+				<view class="card-methods-title">
+					<text>开门密码</text>
+				</view>
+			</view>
+			<view bindtap="findyou" class="card-methods  card-right">
+				<image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gdb1yh6j20j20q50db75t.jpg"></image>
+				<view class="card-methods-title">
+					<text>找到你(开发中)</text>
+				</view>
+			</view>
+
+		</view>
+		<view class="methods">
+			<view bindtap="Exam" class="card-methods card-left">
+				<image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/ed9cb6cagy1gd8so5zu88j21hc0u0e81.jpg"></image>
+				<view class="card-methods-title">
+					<text>公共考试</text>
+				</view>
+			</view>
+			<view bindtap="Kbcj" class="card-methods  card-right">
+				<image class="methods-card-image" src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g7wwsjm7g7j30qa0dct9i.jpg"></image>
+				<view class="card-methods-title">
+					<text>课表成绩</text>
+				</view>
+			</view>
+		</view>
+		<view class="methods">
+			<view bindtap="Attendance" class="card-methods card-left">
+				<image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wwsetp20j30vk0hsh1p.jpg"></image>
+				<view class="card-methods-title">
+					<text>其\t它</text>
+				</view>
+			</view>
+			<view bindtap="ReportLoss" class="card-methods card-right">
+				<image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g7wws9638jj31hc0u0e81.jpg"></image>
+				<view class="card-methods-title">
+					<text>挂失</text>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
 </view>
-

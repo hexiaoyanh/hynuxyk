@@ -105,6 +105,14 @@ page {
     overflow: hidden;
 }
 
+.card-left{
+    margin-right: 5%;
+}
+
+.card-right{
+    margin-left: 5%;
+}
+
 .card-methods .card-methods-title {
     position: absolute;
     left: 0;

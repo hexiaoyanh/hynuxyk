@@ -1,9 +1,13 @@
 // pages/table/table.js
 var hei = wx.getMenuButtonBoundingClientRect().top;
-var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 var weeks = [7, 1, 2, 3, 4, 5, 6];
 var date = new Date();
 var currentYear = date.getFullYear();
+var month = [];
+for (var i = 0; i < 12; i++) {
+    var temp = new Date(currentYear, i + 1, 0);
+    month[i] = temp.getDate();
+}
 var currentMonth = date.getMonth() + 1;
 var currentDay = date.getDate();
 var currentWeek = weeks[date.getUTCDay()];
@@ -26,9 +30,15 @@ Page({
      * 页面的初始数据
      */
     data: {
+        inputMonth: "",
+        inputDay: "",
+        Date: "",
+        hiddenmodalput: true,
         stateH: hei,
         year: currentYear,
         month: currentMonth,
+        startMonth: 0,
+        startDay: 0,
         day: currentDay,
         schoolWeek: null,
         weekIndex: 0,
@@ -64,6 +74,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.getWeek();
         this.setData({
             stateH: app.hei
         })
@@ -77,8 +88,11 @@ Page({
         this.setData({
             schoolWeek: weeklist
         })
-        var that = this;
-        this.getData('');
+        let thisWeek = that.getWeek();
+        that.setData({
+            weekIndex: thisWeek,
+        })
+        this.getData(thisWeek);
     },
 
     /**
@@ -128,6 +142,40 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    getWeek: function () {
+        var that = this
+        try {
+            let myDay = wx.getStorageSync('startDay');
+            that.setData({
+                startDay: myDay,
+            })
+        } catch (e) {
+            console.log("获取开始日期失败");
+        }
+        try {
+            let myMonth = wx.getStorageSync('startMonth');
+            that.setData({
+                startMonth: myMonth,
+            })
+        } catch (e) {
+            console.log("获取开始日期失败");
+        }
+        var myMonth = that.data.startMonth;
+        var myDay = that.data.startDay;
+        if (myDay == 0 || myMonth == 0) {
+            this.getData("");
+            return;
+        }
+        var curMon = that.data.month;
+        var curday = that.data.day;
+        var disDays = 0;
+        for (var i = myMonth - 1; i < curMon - 1; i++) {
+            disDays += month[i];
+        }
+        disDays = disDays - myDay + curday;
+        var thisWeek = Math.ceil(disDays / 7) + 1;
+        return thisWeek;
     },
     getData: function (week) {
         var that = this;
@@ -195,6 +243,66 @@ Page({
         }
         console.log(newData)
         return newData
+    },
+    myMonth: function (e) {
+        var that = this;
+        that.setData({
+            inputMonth: e.detail.value,
+        })
+    },
+    myDay: function (e) {
+        var that = this;
+        that.setData({
+            inputDay: e.detail.value,
+        })
+    },
+    setting: function (e) {
+        var that = this;
+        that.setData({
+            hiddenmodalput: false,
+        })
+    },
+    //取消按钮
+    cancel: function () {
+        this.setData({
+            hiddenmodalput: true,
+        });
+    },
+    //确认  
+    confirm: function (e) {
+        var that = this;
+        var myMonth = parseInt(that.data.inputMonth);
+        var myDay = parseInt(that.data.inputDay);
+        if(myMonth > 12 || myDay > 31)
+        {
+            wx.showToast({
+                title: '请输入正确日期',
+                icon: 'none',
+                duration: 2000
+              })
+              return;
+        }
+        wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 2000
+          })
+        try {
+            wx.setStorageSync('startMonth', myMonth);
+        } catch (e) {
+            console.log("保存开始日期失败");
+        }
+        try {
+            wx.setStorageSync('startDay', myDay);
+        } catch (e) {
+            console.log("保存开始日期失败");
+        }
+        let thisWeek = that.getWeek();
+        that.setData({
+            hiddenmodalput: true,
+            weekIndex: thisWeek,
+        })
+        that.getData(thisWeek);
     },
     showDetail: function (e) {
         var nowuse = Number(e.currentTarget.id);
