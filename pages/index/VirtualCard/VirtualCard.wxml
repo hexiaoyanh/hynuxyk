@@ -20,7 +20,7 @@
       </image>
     </view>
     <view class="card-content-tag animated slideInDown">
-      <text>{{UserNumber}} {{AccName}}</text>
+      <text style="color:pink" bindtap="red2qr">用衡师码打开</text>
     </view>
   </view>
 </view> 

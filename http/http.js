@@ -13,7 +13,7 @@ class http {
     AccNum = "";
     AccName = "";
     PerCode = "";
-    CarID = "";
+    CardID = "";
     CertCode = "";
     CustomerID = "";
     AgentID = "";
@@ -334,7 +334,7 @@ class http {
                     "perCode": that.PerCode,
                     "orderNumb": that.OrderNum,
                     "customerID": that.CustomerID,
-                    "cardID": that.CarID,
+                    "cardID": that.CardID,
                     "agentID": that.AgentID,
                     "accNum": that.AccNum,
                     "accName": that.AccName,

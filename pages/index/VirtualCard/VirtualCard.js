@@ -108,5 +108,17 @@ Page({
         wx.navigateTo({
             url: './BigPic/BigPic?PngPath='+that.data.Pngpath,
         })
+    },
+    red2qr:function(){
+        wx.navigateToMiniProgram({
+            appId: 'wxdff7a21930e9536d', // 要跳转的小程序的appid
+            path: '', // 跳转的目标页面
+            extarData: {
+                open: 'auth'
+            },
+            success(res) {
+                // 打开成功  
+            }
+        })
     }
 })
