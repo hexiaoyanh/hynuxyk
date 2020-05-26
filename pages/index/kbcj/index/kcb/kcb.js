@@ -255,6 +255,14 @@ Page({
             inputDay: e.detail.value,
         })
     },
+    refresh: function (e) {
+        var that = this;
+        let thisWeek = that.getWeek();
+        that.setData({
+            weekIndex: thisWeek,
+        })
+        that.getData(thisWeek);
+    },
     setting: function (e) {
         var that = this;
         that.setData({
