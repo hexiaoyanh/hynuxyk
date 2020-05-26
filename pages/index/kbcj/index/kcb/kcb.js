@@ -164,8 +164,7 @@ Page({
         var myMonth = that.data.startMonth;
         var myDay = that.data.startDay;
         if (myDay == 0 || myMonth == 0) {
-            this.getData("");
-            return;
+            return 0;
         }
         var curMon = that.data.month;
         var curday = that.data.day;
@@ -174,7 +173,7 @@ Page({
             disDays += month[i];
         }
         disDays = disDays - myDay + curday;
-        var thisWeek = Math.ceil(disDays / 7) + 1;
+        var thisWeek = Math.floor(disDays / 7) + 1;
         return thisWeek;
     },
     getData: function (week) {
@@ -273,20 +272,19 @@ Page({
         var that = this;
         var myMonth = parseInt(that.data.inputMonth);
         var myDay = parseInt(that.data.inputDay);
-        if(myMonth > 12 || myDay > 31)
-        {
+        if (myMonth > 12 || myDay > 31) {
             wx.showToast({
                 title: '请输入正确日期',
                 icon: 'none',
                 duration: 2000
-              })
-              return;
+            })
+            return;
         }
         wx.showToast({
             title: '成功',
             icon: 'success',
             duration: 2000
-          })
+        })
         try {
             wx.setStorageSync('startMonth', myMonth);
         } catch (e) {
