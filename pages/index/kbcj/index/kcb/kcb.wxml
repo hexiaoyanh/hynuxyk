@@ -108,7 +108,8 @@
 	</view>
 
 	<view class="footer">
-		<text class="cuIcon-settings lg text-gray" bindtap="setting"></text>
+		<text class="cuIcon-refresh lg text-gray" bindtap="refresh" style="margin-right:5px"></text>
+		<text class="cuIcon-settings lg text-gray" bindtap="setting" style="margin-left:5px"></text>
 	</view>
 	<modal hidden="{{hiddenmodalput}}" title="输入开学时间" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
 		<input type="number" bindinput="myMonth" maxlength="2" />
