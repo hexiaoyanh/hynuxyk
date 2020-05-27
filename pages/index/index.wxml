@@ -63,7 +63,7 @@
 			<view bindtap="findyou" class="card-methods  card-right">
 				<image class="methods-card-image" src="https://wx1.sinaimg.cn/mw690/ed9cb6cagy1gdb1yh6j20j20q50db75t.jpg"></image>
 				<view class="card-methods-title">
-					<text>找到你(开发中)</text>
+					<text>找到你</text>
 				</view>
 			</view>
 

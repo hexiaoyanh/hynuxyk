@@ -324,4 +324,9 @@ Page({
           url: '../Exam/Exam',
         })
     },
+    findyou: function(e){
+        wx.navigateTo({
+          url: '../findYou/findyou',
+        })
+    }
 })
