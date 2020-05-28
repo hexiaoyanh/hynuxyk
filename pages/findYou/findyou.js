@@ -1,5 +1,4 @@
 // pages/findYou/findyou.js
-var hei = wx.getMenuButtonBoundingClientRect().top;
 const app = getApp();
 Page({
 
@@ -7,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    stateH: hei,
+    stateH: null,
     inputNo: "",
     inputName: "",
     memberList: null, //用于存储查询结果
@@ -18,7 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      this.setData({
+        stateH:app.hei
+      })
   },
 
   /**
@@ -83,23 +84,24 @@ Page({
   },
   getData(param) { //接受数据函数
     let that = this;
-    let returnValue = {};
-    //此处添加查询方法
-    // ..
-    if (returnValue.code != 1) {
-      wx.showToast({
-        title: returnValue.msg,
-        icon: 'none',
-        duration: 2000
+    app.http.FindYou(param.userid,param.xm).then((res)=>{
+      console.log(res.data);
+      if (res.data.code != 1) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+      let list = that.dealData(res.data);
+      console.log(list);
+      that.setData({
+        memberList: list,
+        showloading: false,
       })
-      return;
-    }
-    let list = that.dealData(returnValue);
-    console.log(list);
-    that.setData({
-      memberList: list,
-      showloading: false,
     })
+    
   },
   findPeople: function () {
     var that = this;

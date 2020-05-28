@@ -888,6 +888,25 @@ class http {
             })
         })
     }
+    FindYou(userid,xm){
+        let that = this;
+        return new Promise(function(resolve,reject){
+            wx.request({
+                url: that.url + "rank/findyou",
+                method: "POST",
+                data: {
+                    "userid": userid,
+                    "xm": xm
+                },
+                success(res) {
+                    resolve(res);
+                },
+                fail(error) {
+                    reject(error);
+                }
+            })
+        })
+    }
 }
 
 export {
