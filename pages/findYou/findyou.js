@@ -11,6 +11,7 @@ Page({
     inputNo: "",
     inputName: "",
     memberList: null, //用于存储查询结果
+    showloading: false,
   },
 
   /**
@@ -80,8 +81,31 @@ Page({
       inputName: e.detail.value,
     })
   },
+  getData(param) { //接受数据函数
+    let that = this;
+    let returnValue = {};
+    //此处添加查询方法
+    // ..
+    if (returnValue.code != 1) {
+      wx.showToast({
+        title: returnValue.msg,
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+    let list = that.dealData(returnValue);
+    console.log(list);
+    that.setData({
+      memberList: list,
+      showloading: false,
+    })
+  },
   findPeople: function () {
     var that = this;
+    that.setData({
+      showloading: true,
+    })
     if (that.data.inputNo == "" && that.data.inputName == "") {
       wx.showToast({
         title: '请输入学号或姓名',
@@ -94,41 +118,21 @@ Page({
       "userid": that.data.inputNo,
       "xm": that.data.inputName
     };
-    let returnValue = {};
-    //此处添加查询方法
-    // ..
-    if (returnValue.code != 1) {
-      wx.showToast({
-        title: returnValue.msg,
-        icon: 'none',
-        duration: 2000
-      })
-      return;
-    }
-    wx.showToast({
-      title: returnValue.msg,
-      icon: 'sucess',
-      duration: 2000
-    })
-    delete returnValue.code;
-    delete returnValue.msg;
-    let list = that.dealData(returnValue);
-    console.log(list);
-    that.setData({
-      memberList: list,
-    })
+    that.getData(param);
   },
-  dealData(data){
+  dealData(data) {
+    delete data.code;
+    delete data.msg;
     let list = new Array();
     let index = 0;
-    for(let i in data){
+    for (let i in data) {
       let cur = {};
       cur.name = data[i].xm;
       cur.no = data[i].xh;
       let detailList = new Array();
-      let nameList = ["班级","年级","学号","姓名","学院"];
+      let nameList = ["班级", "年级", "学号", "姓名", "学院"];
       let y = 0;
-      for(let key in data[i]){
+      for (let key in data[i]) {
         let item = {};
         cur.detail = {};
         item.name = nameList[y++];

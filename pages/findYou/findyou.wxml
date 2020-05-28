@@ -36,10 +36,10 @@
 				<view bindtap="isOpen" class="card-mini animated fadeInRight" data-index="{{item.id}}" style="animation-delay:{{item.id*50}}ms">
 					<view class="table">
 						<view class="tr-f" style="height:100%">
-							<view class="th" style="width:75%;text-align:left">
+							<view class="th" style="width:65%;text-align:left">
 								<text>{{item.no}}</text>
 							</view>
-							<view class="th" style="width:15%;text-align:right">
+							<view class="th" style="width:25%;text-align:right">
 								<text>{{item.name}}</text>
 							</view>
 						</view>
