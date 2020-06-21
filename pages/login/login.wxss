@@ -96,7 +96,6 @@ input{
   font-weight: bolder;
   display: inline-block;
   box-shadow: 6px 6px 10px 0px #00896C;
-
 }
 
 .card .slogan{

@@ -90,9 +90,18 @@ page {
 .ad-methods {
     position: relative;
     display: inline-block;
-    height: 100%;
+    height: auto;
     width: 100%;
 }
+.slogan {
+    width: 100%;
+    height: auto;
+    font-style: italic;
+    font-size: 15px;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 4px rgb(158, 88, 67);
+    color: rgb(196, 105, 77);
+  }
 
 .card-methods .card-methods-title {
     position: absolute;

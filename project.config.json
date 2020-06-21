@@ -31,7 +31,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.1",
-	"appid": "wx87b2e9598df82c7d",
+	"appid": "wx064b82571d2be21f",
 	"projectname": "hynu",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -69,6 +69,13 @@
 					"pathName": "pages/index/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/index/kbcj/index/index",
+					"pathName": "pages/index/kbcj/index/index",
+					"query": "",
+					"scene": 1011
 				}
 			]
 		}

@@ -66,5 +66,19 @@ Page({
      */
     onShareAppMessage: function () {
 
-    }
+    },
+    loadSuccess: function (e) {
+        console.log(e.detail.errMsg);
+        this.setData({
+            states: false,
+        })
+    },
+    loadError: function (e) {
+        console.log(e.detail.errMsg);
+        if (e.detail.status != 0) {
+            this.setData({
+                states: true,
+            })
+        }
+    },
 })

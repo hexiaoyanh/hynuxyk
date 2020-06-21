@@ -38,7 +38,10 @@
             </view>
         </view> -->
     </view>
-    <view class="ad-methods" style="height:30%">
-        <ad unit-id="adunit-8d4d18ec4fa5a27a"></ad>
+    <view class="ad-methods">
+        <official-account bindload="loadSuccess" binderror="loadError" ></official-account>
+    </view>
+    <view class="slogan">
+        使用衡师服务小助手公众号可开启课程成绩推送功能
     </view>
 </view>
