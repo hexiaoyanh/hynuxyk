@@ -19,14 +19,12 @@ Page({
      */
     onLoad: function(options) {
         var that = this;
-        app.http.getmsg().then((res) => {
-            if (res.data['code'] != 0) {
-                wx.showModal({
-                    title: '一些信息',
-                    content: res.data['msg'],
-                })
-            }
-        });
+        app.http.getmsg().then((res)=>{
+            wx.showModal({
+                title:"衡师服务小助手",
+                content:res.data['msg']
+            })
+        })
         //读取缓存
         var that = this;
         wx.getStorage({
