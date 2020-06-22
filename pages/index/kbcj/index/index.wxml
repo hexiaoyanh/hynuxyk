@@ -1,11 +1,11 @@
 <!--pages/JWmenu/JWmenu.wxml-->
 <view class="global">
 
-    <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
-        <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
-            <text class="cuIcon-back text-gray" style="font-size:40rpx"></text>
-        </navigator>
-    </view>
+	<view style="text-align: left;margin-top:{{stateH}}px;height:{{stateH}}px;">
+		<navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+			<text class="cuIcon-back text-gray" style="font-size:40rpx"></text>
+		</navigator>
+	</view>
 
 
     <view class="main-methods">
@@ -39,7 +39,7 @@
         </view> -->
     </view>
     <view class="ad-methods">
-        <official-account bindload="loadSuccess" binderror="loadError" ></official-account>
+        <image src="https://wx4.sinaimg.cn/mw690/ed9cb6cagy1gg0y0gvgtgj209k09kmx5.jpg" mode="aspectFit" show-menu-by-longpress="true"></image>
     </view>
     <view class="slogan">
         使用衡师服务小助手公众号可开启课程成绩推送功能
