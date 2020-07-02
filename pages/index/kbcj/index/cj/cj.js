@@ -84,13 +84,6 @@ Page({
                 console.log(res);
                 if (res && res.isEnded) {
                     app.http.ViewAd();
-                    var time;
-                    var index = that.data.pickerIndex;
-                    time = that.data.schoolYear[index];
-                    wx.navigateTo({
-                        url: './pm/pm?time=' + time,
-                    })
-
                 } else {
                     // 播放中途退出，不下发游戏奖励
                     wx.showModal({
@@ -146,17 +139,19 @@ Page({
      * 排名按钮点击事件
      */
     rankTap: function () {
+        var that = this;
         wx.getStorage({
             key: 'Jwnanyue',
             success: function (res) {
                 console.log(res.data);
-                if (res.data == true) {
-                    wx.showModal({
-                        'title': "8行",
-                        'content': "南岳学院的暂时8行",
-                        cancelColor: 'cancelColor',
-                    })
-                }else if (videoAd) {
+                var time;
+                var index = that.data.pickerIndex;
+                time = that.data.schoolYear[index];
+                wx.navigateTo({
+                    url: './pm/pm?time=' + time,
+                })
+                return;
+                if (videoAd) {
                     videoAd.show().catch(() => {
                         // 失败重试
                         videoAd.load()
@@ -169,6 +164,12 @@ Page({
                     wx.showToast({
                         'icon': 'none',
                         title: '广告加载出现问题',
+                    })
+                    var time;
+                    var index = that.data.pickerIndex;
+                    time = that.data.schoolYear[index];
+                    wx.navigateTo({
+                        url: './pm/pm?time=' + time,
                     })
                 }
             },

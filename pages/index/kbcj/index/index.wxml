@@ -39,6 +39,7 @@
         </view> -->
     </view>
     <view class="ad-methods">
+        <text style="color:white;">长按保存下面的二维码关注公众号↓</text> 
         <image src="https://wx4.sinaimg.cn/mw690/ed9cb6cagy1gg0y0gvgtgj209k09kmx5.jpg" mode="aspectFit" show-menu-by-longpress="true"></image>
     </view>
     <view class="slogan">

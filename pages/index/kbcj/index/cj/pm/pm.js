@@ -18,6 +18,10 @@ Page({
         this.setData({
           stateH: app.hei,
         })
+        wx.showModal({
+          title:"注意",
+          content:"成绩排名一般在凌晨更新，请隔日查看，如果新成绩出来了但是没有更新，请在其他联系我们。"
+        })
         //获取参数：学年
         var that = this;
         that.setData({
