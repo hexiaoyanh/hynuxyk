@@ -1,130 +1,249 @@
 /* pages/myself/record/record.wxss */
 
-page{
+page {
   width: 100%;
   height: 100%;
 }
-.global{
+
+.global {
   width: 100%;
   height: 100%;
   background-size: cover;
   display: inline-block;
-  background-image: linear-gradient(to bottom right,rgb(136,115,102),rgb(238, 192, 114));
+  background-image: linear-gradient(to bottom right, rgb(136, 115, 102), rgb(238, 192, 114));
 }
-.card{
+
+.card {
   z-index: 0;
   height: 80%;
   width: 90%;
   margin-left: 5%;
   margin-right: 10%;
   margin-top: 10%;
-  border-radius: 20rpx; 
+  border-radius: 20rpx;
   /* color:black; */
   /* box-shadow: 6px 6px 10px 0px rgb(136,115,102); */
 }
-.card .card-image{
+
+.card .card-image {
   z-index: 4;
   height: 30%;
   width: 100%;
-  border-radius: 20rpx; 
+  border-radius: 20rpx;
   position: relative;
-  box-shadow: 3px 3px 10px 0px rgb(136,115,102);
+  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
 
 }
-.card .main-card-image{
+
+.card .main-card-image {
   z-index: 4;
   height: 100%;
   width: 100%;
-  border-radius: 20rpx; 
+  border-radius: 20rpx;
   position: relative;
 }
-.card .card-image .ctitle{
+
+.card .card-image-full {
+  height: 20%;
+  width: 100%;
+  border-radius: 20rpx;
+  position: relative;
+  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
+}
+
+.card .main-card-image-full {
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  border-radius: 20rpx;
+  position: relative;
+  border-radius: 20px 20px 0 0;
+}
+.card .card-image-full .ctitle {
   z-index: 4;
   left: 0;
-  top: 0;
   right: 0;
   bottom: 0;
-  margin-top: 35%;
-  text-align:center; 
+  text-align: center;
   font-weight: bolder;
   position: absolute;
   height: 50%;
   width: 100%;
-  color:snow;
-  font-size: 60rpx; 
-  background-image: linear-gradient(to bottom left,rgb(238, 192, 114),rgb(169, 151, 233));
+  color: snow;
+  font-size: 60rpx;
+  background-image: linear-gradient(to bottom left, rgb(238, 192, 114), rgb(169, 151, 233));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
   line-height: 60rpx;
 }
-.card .card-content{
-  height: 70%;
+
+.card .card-image .ctitle {
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-weight: bolder;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  color: snow;
+  font-size: 60rpx;
+  background-image: linear-gradient(to bottom left, rgb(238, 192, 114), rgb(169, 151, 233));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  line-height: 60rpx;
+}
+
+
+.card .card-content {
+  height: 50%;
   width: 94%;
   margin-left: 3%;
+  padding: 2% 2% 2% 2%;
   border-bottom-right-radius: 20rpx;
   border-bottom-left-radius: 20rpx;
   background-color: #DAC9A6;
-  box-shadow: 3px 3px 10px 0px rgb(136,115,102);
-}
-.card-content .card-content-textblock{
-  z-index: 3;
-  position: relative;
-  margin-left: 5%;
-  margin-top: 3%;
-  font-size: 30rpx;
-  width: 90%;
-  height: 10%;
-  font-weight: bolder;
-  background-color: rgb(238, 192, 114);
-  box-shadow: 3px 3px 10px 0px rgb(136,115,102);
-  text-align: center;
-  padding-top: 2%;
-  border-radius: 20rpx;
-}
-.card-content .card-content-textdetail
-{
-  z-index: 2;
-  position: relative;
-  margin-left: 8%;
-  font-size: 30rpx;
-  width: 84%;
-  height: 10%;
-  background-color: rgb(130, 117, 177);
-  /* border:5rpx solid rgb(141, 126, 194); */
-  border-bottom: 5rpx solid rgb(141, 126, 194);
-  border-top: 5rpx solid rgb(141, 126, 194);
-  text-align: center;
-  padding-top: 2%;
+  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
 }
 
-.card-text-void{
+.card .card-content-full {
+  width: 100%;
+  height: 80%;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  background-color: #DAC9A6;
+  display: inline-block;
+  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
+}
+
+.card .card-content-full .card-content-textblock {
+  line-height: 1rem;
+  position: relative;
+  margin: 2%;
+  padding: 1%;
+  font-style: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
+  width: 96%;
+  height: 9%;
+  box-shadow: 3px 3px 10px 0px #615c70;
+  background-color: #EEC072;
+  border-radius: 20rpx;
+}
+
+.card-content-textblock .state-image {
+  height: 117%;
+}
+
+.card-text-void {
   width: 100%;
   height: 10%;
   text-align: center;
-  color: rgb(130, 117, 177);
+  color: #615c70;
   font-size: 30rpx;
 }
+
 .table {
   border: 0px solid darkgray;
+  height: 80%;
+  width: 100%;
 }
+
 .tr-f {
   display: flex;
+  justify-content: center;
+  height: 20%;
+  align-items: center;
+  margin: 3% 0 3% 0;
+}
+
+.td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 100%;
+  margin: 2%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  line-height: 70rpx;
+  font-size: 33rpx;
+  font-weight: bolder;
+  padding: 1%;
+  background-color: #615c70;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
+  color: #EEC072;
+}
+
+.td-h {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 100%;
+  margin: 2%;
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  line-height: 60rpx;
+  font-size: 40rpx;
+  font-weight: bolder;
+  padding: 1%;
+  color: #887366;
+}
+
+.button-bar {
+  width: 100%;
+  height: 15%;
+  text-align: center;
+}
+
+.my-button {
+  height: 100%;
+  width: 40%;
+  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
+  background-color: #EEC072;
+  font-weight: 600;
+  color: #615c70;
+  border-radius: 15px;
+}
+
+.chosed {
+  background-color: #EEC072;
+  color: #615c70;
+  box-shadow: 0px 0px 20px 0px #716b81;
+}
+
+.table-l {
+  height: 100%;
+  width: 100%;
+  border: 0px solid darkgray;
+  padding: 1%;
+}
+
+.tr-l-f {
+  display: flex;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   height: 1.5rem;
   align-items: center;
 }
-.td {
-    color: rgb(45, 41, 59);
-    overflow : hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width:50%;
-    justify-content: center;
-}
-.td-image{
-    width:22%;
-    height: 100%;
-    justify-content: center;
+
+.td-l {
+  height: 100%;
+  color: #615c70;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 50%;
+  line-height: 45rpx;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 35rpx;
 }
