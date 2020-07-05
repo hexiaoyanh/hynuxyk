@@ -78,6 +78,13 @@
 					"pathName": "pages/index/kbcj/index/index",
 					"query": "",
 					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "pages/myself/record/record",
+					"pathName": "pages/myself/record/record",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

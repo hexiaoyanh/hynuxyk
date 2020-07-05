@@ -1,24 +1,91 @@
 <!--pages/myself/record/record.wxml-->
 <view class="global">
-    <view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
-        <navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
-            <text class="cuIcon-back" style="font-size:40rpx"></text>
-        </navigator>
-    </view>
-    <swiper style="height:90%;width:100%;" indicator-dots indicator-color="rgb(169, 151, 233)" indicator-active-color="rgb(105,100,123)">
+	<view style="margin-top:{{stateH}}px;height:{{stateH}}px;width 5%">
+		<navigator style="height:100%;width:100%;padding-left:2%" open-type="navigateBack">
+			<text class="cuIcon-back" style="font-size:40rpx"></text>
+		</navigator>
+	</view>
+	<swiper style="height:93%;width:100%" indicator-dots indicator-color="rgb(169, 151, 233)" indicator-active-color="rgb(105,100,123)">
+		<swiper-item>
+			<view class="card">
+				<view class="card-image">
+					<image class="main-card-image" mode="aspectFill" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g83qs2qyagj30vk0hsh1p.jpg"></image>
+					<view class="ctitle" style="z-index:5">
+						<text style="text-align:left;padding-left:2%">感谢您的帮助</text>
+					</view>
+				</view>
+				<view class="card-content">
+					<view class="table">
+						<view class="tr-f">
+							<view class="td-h">
+								请选择支持金额或残忍离开
+							</view>
+						</view>
+						<block wx:for="{{chosePrice}}" wx:key="index" wx:for-index="idx">
+							<view class="tr-f">
+								<block wx:for="{{chosePrice[idx]}}" wx:key="id" wx:for-item="cell" wx:for-index="cellindex">
+									<view wx:if="{{cell.id==6}}" class="td {{cell.status}}" id="{{cell.id}}" bindtap="inputPrice">
+										{{cell.num}}
+									</view>
+									<view wx:else class="td {{cell.status}}" id="{{cell.id}}" bindtap="clickPrice">
+										{{cell.num}}元
+									</view>
+								</block>
+							</view>
+						</block>
+					</view>
+					<view class="button-bar">
+						<button bindtap="pay" class="my-button">
+							支付
+						</button>
+					</view>
+				</view>
+			</view>
+		</swiper-item>
+		<swiper-item>
+			<view class="card">
+				<view class="card-image-full">
+					<image class="main-card-image-full" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g83qs2qyagj30vk0hsh1p.jpg" mode="aspectFill"></image>
+					<view class="ctitle" style="z-index:5">
+						<text style="text-align:left;padding-left:2%">特别鸣谢</text>
+					</view>
+				</view>
 
-        <swiper-item>
-            <view class="card">
-                <image style="height:100%;width:100%"  src="https://wx4.sinaimg.cn/mw690/006blzWmgy1g8mch67466j30u0156dku.jpg"></image>
-            </view>
-        </swiper-item>
+				<view class="card-content-full">
+					<view class="VerticalBox" style="height:100%;width:100%">
+						<scroll-view style="height:100%;width:100%;" scroll-y="true" bindscrolltolower="loadingmore">
+							<view class="card-content-textblock" wx:if="{{item!=null}}" wx:for="{{item}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.no}}" id="{{idx}}">
+								<view class="table-l">
+									<view class="tr-l-f">
+										<view class="td-l" style="text-align:left">
+											<text>{{item.name}}</text>
+										</view>
 
-        <swiper-item>
-            <view class="card">
-            <image style="height:100%;width:100%"  src="https://wx3.sinaimg.cn/mw690/006blzWmgy1g8mch1jxzhj30u01aoqat.jpg"></image>
-            </view>
-        </swiper-item>
+										<view class="td-l" style="text-align:right">
+											<text>{{item.num}}元</text>
+										</view>
+									</view>
+								</view>
+							</view>
+							<view class="card-text-void" wx:if="{{item.loading}}">
+								<text>
+                                    加载中......
+                                </text>
+							</view>
+							<view class="card-text-void" wx:if="{{item.over!=0}}">
+								<text>
+                                    没有更多记录
+                                </text>
+							</view>
+						</scroll-view>
+					</view>
+				</view>
+			</view>
+		</swiper-item>
+	</swiper>
 
-    </swiper>
+	<modal hidden="{{hiddenmodalput}}" title="输入金额" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+		<input type="number" bindinput="selfInputPrice" maxlength="4" />
+	</modal>
 
 </view>
