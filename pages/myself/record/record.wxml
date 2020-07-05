@@ -5,7 +5,7 @@
 			<text class="cuIcon-back" style="font-size:40rpx"></text>
 		</navigator>
 	</view>
-	<swiper style="height:93%;width:100%" indicator-dots indicator-color="rgb(169, 151, 233)" indicator-active-color="rgb(105,100,123)">
+	<swiper style="height:89%;width:100%" indicator-dots indicator-color="rgb(169, 151, 233)" indicator-active-color="rgb(105,100,123)">
 		<swiper-item>
 			<view class="card">
 				<view class="card-image">
@@ -41,9 +41,13 @@
 					</view>
 				</view>
 			</view>
+			<view class="input-space">
+				<textarea bindinput="commend" maxlength="-1" placeholder="您可以在此留下您的宝贵意见" ></textarea>
+				<button bindtap="commendSubmit">留言</button>
+			</view>
 		</swiper-item>
 		<swiper-item>
-			<view class="card">
+			<view class="card-full">
 				<view class="card-image-full">
 					<image class="main-card-image-full" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g83qs2qyagj30vk0hsh1p.jpg" mode="aspectFill"></image>
 					<view class="ctitle" style="z-index:5">
@@ -54,7 +58,7 @@
 				<view class="card-content-full">
 					<view class="VerticalBox" style="height:100%;width:100%">
 						<scroll-view style="height:100%;width:100%;" scroll-y="true" bindscrolltolower="loadingmore">
-							<view class="card-content-textblock" wx:if="{{item!=null}}" wx:for="{{item}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.no}}" id="{{idx}}">
+							<view class="card-content-textblock" wx:if="{{item!=null}}" wx:for="{{item}}" wx:for-item="item" wx:for-index="idx" wx:key="no" id="{{idx}}">
 								<view class="table-l">
 									<view class="tr-l-f">
 										<view class="td-l" style="text-align:left">
@@ -85,7 +89,7 @@
 	</swiper>
 
 	<modal hidden="{{hiddenmodalput}}" title="输入金额" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
-		<input type="number" bindinput="selfInputPrice" maxlength="4" />
+		<input type="number" bindinput="selfInputPrice" maxlength="9" />
 	</modal>
 
 </view>

@@ -9,11 +9,12 @@ Page({
      */
     data: {
         stateH: hei,
-        priceIndexNow: -1,
-        priceNow: 0,
-        chosePrice: null,
+        priceIndexNow: -1,//当前选择金额标号，6为自定义金额
+        priceNow: 0,//当前选择金额数目
+        chosePrice: null,//可选金额列表
         hiddenmodalput:true,
-        item: [
+        commend:"",//评论内容
+        item: [//捐赠榜单内容及格式
             {
                 no : 0,
                 name: 'MIKA',
@@ -104,6 +105,8 @@ Page({
     onShareAppMessage: function() {
 
     },
+    //可选择金额状态变化
+    //参数 id:需要改变的可选项目的ID
     choseChange:function (id) {
         let that = this
         if(id == -1)
@@ -127,6 +130,7 @@ Page({
             chosePrice: choseBlock,
         })
     },
+    //点击预设金额事件
     clickPrice:function(e){
         let that = this;
         let clickId = e.target.id;
@@ -137,6 +141,7 @@ Page({
         that.getPrice(),
         that.choseChange(clickId);
     },
+    //获取当前选择金额
     getPrice:function(){
         let that = this
         let id = parseInt(that.data.priceIndexNow);
@@ -165,6 +170,7 @@ Page({
             hiddenmodalput: true,
         })
     },
+    //点击自定义金额按钮事件
     inputPrice:function (e){
         let that = this;
         let clickId = e.target.id;
@@ -175,6 +181,7 @@ Page({
         that.choseChange(clickId);
         that.showModal();
     },
+    //输入自定义金额事件
     selfInputPrice:function (e){
         let that = this;
         that.setData({
@@ -203,6 +210,7 @@ Page({
         })
         console.log();
     },
+    //支付按钮点击事件
     pay:function () {
         let that = this;
         let price = parseInt(that.data.priceNow);
@@ -217,4 +225,16 @@ Page({
             fail (res) { }
           })
     },
+    //输入留言事件
+    commend: function(e){
+        let that = this;
+        that.setData({
+            commend: e.detail.value,
+        })
+    },
+    //留言按钮点击事件
+    commendSubmit:function (){
+        let that = this;
+        console.log(that.data.commend);
+    }
 })

@@ -15,7 +15,7 @@ page {
 
 .card {
   z-index: 0;
-  height: 80%;
+  height: 60%;
   width: 90%;
   margin-left: 5%;
   margin-right: 10%;
@@ -23,6 +23,17 @@ page {
   border-radius: 20rpx;
   /* color:black; */
   /* box-shadow: 6px 6px 10px 0px rgb(136,115,102); */
+}
+.card-full {
+  z-index: 0;
+  height: 80%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 10%;
+  margin-top: 10%;
+  border-radius: 35rpx;
+  /* color:black; */
+  box-shadow: 6px 6px 10px 0px rgb(136,115,102);
 }
 
 .card .card-image {
@@ -43,15 +54,14 @@ page {
   position: relative;
 }
 
-.card .card-image-full {
+.card-full .card-image-full {
   height: 20%;
   width: 100%;
   border-radius: 20rpx;
   position: relative;
-  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
 }
 
-.card .main-card-image-full {
+.card-full .main-card-image-full {
   z-index: 4;
   height: 100%;
   width: 100%;
@@ -59,7 +69,7 @@ page {
   position: relative;
   border-radius: 20px 20px 0 0;
 }
-.card .card-image-full .ctitle {
+.card-full .card-image-full .ctitle {
   z-index: 4;
   left: 0;
   right: 0;
@@ -101,7 +111,7 @@ page {
 
 
 .card .card-content {
-  height: 50%;
+  height: 70%;
   width: 94%;
   margin-left: 3%;
   padding: 2% 2% 2% 2%;
@@ -111,17 +121,16 @@ page {
   box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
 }
 
-.card .card-content-full {
+.card-full .card-content-full {
   width: 100%;
   height: 80%;
   border-bottom-right-radius: 20rpx;
   border-bottom-left-radius: 20rpx;
   background-color: #DAC9A6;
   display: inline-block;
-  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
 }
 
-.card .card-content-full .card-content-textblock {
+.card-full .card-content-full .card-content-textblock {
   line-height: 1rem;
   position: relative;
   margin: 2%;
@@ -207,7 +216,8 @@ page {
   width: 40%;
   box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
   background-color: #EEC072;
-  font-weight: 600;
+  font-weight: bold;
+  font-size: 30rpx;
   color: #615c70;
   border-radius: 15px;
 }
@@ -246,4 +256,36 @@ page {
   justify-content: center;
   font-weight: bolder;
   font-size: 35rpx;
+}
+
+.input-space{
+  z-index: 0;
+  height: 25%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 10%;
+  margin-top: 5%;
+  border-radius: 20rpx;
+  background-color: #EEC072;
+  padding: 5%;
+  text-align: center;
+  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
+}
+.input-space textarea{
+  text-align: left;
+  font-size: 30rpx;
+  font-weight: bold;
+  width: 100%;
+  color: #4e446d;
+  height: 70%;
+  margin-bottom: 1%;
+}
+.input-space button{
+  font-size: 25rpx;
+  height: 25%;
+  width: 25%;
+  border-radius: 20px;
+  background-color: #4e446d;
+  color: #EEC072;
+  box-shadow: 3px 3px 10px 0px rgb(136, 115, 102);
 }
