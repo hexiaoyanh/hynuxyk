@@ -35,7 +35,7 @@
 						</block>
 					</view>
 					<view class="button-bar">
-						<button bindtap="pay" class="my-button">
+						<button bindtap="pay" class="my-button" open-type="getUserInfo">
 							支付
 						</button>
 					</view>

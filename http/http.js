@@ -102,7 +102,7 @@ class http {
             iv: keyHex,
             mode: crypto.Mode.CBC,
             padding: crypto.Padding.Pkcs7
-          });
+        });
         this.Password = encrypted.toString();
     }
 
@@ -869,7 +869,7 @@ class http {
             })
         })
     }
-    GetRankList(userid, xqmc,elective) {
+    GetRankList(userid, xqmc, elective) {
         var that = this;
         return new Promise(function (resolve, reject) {
             wx.request({
@@ -878,7 +878,7 @@ class http {
                 data: {
                     "userid": userid,
                     "xqmc": xqmc,
-                    "elective":elective
+                    "elective": elective
                 },
                 success(res) {
                     resolve(res);
@@ -889,15 +889,34 @@ class http {
             })
         })
     }
-    FindYou(userid,xm){
+    FindYou(userid, xm) {
         let that = this;
-        return new Promise(function(resolve,reject){
+        return new Promise(function (resolve, reject) {
             wx.request({
                 url: that.url + "rank/findyou",
                 method: "POST",
                 data: {
                     "userid": userid,
                     "xm": xm
+                },
+                success(res) {
+                    resolve(res);
+                },
+                fail(error) {
+                    reject(error);
+                }
+            })
+        })
+    }
+    Donate(openid, money) {
+        let that = this;
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url:  "http://127.0.0.1:5000/donate/donate",
+                method: "POST",
+                data: {
+                    "openid": openid,
+                    "money": money
                 },
                 success(res) {
                     resolve(res);
