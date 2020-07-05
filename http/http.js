@@ -1,7 +1,7 @@
 const crypto = requirePlugin("crypto");
 var X2JS = require('../http/x2j/x2js/we-x2js.js');
 var x2js = new X2JS();
-
+console.error("到 https://www.css-js.com/ 加密http.js再发布")
 
 class http {
     url = "https://www.hynuxyk.club/";
@@ -869,7 +869,7 @@ class http {
             })
         })
     }
-    GetRankList(userid, xqmc) {
+    GetRankList(userid, xqmc,elective) {
         var that = this;
         return new Promise(function (resolve, reject) {
             wx.request({
@@ -877,7 +877,8 @@ class http {
                 method: "POST",
                 data: {
                     "userid": userid,
-                    "xqmc": xqmc
+                    "xqmc": xqmc,
+                    "elective":elective
                 },
                 success(res) {
                     resolve(res);

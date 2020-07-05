@@ -16,8 +16,18 @@
 
 		<view class="card-content">
 			<view class="VerticalBox" style="height:100%;width:100%">
-				<scroll-view style="height:100%;width:100%;" scroll-y="true" bindscrolltolower="loadingmore">
+				<scroll-view style="height:100%;width:100%;" scroll-y="true">
 				<view class="card-content-textblock">
+						<view class="table">
+							<view class="tr-f">
+								<view class="td" style="text-align:left">
+									<text style="font-weight:bolder">选修进入计算</text>
+								</view>
+								<switch class="orange" bindchange="switchChange" checked="{{switchValue}}"></switch>
+							</view>
+						</view>
+					</view>
+					<view class="card-content-textblock">
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
@@ -108,7 +118,7 @@
 									<text style="font-weight:bolder">总学分</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
-								{{rankList.total_credit}}
+									{{rankList.total_credit}}
 								</view>
 							</view>
 						</view>
