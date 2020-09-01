@@ -47,10 +47,10 @@ Page({
         })
         var that = this;
         var date = new Date();
-        var year = date.getFullYear();
+        var year = date.getFullYear()+1;
         year += 1;
         var list = Array();
-        for (var i = 1; i <= 4; ++i) {
+        for (var i = 1; i <= 8; ++i) {
             var str = (year - i - 1).toString() + '-' + (year - i).toString() + '-1';
             var str2 = (year - i - 1).toString() + '-' + (year - i).toString() + '-2';
             list.push(str2);
@@ -68,7 +68,7 @@ Page({
 
         if (wx.createRewardedVideoAd) {
             videoAd = wx.createRewardedVideoAd({
-                adUnitId: 'adunit-f1cbccc279268640'
+                adUnitId: 'adunit-47307b5d93c74d06'
             })
             videoAd.onLoad(() => {
                 console.log("正在准备ad")
@@ -79,11 +79,23 @@ Page({
                     icon: "none",
                     title: '广告拉取失败',
                 })
+                var time;
+                var index = that.data.pickerIndex;
+                time = that.data.schoolYear[index];
+                wx.navigateTo({
+                    url: './pm/pm?time=' + time,
+                })
             })
             videoAd.onClose((res) => {
                 console.log(res);
                 if (res && res.isEnded) {
                     app.http.ViewAd();
+                    var time;
+                    var index = that.data.pickerIndex;
+                    time = that.data.schoolYear[index];
+                    wx.navigateTo({
+                        url: './pm/pm?time=' + time,
+                    })
                 } else {
                     // 播放中途退出，不下发游戏奖励
                     wx.showModal({
@@ -144,13 +156,7 @@ Page({
             key: 'Jwnanyue',
             success: function (res) {
                 console.log(res.data);
-                var time;
-                var index = that.data.pickerIndex;
-                time = that.data.schoolYear[index];
-                wx.navigateTo({
-                    url: './pm/pm?time=' + time,
-                })
-                return;
+
                 if (videoAd) {
                     videoAd.show().catch(() => {
                         // 失败重试
@@ -158,6 +164,12 @@ Page({
                             .then(() => videoAd.show())
                             .catch(err => {
                                 console.log('激励视频 广告显示失败')
+                                var time;
+                                var index = that.data.pickerIndex;
+                                time = that.data.schoolYear[index];
+                                wx.navigateTo({
+                                    url: './pm/pm?time=' + time,
+                                })
                             })
                     })
                 } else {
@@ -182,7 +194,7 @@ Page({
     onShareAppMessage: function () {
 
     },
-    getData: function (str) {
+    getData: function (str, num) {
         var that = this;
         app.http.JwCj(str).then((res) => {
             var jsons = JSON.parse(res.data['cj'])
@@ -193,6 +205,19 @@ Page({
                 memberList: list,
                 showloading: false
             })
+        }).catch((err) => {
+            if (num == null) num = 0;
+            else if (num >= 6) {
+                wx.showModal({
+                    title: '错误',
+                    content: '你的考试成绩出现一些未知错误，请在其他联系我们',
+                    success: function (res) {
+                        
+                    }
+                });
+                return;
+            }
+            that.getData(str, num + 1)
         })
     },
     pickerChange: function (e) {

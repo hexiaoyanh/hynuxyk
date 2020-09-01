@@ -9,25 +9,12 @@ Page({
      */
     data: {
         stateH: hei,
-        priceIndexNow: -1,
-        priceNow: 0,
-        chosePrice: null,
+        priceIndexNow: -1, //当前选择金额标号，6为自定义金额
+        priceNow: 0, //当前选择金额数目
+        chosePrice: null, //可选金额列表
         hiddenmodalput: true,
-        item: [{
-                no: 0,
-                name: 'MIKA',
-                num: '100000',
-            },
-            {
-                no: 1,
-                name: 'MIKE',
-                num: '10',
-            },
-            {
-                no: 2,
-                name: '何老师',
-                num: '10',
-            },
+        commend: "", //评论内容
+        item: [ //捐赠榜单内容及格式
         ],
     },
 
@@ -53,6 +40,18 @@ Page({
             chosePrice: price,
         });
         console.log(that.data.chosePrice);
+        wx.request({
+            url: "https://www.hynuxyk.club/donate/get_user_list",
+            data: {},
+            success(res) {
+                that.setData({
+                    item: res.data
+                })
+            },
+            fail(error) {
+
+            }
+        })
     },
 
     /**
@@ -103,6 +102,9 @@ Page({
     onShareAppMessage: function () {
 
     },
+
+    //可选择金额状态变化
+    //参数 id:需要改变的可选项目的ID
     choseChange: function (id) {
         let that = this
         if (id == -1)
@@ -126,6 +128,7 @@ Page({
             chosePrice: choseBlock,
         })
     },
+    //点击预设金额事件
     clickPrice: function (e) {
         let that = this;
         let clickId = e.target.id;
@@ -136,6 +139,7 @@ Page({
         that.getPrice(),
             that.choseChange(clickId);
     },
+    //获取当前选择金额
     getPrice: function () {
         let that = this
         let id = parseInt(that.data.priceIndexNow);
@@ -164,6 +168,8 @@ Page({
             hiddenmodalput: true,
         })
     },
+
+    //点击自定义金额按钮事件
     inputPrice: function (e) {
         let that = this;
         let clickId = e.target.id;
@@ -174,6 +180,7 @@ Page({
         that.choseChange(clickId);
         that.showModal();
     },
+    //输入自定义金额事件
     selfInputPrice: function (e) {
         let that = this;
         that.setData({
@@ -206,27 +213,49 @@ Page({
         let that = this;
         let price = parseInt(that.data.priceNow);
         console.log(price);
+        if (price == '0') return;
+        wx.showLoading({
+            title: '加载中',
+        })
         wx.getUserInfo({
             success: function (res) {
                 var userInfo = res.userInfo
-                console.log(userInfo)
                 wx.login({
-                    success(res) {
-                        if (res.code) {
+                    success(res2) {
+                        if (res2.code) {
                             //发起网络请求
                             wx.request({
-                                url: 'http://127.0.0.1:5000/donate/code2session',
+                                url: 'https://www.hynuxyk.club/donate/code2session',
                                 data: {
-                                    code: res.code
+                                    code: res2.code
                                 },
-                                success:function(res2){
-                                    app.http.Donate(res2.data,price).then((res3)=>{
-                                        console.log(res3)
+                                success: function (res3) {
+                                    app.http.Donate(res3.data, price).then((res4) => {
+                                        let data = res4.data;
+                                        wx.hideLoading();
+                                        wx.requestPayment({
+                                            timeStamp: data['timeStamp'].toString(),
+                                            nonceStr: data['nonceStr'],
+                                            package: data['package'],
+                                            signType: 'MD5',
+                                            paySign: data['paySign'],
+                                            success(res5) {
+                                                var nickName = userInfo.nickName;
+                                                app.http.Update_user_info(res3.data, nickName, that.data.commend).then((res) => {
+                                                    wx.showModal({
+                                                        title: '非常非常感谢',
+                                                        content: '感谢您的慷慨'
+                                                    })
+                                                })
+                                            },
+                                            fail(res) {}
+                                        })
                                     })
                                 },
-                                fail:function(res2){
+                                fail: function (res2) {
                                     wx.showToast({
-                                      title: '登录失败',
+                                        title: '登录失败',
+                                        icon: "none"
                                     })
                                 }
                             })
@@ -236,15 +265,25 @@ Page({
                     }
                 })
             }
+            ,fail:function(){
+                wx.showToast({
+                    title: '请运行授权个人信息',
+                    icon: "none"
+                })
+            }
         })
+    },
+
+    //输入留言事件
+    commend: function (e) {
+        let that = this;
+        that.setData({
+            commend: e.detail.value,
+        })
+    },
+    //留言按钮点击事件
+    commendSubmit: function () {
+        let that = this;
+        console.log(that.data.commend);
     }
 })
-// wx.requestPayment({
-//     timeStamp: '',
-//     nonceStr: '',
-//     package: '',
-//     signType: 'MD5',
-//     paySign: '',
-//     success (res) { },
-//     fail (res) { }
-//   })

@@ -75,6 +75,7 @@ App({
 
 
     onShow: function(options) {
+        
     },
 
     /** 

@@ -109,7 +109,23 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        let a = Math.floor((Math.random()*100)+1);
+        console.log(a);
+        if (a==1){
+            wx.showModal({
+                title: '谢谢你了',
+                content: '小程序制作不易，给我打点赏吧，一元十元也是爱',
+                confirmText: "打赏",
+                cancelText:"拒绝",
+                success: (res) => {
+                    if (res.confirm){
+                        wx.navigateTo({
+                          url: '../myself/record/record',
+                        })
+                    }
+                }
+            })
+        }
     },
 
     /**

@@ -10,7 +10,7 @@
             <image class="main-card-image" mode="aspectFill" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g83qs2qyagj30vk0hsh1p.jpg"></image>
             <view class="bg-shadeBottom ctitle" style="z-index:5">
                 <text style="text-align:left;padding-left:2%">当前版本</text>
-                <text style="text-align:right;margin-left:50%">1.6.1</text>
+                <text style="text-align:right;margin-left:50%">1.6.8</text>
             </view>
         </view>
 
@@ -42,13 +42,6 @@
             <view>
                 <button class="card-content-textblock" style="background-color:#8D6E63" bindtap="aboutus">
                     <text>关于我们</text>
-                </button>
-            </view>
-        </view>
-        <view class="card-content animated slideInDown" style=";z-index:1;width: 70%;margin-left: 15%;">
-            <view>
-                <button class="card-content-textblock" style="background-color:#8D6E63;"  bindtap="adshow">
-                    <text>{{adtext}}</text>
                 </button>
             </view>
         </view>

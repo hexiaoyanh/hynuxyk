@@ -21,7 +21,7 @@
 					</picker>
 				</view>
 			</view>
-			<button id="rank" class="my-btn" bindtap="rankTap">查{{schoolYear[pickerIndex]}}排名</button>
+			<button id="rank" class="my-btn" bindtap="rankTap">看广告查{{schoolYear[pickerIndex]}}排名</button>
 		</view>
 	</view>
 

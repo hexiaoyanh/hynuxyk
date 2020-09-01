@@ -21,14 +21,21 @@ Page({
 		app.http.GetAdData().then((res)=>{
 			var data = []
 			console.log(res.data);
+			var x = 0;
 			for(var i in res.data){
 				var temp = {
 					"userid":i,
 					"username":res.data[i].username,
 					"num":res.data[i].adviewnum
 				}
+				x += Number(res.data[i].adviewnum);
 				data.push(temp);
 			}
+			data.push({
+				"userid" : 0,
+				"username":"总访问",
+				"num":x
+			})
 			console.log(data)
 			that.setData({
 				datas:data

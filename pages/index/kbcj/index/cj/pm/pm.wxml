@@ -43,10 +43,10 @@
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
-									<text style="font-weight:bolder">总分排名</text>
+									<text style="font-weight:bolder">总分</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
-									{{rankList.num_rank}}
+									{{rankList.total_num}}
 								</view>
 							</view>
 						</view>
@@ -55,10 +55,10 @@
 						<view class="table">
 							<view class="tr-f">
 								<view class="td" style="text-align:left">
-									<text style="font-weight:bolder">总分</text>
+									<text style="font-weight:bolder">平均分排名</text>
 								</view>
 								<view class="td" style="text-align:right;font-size:35rpx">
-									{{rankList.total_num}}
+									{{rankList.average_num_rank}}
 								</view>
 							</view>
 						</view>

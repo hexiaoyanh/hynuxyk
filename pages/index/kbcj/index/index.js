@@ -1,4 +1,5 @@
 // pages/JWmenu/JWmenu.js
+let interstitialAd = null
 
 const app = getApp();
 Page({
@@ -16,7 +17,15 @@ Page({
     onLoad: function (options) {
         this.setData({
             stateH: app.hei
-        })
+        });
+        if (wx.createInterstitialAd) {
+            interstitialAd = wx.createInterstitialAd({
+                adUnitId: 'adunit-57ee5b0e0761cd39'
+            })
+            interstitialAd.onLoad(() => {})
+            interstitialAd.onError((err) => {})
+            interstitialAd.onClose(() => {})
+        }
     },
 
     /**
@@ -30,7 +39,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        if (interstitialAd) {
+            interstitialAd.show().catch((err) => {
+                console.error(err)
+            })
+        }
     },
 
     /**

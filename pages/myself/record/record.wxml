@@ -5,13 +5,13 @@
 			<text class="cuIcon-back" style="font-size:40rpx"></text>
 		</navigator>
 	</view>
-	<swiper style="height:93%;width:100%" indicator-dots indicator-color="rgb(169, 151, 233)" indicator-active-color="rgb(105,100,123)">
+	<swiper style="height:89%;width:100%" indicator-dots indicator-color="rgb(169, 151, 233)" indicator-active-color="rgb(105,100,123)">
 		<swiper-item>
 			<view class="card">
 				<view class="card-image">
 					<image class="main-card-image" mode="aspectFill" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g83qs2qyagj30vk0hsh1p.jpg"></image>
 					<view class="ctitle" style="z-index:5">
-						<text style="text-align:left;padding-left:2%">感谢您的帮助</text>
+						<text style="text-align:left;padding-left:2%">希望获得您的帮助</text>
 					</view>
 				</view>
 				<view class="card-content">
@@ -34,6 +34,9 @@
 							</view>
 						</block>
 					</view>
+					<view class="input-space">
+						<textarea bindinput="commend" maxlength="-1" placeholder="您可以在此留下您的宝贵意见"></textarea>
+					</view>
 					<view class="button-bar">
 						<button bindtap="pay" class="my-button" open-type="getUserInfo">
 							支付
@@ -41,9 +44,10 @@
 					</view>
 				</view>
 			</view>
+
 		</swiper-item>
 		<swiper-item>
-			<view class="card">
+			<view class="card-full">
 				<view class="card-image-full">
 					<image class="main-card-image-full" src="https://wx1.sinaimg.cn/mw690/006blzWmgy1g83qs2qyagj30vk0hsh1p.jpg" mode="aspectFill"></image>
 					<view class="ctitle" style="z-index:5">
@@ -54,7 +58,7 @@
 				<view class="card-content-full">
 					<view class="VerticalBox" style="height:100%;width:100%">
 						<scroll-view style="height:100%;width:100%;" scroll-y="true" bindscrolltolower="loadingmore">
-							<view class="card-content-textblock" wx:if="{{item!=null}}" wx:for="{{item}}" wx:for-item="item" wx:for-index="idx" wx:key="{{item.no}}" id="{{idx}}">
+							<view class="card-content-textblock" wx:if="{{item!=null}}" wx:for="{{item}}" wx:for-item="item" wx:for-index="idx" wx:key="no" id="{{idx}}">
 								<view class="table-l">
 									<view class="tr-l-f">
 										<view class="td-l" style="text-align:left">
@@ -62,7 +66,7 @@
 										</view>
 
 										<view class="td-l" style="text-align:right">
-											<text>{{item.num}}元</text>
+											<text>{{item.num*0.01}}元</text>
 										</view>
 									</view>
 								</view>
@@ -85,7 +89,7 @@
 	</swiper>
 
 	<modal hidden="{{hiddenmodalput}}" title="输入金额" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
-		<input type="number" bindinput="selfInputPrice" maxlength="4" />
+		<input type="string" bindinput="selfInputPrice" maxlength="9" />
 	</modal>
 
 </view>

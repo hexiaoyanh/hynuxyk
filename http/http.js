@@ -677,7 +677,7 @@ class http {
         var month = Number(date.getMonth() + 1)
         var str = null;
         if (month <= 1 || month >= 8) {
-            str = (year - 1).toString() + '-' + year.toString() + '-1';
+            str = (year).toString() + '-' + (year+1).toString() + '-1';
         } else {
             str = (year - 1).toString() + '-' + year.toString() + '-2';
         }
@@ -688,7 +688,7 @@ class http {
                 method: 'POST',
                 data: {
                     "cookies": that.JwCookie,
-                    "date": str,
+                    "date": "2020-2021-1",
                     "week": week,
                     "nanyue": that.Nanyue
                 },
@@ -706,7 +706,8 @@ class http {
         var that = this;
         return new Promise(function (resolve, reject) {
             wx.request({
-                url: that.url + 'query/cj',
+                url: that.url+ 'query/cj',
+                //url:"http://127.0.0.1:5000/query/cj",
                 method: 'POST',
                 data: {
                     "cookies": that.JwCookie,
@@ -728,6 +729,7 @@ class http {
         return new Promise(function (resolve, reject) {
             wx.request({
                 url: that.url + 'query/pscj',
+                //url:"http://127.0.0.1:5000/query/pscj",
                 method: 'POST',
                 data: {
                     "cookie": that.JwCookie,
@@ -912,11 +914,31 @@ class http {
         let that = this;
         return new Promise(function (resolve, reject) {
             wx.request({
-                url:  "http://127.0.0.1:5000/donate/donate",
+                url:  that.url+"/donate/donate",
                 method: "POST",
                 data: {
                     "openid": openid,
                     "money": money
+                },
+                success(res) {
+                    resolve(res);
+                },
+                fail(error) {
+                    reject(error);
+                }
+            })
+        })
+    }
+    Update_user_info(openid,name,msg){
+        let that = this;
+        return new Promise(function (resolve, reject) {
+            wx.request({
+                url:  that.url+"/donate/update_user_info",
+                method: "POST",
+                data: {
+                    "openid":openid,
+                    "name": name,
+                    "msg": msg
                 },
                 success(res) {
                     resolve(res);
